@@ -1,0 +1,77 @@
+.is-container{
+    height: calc(100vh - 8rem);
+    width: 100vw;
+    .is-content-container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .is-content-header{
+            height: 3rem;
+            background: #262626;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            width: 100%;
+            .is-content-header-text{
+                font-size: 1.2rem;
+                color: #a6a6a6;
+                display: flex;
+                justify-content: center;
+                width: 20vw;
+            }
+        }
+        .is-content-body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            min-height: calc(100vh - 14rem);
+            .isc-container{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                height: 3rem;
+                .isc-serial-num{
+                    font-size: 1.2rem;
+                    color: #a6a6a6;
+                    display: flex;
+                    justify-content: center;
+                    width: 20vw;
+                }
+                .isc-studentinfo{
+                    font-size: 1.2rem;
+                    color: #a6a6a6;
+                    display: flex;
+                    justify-content: center;
+                    width: 20vw;
+                }
+                .isc-scoreinput{
+                    width: 5rem;
+                    margin: 0 calc((20vw - 5rem) / 2);
+                    text-align: center;
+                    font-size: 1.2rem;
+                    color: #a6a6a6;
+                    border: none;
+                    border-bottom: 1px solid #a6a6a6;
+                    outline: none;
+                    background: black;
+                }
+            }
+        }
+        .is-content-footer{
+            position: fixed;
+            bottom: 80px;
+            right: 80px;
+            color: white;
+            border: 1px solid #a6a6a6;
+            padding: 0.7rem 1.5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+    }
+}
