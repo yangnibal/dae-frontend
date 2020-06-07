@@ -175,6 +175,9 @@
                     &:nth-child(1){
                         padding-top: 1rem;
                     }
+                    &:nth-child(2n){
+                        background-color: #171717;
+                    }
                     .gradecontent-name{
                         width: 22vw;
                         margin-left: 4vw;

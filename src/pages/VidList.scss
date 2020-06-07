@@ -196,6 +196,25 @@
                         width: 16vw;
                     }
                 }
+                .mat-body-header-text{
+                    color: #a6a6a6;
+                    font-size: 1.2rem;
+                    display: flex;
+                    justify-content: center;
+                    &:nth-child(1){
+                        margin-left: 10vw;
+                        width: 15vw;
+                    }
+                    &:nth-child(2){
+                        width: 15vw;
+                    }
+                    &:nth-child(3){
+                        width: 15vw;
+                    }
+                    &:nth-child(4){
+                        width: 15vw;
+                    }
+                }
             }
             .vid-content-body{
                 width: 100%;

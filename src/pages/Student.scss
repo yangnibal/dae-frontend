@@ -195,6 +195,12 @@
                     flex-direction: row;
                     align-items: center;
                     font-size: 1.1rem;
+                    &:nth-child(1){
+                        padding-top: 1rem;
+                    }
+                    &:nth-child(2n){
+                        background-color: #171717;
+                    }
                     .studentcontent-checkbox{
                         width: 20px;
                         height: 20px;

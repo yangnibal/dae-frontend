@@ -1,4 +1,4 @@
-import { observable } from 'mobx'
+import { observable, action } from 'mobx'
 
 export default class Store{
     @observable testinfo = {}
@@ -52,4 +52,16 @@ export default class Store{
     ]
     @observable printProps = {}
     @observable infgroup = []
+
+    @action getToken(){
+        const ltoken = localStorage.getItem('token')
+        const stoken = sessionStorage.getItem('token')
+        var token = ""
+        if(stoken===null){
+            token = ltoken
+        } else {
+            token = stoken
+        }
+        return token
+    }
 }

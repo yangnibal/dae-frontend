@@ -18,6 +18,33 @@ class VidList extends React.Component{
         this.props.history.push(`/inf/vid/${id}`)
         localStorage.setItem("iframe", iframe)
     }
+    @action getGroup = () => {
+        const { store } = this.props
+        const ltoken = localStorage.getItem('token')
+        const stoken = sessionStorage.getItem('token')
+        var token = ""
+        if(stoken===null){
+            token = ltoken
+        } else {
+            token = stoken
+        }
+        const group = []
+        axios.get("http://localhost:8000/infgroups/", {
+            headers: {
+                Authorization: "Token " + token
+            }
+        })
+        .then(res => {
+            var data = res.data['results']
+            for(var i in data){
+                group.push({value: data[i]['name'], label: data[i]['name']})
+            }
+            store.infgroup = group
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
 
     componentDidMount(){
         const ltoken = localStorage.getItem('token')
@@ -35,7 +62,7 @@ class VidList extends React.Component{
         })
         .then(res => {
             this.vids = res.data['results']
-            console.log(res)
+            this.getGroup()
         })
         .catch(err => {
             console.log(err)
