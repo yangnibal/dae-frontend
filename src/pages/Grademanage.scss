@@ -51,3 +51,24 @@
         }
     }
 }
+.inf-content{
+    text-decoration: none;
+    color: #a6a6a6;
+    background: #262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 270px;
+    font-size: 1.5rem;
+    width: 270px;
+    margin-left: 0.5rem;
+    &:nth-child(1){
+        background: #4a3b0f;
+    }
+    &:nth-child(2){
+        background: #202f50;
+    }
+    &:nth-child(3){
+        background: #28371b;
+    }
+}
