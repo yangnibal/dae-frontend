@@ -27,8 +27,23 @@ class MatList extends React.Component{
     @action groupChange = (e) => {
         this.group = e.value
     }
-    @action findTest = (grade, group, subject) => {
-
+    @action findMat = (grade, group, subject) => {
+        const { store } = this.props
+        axios.post("http://localhost:8000/materials/findmat/", ({
+            grade: grade,
+            subject: subject,
+            group: group
+        }), {
+            headers: {
+                Authorization: "Token " + store.getToken()
+            }
+        })
+        .then(res => {
+            this.mats = res.data
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
     @action getGroup = () => {
         const { store } = this.props
@@ -103,7 +118,7 @@ class MatList extends React.Component{
                             <DropDown placeholder="과목" option={store.subject} className="test-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <DropDown placeholder="학년" option={store.schoolyear} className="test-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <DropDown placeholder="그룹" option={store.infgroup} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <div className="vid-header-search-btn" onClick={() => this.findTest(this.schoolyear, this.group, this.subject)}>검색</div>
+                            <div className="vid-header-search-btn" onClick={() => this.findMat(this.schoolyear, this.group, this.subject)}>검색</div>
                         </div>
                         <div className="vid-header-right">
                             <Link to="/inf/mat/new" className="vid-register">자료 추가</Link>

@@ -1,42 +1,61 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
-import { action } from 'mobx' 
+import { observable } from 'mobx' 
 import { Chart } from 'react-google-charts'
 import html2canvas from 'html2canvas'
 import './Print.scss'
-import printJS from 'print-js'
 import Logo from '../images/logo1.png'
+import printJS from 'print-js'
 
 @inject('store')
 @observer
 class PrintContent extends React.Component{
 
-    @action Print = () => {
-        console.log("print")
-        html2canvas(document.querySelector("#print")).then(canvas => {
-            printJS({
-                printable: canvas.toDataURL("images/data"),
-                type: "image"
+    @observable img = []
+
+    componentDidMount(){
+        setTimeout(() => {
+            html2canvas(document.querySelector("#print")).then(canvas => {
+                const img = canvas.toDataURL("images/data")
+                localStorage.setItem("img", img)
             })
-        })
+        }, 200)
+        setTimeout(() => {
+            this.props.history.push("/printpage")
+        }, 250)
     }
 
     render(){
         const { store } = this.props
         const chartOption1 = {
+            axes: {
+                y: {
+                    all: {
+                        range: {
+                            min: 0,
+                            max: 100
+                        }
+                    }
+                }
+            },
+            hAxis: {
+                
+            },
             vAxis: {
                 minValue: 0,
                 maxValue: 100
-            }
+            },
         }
         const chartOption2 = {
             hAxis: {
-                minValue: 0
-            }
+                minValue: 0,
+                maxValue: 100
+            },
+
         }
         const props = store.printProps
         return(
-            <div className="container" id="print" onClick={() => this.Print()}>
+            <div className="container" id="print">
                 <div className="sticky-container">
                     <div className="top-content">
                         <div className="top-content-header">
@@ -162,11 +181,11 @@ class PrintContent extends React.Component{
                                 <Chart
                                     width={"100%"}
                                     height={"92%"}
-                                    chartType="Bar"
+                                    chartType="ColumnChart"
                                     data={[
-                                        ["점수 비교", "점수"],
-                                        ['평균', Number(props.average)],
-                                        ['내점수', Number(props.score)]
+                                        ["점수 비교", "점수", { role: 'style' }, { role: 'annotation' }],
+                                        ['평균', Number(props.average), 'color: #95b4df', "평균/"+String(props.average)],
+                                        ['내점수', Number(props.score), 'color: #8976a8', "내점수/"+String(props.score)]
                                     ]}
                                     options={chartOption1}
                                 />
@@ -177,9 +196,9 @@ class PrintContent extends React.Component{
                                     height={"92%"}
                                     chartType="BarChart"
                                     data={[
-                                        ["등수 비교", "등수"],
-                                        ['응시자 인원', Number(props.cand_num)],
-                                        ['예상 등수', Number(props.rank)]
+                                        ["등수 비교", "등수", { role: 'style' },  { role: 'annotation' }],
+                                        ['응시자 인원', Number(props.cand_num), 'color: #95b4df', String(props.cand_num)],
+                                        ['예상 등수', Number(props.rank), 'color: #8976a8', String(props.rank)]
                                     ]}
                                     options={chartOption2}
                                 />

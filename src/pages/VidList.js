@@ -13,10 +13,21 @@ import VidContent from '../components/VidContent';
 class VidList extends React.Component{
 
     @observable vids = []
+    @observable schoolyear = ""
+    @observable subject = ""
+    @observable group = ""
     
-    @action watchVid = (id, iframe) => {
+    @action watchVid = (id) => {
         this.props.history.push(`/inf/vid/${id}`)
-        localStorage.setItem("iframe", iframe)
+    }
+    @action schoolyearChange = (e) => {
+        this.schoolyear = e.value
+    }
+    @action subjectChange = (e) => {
+        this.subject = e.value
+    }
+    @action groupChange = (e) => {
+        this.group = e.value
     }
     @action getGroup = () => {
         const { store } = this.props
@@ -40,6 +51,24 @@ class VidList extends React.Component{
                 group.push({value: data[i]['name'], label: data[i]['name']})
             }
             store.infgroup = group
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    @action findVid = (subject, grade, group) => {
+        const { store } = this.props
+        axios.post("http://localhost:8000/videos/findvid/", ({
+            grade: grade,
+            subject: subject,
+            group: group
+        }), {
+            headers: {
+                Authorization: "Token " + store.getToken()
+            }
+        })
+        .then(res => {
+            this.vids = res.data
         })
         .catch(err => {
             console.log(err)
@@ -78,7 +107,7 @@ class VidList extends React.Component{
                 group={vid.group}
                 subject={vid.subject}
                 key={vid.id}
-                watchVid={() => {this.watchVid(vid.id, vid.iframe)}}
+                watchVid={() => {this.watchVid(vid.id)}}
             />
         ))
         return(
@@ -89,9 +118,9 @@ class VidList extends React.Component{
                         <div className="vid-header-left">    
                             <div className="vid-header-title">동영상 LIST</div>
                             <DropDown placeholder="과목" option={store.subject} className="test-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="test-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearValueChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="학기" option={store.semester} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.semesterChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <div className="vid-header-search-btn" onClick={() => this.findTest(this.schoolyear, this.semester, this.subject)}>검색</div>
+                            <DropDown placeholder="학년" option={store.schoolyear} className="test-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                            <DropDown placeholder="그룹" option={store.infgroup} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                            <div className="vid-header-search-btn" onClick={() => this.findVid(this.subject, this.schoolyear, this.group)}>검색</div>
                         </div>
                         <div className="vid-header-right">
                             <Link to="/inf/vid/new" className="vid-register">동영상 추가</Link>

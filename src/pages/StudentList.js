@@ -200,7 +200,7 @@ class StudentList extends React.Component{
                     <div className="student-content-body-container">
                         <div className="student-content-body-header">
                             <input value={this.checkall} name="checkall" onChange={this.handleAllCheckboxChange} type="checkbox" className="student-content-body-header-btn" id="btn"/>
-                            <label htmlFor="btn"/>
+                            <label htmlFor="btn">{this.checkall===true ? "✓" : null}</label>
                             <div className="student-content-body-header-text">이름</div>
                             <div className="student-content-body-header-text">학년</div>
                             <div className="student-content-body-header-text">그룹</div>

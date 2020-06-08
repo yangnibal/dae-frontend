@@ -549,31 +549,7 @@
     }
 }
 
-path{
-    &:nth-child(1){
-        fill: #95b4df;
-    }
-    &:nth-child(2){
-        fill: #8976a8;
-    }
-}
 
-div > div:nth-child(1) > div > svg > g:nth-child(4) > g:nth-child(2) > g:nth-child(2) > rect:nth-child(1){
-    fill: #95b4df;
-}
-div > div:nth-child(1) > div > svg > g:nth-child(4) > g:nth-child(2) > g:nth-child(2) > rect:nth-child(2){
-    fill: #8976a8;
-}
-
-div > div > svg > g:nth-child(2) > text{
-    display: none;
-}
-div > div > svg > g:nth-child(2) > rect:nth-child(2){
-    display: none;
-}
-#reactgooglegraph-4 > div > div:nth-child(1) > div > svg > g:nth-child(3){
-    display: none;
-}
 
 #reactgooglegraph-3{
     display: flex;
@@ -586,44 +562,19 @@ div > div > svg > g:nth-child(2) > rect:nth-child(2){
     justify-content: center;
     align-items: center;
     margin-left: 2vw;
-}
-> div > div:nth-child(1) > div > svg > g:nth-child(3){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-> div > div:nth-child(1) > div > svg > g:nth-child(3) > text{
-    font-weight: normal;
-}
-div > div > svg > g:nth-child(6) > text{
-    font-size: 1.2vw!important;
-    font-weight: 500;
-    &:nth-child(3){
-        display: none;
-    }
-}
-div > div > svg > g:nth-child(6) > text:nth-child(3){
-    font-size: 1.5vw;
+    color: rgb(149, 180, 223);
 }
 
-
-#reactgooglegraph-4 > div > div:nth-child(1) > div > svg > g:nth-child(4) > g:nth-child(4) > g:nth-child(5) > text{
-    font-size: 1.3vw!important;
-    font-weight: 500;
-}
-#reactgooglegraph-4 > div > div:nth-child(1) > div > svg > g:nth-child(4) > g:nth-child(4) > g:nth-child(6) > text{
-    font-size: 1.3vw!important;
-    font-weight: 500;
-}
-#reactgooglegraph-3 > div > div > svg > g:nth-child(6) > text:nth-child(1){
-    font-size: 1.5vw!important;
-    font-weight: 500;
-}
-#reactgooglegraph-3 > div > div > svg > g:nth-child(6) > text:nth-child(2){
-    font-size: 1.5vw!important;
-    font-weight: 500;
+div > div > svg > g:nth-child(2) > rect:nth-child(2){
+    display: none;
 }
 
-#reactgooglegraph-6 > div > div:nth-child(1) > div > svg > g:nth-child(3){
+div > div > svg > g:nth-child(2) > text{
+    display: none;
+}
+#reactgooglegraph-4 > div > div:nth-child(1) > div > svg > g:nth-child(3){
+    display: none;
+}
+#reactgooglegraph-3 > div > div:nth-child(1) > div > svg > g:nth-child(3) > g{
     display: none;
 }

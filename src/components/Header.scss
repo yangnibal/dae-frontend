@@ -5,32 +5,56 @@
     align-items: center;
     height: 8rem;
     width: 100vw;
+    .header-data{
+        display: flex;
+        flex-direction: row;
+        
+        .header-data-content{
+            color: white;
+            font-weight: 500;
+            font-size: 1.4rem;
+            text-decoration: none;
+            &:nth-child(1){
+                margin: 0 1vw;
+            }
+            &:nth-child(2){
+                margin: 0 1vw;
+            }
+            &:nth-child(3){
+                margin: 0 1vw;
+            }
+        }
+    }
     .header-logo{
-        padding: 0 8vw;
+        padding: 0 4vw;
         padding-left: 2vw;
         border-right: 1px solid #a6a6a6;
     }
     .link-dae-home{
         font-size: 1.1rem;
-        padding: 0 3vw;
+        padding: 0 2vw;
         border-right: 1px solid #a6a6a6;
+        border-left: 1px solid #a6a6a6;
         min-width: 120px;
+        display: flex;
+        justify-content: center;
     }
     .link-dae-app{
         font-size: 1.1rem;
-        padding: 0 3vw;
+        padding: 0 2vw;
         border-right: 1px solid #a6a6a6;
-        min-width: 120px;
+        min-width: 180px;
         text-decoration: none;
         color: #a6a6a6;
+        display: flex;
+        justify-content: center;
     }
     .link-login{
         color: #a6a6a6;
         text-decoration: none;
-        min-width: 100px;
         display: flex;
         min-width: 100px;
-        padding: 0 4vw;
+        padding: 0 2vw;
         font-size: 1.3rem;
     }
     .span{
@@ -40,7 +64,6 @@
         .link-login{
             color: #a6a6a6;
             text-decoration: none;
-            min-width: 100px;
             display: flex;
             min-width: 100px;
             &:nth-child(1){

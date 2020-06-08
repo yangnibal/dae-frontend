@@ -4,6 +4,8 @@ import { observer, inject } from 'mobx-react'
 import { action } from 'mobx'
 import axios from 'axios'
 import './PrintPage.scss'
+import Print from '../components/Print'
+import printJS from 'print-js'
 
 @inject('store')
 @observer
@@ -29,14 +31,25 @@ class PrintPage extends React.Component{
         }
     }
     @action goPrint = () => {
-        this.props.history.push("/printpage/print")
+        const img = localStorage.getItem("img")
+        setTimeout(() => {
+            printJS({
+                printable: img,
+                type: "image"
+            })
+        }, 1000)
     }
 
     componentDidMount(){
         
     }
 
+    componentWillUnmount(){
+        localStorage.removeItem("img")
+    }
+
     render(){
+        const img = localStorage.getItem("img")
         return(
             <div className="printpage-container">
                 <Header/>
@@ -48,7 +61,7 @@ class PrintPage extends React.Component{
                     <div className="printpage-preview">
                         <div className="printpage-text">성적표 미리보기</div>
                         <div className="preview">
-                            
+                            <img src={img} alt={img} width="300px" height="424.2px"/>
                         </div>
                     </div>
                 </div>

@@ -31,8 +31,31 @@ class StudentTest extends React.Component{
     @action Modify = () => {
 
     }
-    @action Remove = () => {
-
+    @action Remove = (score_id, test_id) => {
+        const { store } = this.props
+        axios.delete("http://localhost:8000/scores/" + score_id + "/", {
+            headers: {
+                Authorization: "Token " + store.getToken()
+            }
+        })
+        .then(res => {
+            axios.post("http://localhost:8000/tests/" + test_id + "/deletestd/", ({
+                std_name: this.name
+            }), {
+                headers: {
+                    Authorization: "Token " + store.getToken()
+                }
+            })
+            .then(res => {
+                window.location.reload()
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
     @action findScore = (grade, test_type, subject) => {
         console.log(grade, test_type, subject)
@@ -94,7 +117,7 @@ class StudentTest extends React.Component{
             z: z,
             prob_dens: prob_dens
         }
-        this.props.history.push("/printpage")
+        this.props.history.push("/printpage/print")
     }
 
     componentDidMount(){
@@ -142,6 +165,7 @@ class StudentTest extends React.Component{
                         score[i].cand_num = test[j]['cand_num']
                         score[i].average = test[j]['average']
                         score[i].std_dev = test[j]['std_dev']
+                        score[i].test_id = test[j]['id']
                     }
                 }
             }
@@ -153,7 +177,6 @@ class StudentTest extends React.Component{
     }
 
     render(){
-        console.log(this.scores)
         const { store } = this.props
         const scorelist = this.scores.map(score => (
             <StudentTestContent
@@ -165,8 +188,8 @@ class StudentTest extends React.Component{
                 percent={score.percent}
                 rank={score.rank}
                 rating={score.rating}
-                gradeModify={this.Modify}
-                gradeRemove={this.Remove}
+                gradeModify={() => this.Modify()}
+                gradeRemove={() => this.Remove(score.id, score.test_id)}
                 key={score.id}
                 movePrintPage={() => this.movePrintPage(this.name, score.grade, this.group, score.score, score.percent, score.rank, score.rating, score.additional_info, score.grade, score.test_type, score.cand_num, score.average, score.std_dev, score.subject, score.z, score.prob_dens, score.id)}
             />
