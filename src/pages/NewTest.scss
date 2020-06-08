@@ -102,18 +102,10 @@
     background: #262626!important;
 }
 
-#root > div > div > div.newtest-content-container > div:nth-child(3) > div > div.react-select__indicators.css-1hb7zxy-IndicatorsContainer > span{
-    display: none;
-}
-.react-select__indicator{
-    display: none;
-}
-.react-select__indicator-separator{
-    display: none
-}
+
 .react-select__dropdown-indicator{
-    display: none;
+    display: none!important;
 }
-#root > div > div > div.newtest-content-container > div > div > div.react-select__indicators.css-1hb7zxy-IndicatorsContainer > div > svg{
-    display: none;
+.react-select__indicators{
+    display: none!important;
 }
