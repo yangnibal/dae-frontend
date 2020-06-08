@@ -24,7 +24,7 @@ class EditUserInfo extends React.Component{
     }
     @action duplicate_Username = () => {
         if(this.username.length>=6 && this.username.length<=11){
-            axios.post("http://localhost:8000/users/duplicate/", ({
+            axios.post("http://api.daeoebi.com/users/duplicate/", ({
                 username: this.username
             }))
             .then(res => {
@@ -68,7 +68,7 @@ class EditUserInfo extends React.Component{
             token = ltoken
         }
         const put = () => {
-            axios.put("http://localhost:8000/users/" + id + "/", ({
+            axios.put("http://api.daeoebi.com/users/" + id + "/", ({
                 username: this.username,
                 password: password,
                 name: this.name,
@@ -127,7 +127,7 @@ class EditUserInfo extends React.Component{
         } else {
             token = ltoken
         }
-        axios.get("http://localhost:8000/users/me/", {
+        axios.get("http://api.daeoebi.com/users/me/", {
             headers: {
                 Authorization: "Token " + token
             }

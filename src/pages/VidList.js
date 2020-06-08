@@ -40,7 +40,7 @@ class VidList extends React.Component{
             token = stoken
         }
         const group = []
-        axios.get("http://localhost:8000/infgroups/", {
+        axios.get("http://api.daeoebi.com/infgroups/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -58,7 +58,7 @@ class VidList extends React.Component{
     }
     @action findVid = (subject, grade, group) => {
         const { store } = this.props
-        axios.post("http://localhost:8000/videos/findvid/", ({
+        axios.post("http://api.daeoebi.com/videos/findvid/", ({
             grade: grade,
             subject: subject,
             group: group
@@ -84,7 +84,7 @@ class VidList extends React.Component{
         } else {
             token = stoken
         }
-        axios.get("http://localhost:8000/videos", {
+        axios.get("http://api.daeoebi.com/videos", {
             headers: {
                 Authorization: "Token " + token
             }

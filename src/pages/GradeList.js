@@ -28,7 +28,7 @@ class GradeList extends React.Component{
     @action gettest = (token, test_id) => {
         var id = localStorage.getItem("test_id")
         if(id===null) id = test_id
-        axios.get("http://localhost:8000/tests/" + id + "/", {
+        axios.get("http://api.daeoebi.com/tests/" + id + "/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -43,7 +43,7 @@ class GradeList extends React.Component{
     @action getscore = (token, id) => {
         var test_id = localStorage.getItem("test_id")
         if(test_id===null) test_id = id
-        axios.post("http://localhost:8000/scores/gettestscore/", ({
+        axios.post("http://api.daeoebi.com/scores/gettestscore/", ({
             test_id: test_id
         }), {
             headers: {
@@ -61,7 +61,7 @@ class GradeList extends React.Component{
     @action joinArr = (token, id) => {
         var test_id = localStorage.getItem("test_id")
         if(test_id===null) test_id = id
-        axios.post("http://localhost:8000/students/getteststd/", ({
+        axios.post("http://api.daeoebi.com/students/getteststd/", ({
             test_id: test_id
         }), {
             headers: {
@@ -101,7 +101,7 @@ class GradeList extends React.Component{
         } else {
             token = stoken
         }
-        axios.delete("http://localhost:8000/scores/" + id + "/", {
+        axios.delete("http://api.daeoebi.com/scores/" + id + "/", {
             headers: {
                 Authorization: "Token " + token
             }

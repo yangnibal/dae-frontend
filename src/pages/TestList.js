@@ -42,7 +42,7 @@ class TestList extends React.Component{
         } else {
             token = stoken
         }
-        axios.delete("http://localhost:8000/tests/" + id + "/", {
+        axios.delete("http://api.daeoebi.com/tests/" + id + "/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -67,7 +67,7 @@ class TestList extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://localhost:8000/tests/findtest/", ({
+        axios.post("http://api.daeoebi.com/tests/findtest/", ({
             grade: grade,
             test_type: semester,
             subject: subject
@@ -93,7 +93,7 @@ class TestList extends React.Component{
         } else {
             token = stoken
         }
-        axios.get("http://localhost:8000/tests/getmytest/", {
+        axios.get("http://api.daeoebi.com/tests/getmytest/", {
             headers: {
                 Authorization: "Token "+token
             }

@@ -38,7 +38,7 @@ class NewVid extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://localhost:8000/videos/", ({
+        axios.post("http://api.daeoebi.com/videos/", ({
             name: this.name,
             link: this.link,
             iframe: this.iframe,
@@ -70,7 +70,7 @@ class NewVid extends React.Component{
             token = stoken
         }
         const group = []
-        axios.get("http://localhost:8000/infgroups/", {
+        axios.get("http://api.daeoebi.com/infgroups/", {
             headers: {
                 Authorization: "Token " + token
             }

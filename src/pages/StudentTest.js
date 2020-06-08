@@ -33,13 +33,13 @@ class StudentTest extends React.Component{
     }
     @action Remove = (score_id, test_id) => {
         const { store } = this.props
-        axios.delete("http://localhost:8000/scores/" + score_id + "/", {
+        axios.delete("http://api.daeoebi.com/scores/" + score_id + "/", {
             headers: {
                 Authorization: "Token " + store.getToken()
             }
         })
         .then(res => {
-            axios.post("http://localhost:8000/tests/" + test_id + "/deletestd/", ({
+            axios.post("http://api.daeoebi.com/tests/" + test_id + "/deletestd/", ({
                 std_name: this.name
             }), {
                 headers: {
@@ -68,7 +68,7 @@ class StudentTest extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://localhost:8000/scores/findscore/", ({
+        axios.post("http://api.daeoebi.com/scores/findscore/", ({
             grade: grade,
             test_type: test_type,
             subject: subject,
@@ -131,7 +131,7 @@ class StudentTest extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://localhost:8000/groups/getstdgroup/", ({
+        axios.post("http://api.daeoebi.com/groups/getstdgroup/", ({
             name: this.name
         }), {
             headers: {
@@ -144,7 +144,7 @@ class StudentTest extends React.Component{
         .catch(err => {
             console.log(err)
         })
-        axios.post("http://localhost:8000/scores/getstdscore/", ({
+        axios.post("http://api.daeoebi.com/scores/getstdscore/", ({
             id: id
         }), {
             headers: {

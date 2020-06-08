@@ -29,7 +29,7 @@ class MatList extends React.Component{
     }
     @action findMat = (grade, group, subject) => {
         const { store } = this.props
-        axios.post("http://localhost:8000/materials/findmat/", ({
+        axios.post("http://api.daeoebi.com/materials/findmat/", ({
             grade: grade,
             subject: subject,
             group: group
@@ -56,7 +56,7 @@ class MatList extends React.Component{
             token = stoken
         }
         const group = []
-        axios.get("http://localhost:8000/infgroups/", {
+        axios.get("http://api.daeoebi.com/infgroups/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -82,7 +82,7 @@ class MatList extends React.Component{
         } else {
             token = stoken
         }
-        axios.get("http://localhost:8000/materials", {
+        axios.get("http://api.daeoebi.com/materials", {
             headers: {
                 Authorization: "Token " + token
             }

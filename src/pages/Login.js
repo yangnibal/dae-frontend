@@ -28,7 +28,7 @@ class Login extends React.Component{
             if(this.password===""){
                 alert("비밀번호를 입력해주시기 바랍니다.")
             } else {
-                axios.post("http://localhost:8000/users/login/", ({
+                axios.post("http://api.daeoebi.com/users/login/", ({
                     username: this.username,
                     password: this.password
                 }))

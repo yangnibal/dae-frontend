@@ -52,7 +52,7 @@ class NewTest extends React.Component{
             token = stoken
         }
         if(schoolyear!=="" && test_type!=="" && subject!=="" && average!=="" && std_dev!=="" && cand_num!=="" && additional_info!==""){
-            axios.post("http://localhost:8000/tests/", ({
+            axios.post("http://api.daeoebi.com/tests/", ({
                 grade: schoolyear,
                 test_type: test_type,
                 subject: subject,

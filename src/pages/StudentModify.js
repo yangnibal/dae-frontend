@@ -42,7 +42,7 @@ class StudentModify extends React.Component{
         const id = localStorage.getItem("std_id")
         if(name!=="" && grade!==""){
             if(group===""){
-                axios.patch("http://localhost:8000/students/" + id + "/", ({
+                axios.patch("http://api.daeoebi.com/students/" + id + "/", ({
                     name: name,
                     grade: grade
                 }), {
@@ -58,7 +58,7 @@ class StudentModify extends React.Component{
                     console.log(err)
                 })
             } else {
-                axios.patch("http://localhost:8000/students/" + id + "/", ({
+                axios.patch("http://api.daeoebi.com/students/" + id + "/", ({
                     name: name,
                     grade: grade,
                     group: group

@@ -34,7 +34,7 @@ class InputScore extends React.Component{
         for(var i in student){
             data.push({student: student[i].name, score: student[i].score, test: student[i].test_id})
         }
-        axios.post("http://localhost:8000/scores/getlist/", ({
+        axios.post("http://api.daeoebi.com/scores/getlist/", ({
             data
         }), {
             headers: {

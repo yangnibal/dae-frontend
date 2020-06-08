@@ -26,7 +26,7 @@ class NewGroup extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://localhost:8000/groups/", ({
+        axios.post("http://api.daeoebi.com/groups/", ({
             name: name
         }), {
             headers: {

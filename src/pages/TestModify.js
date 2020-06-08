@@ -47,7 +47,7 @@ class NewTest extends React.Component{
             token = stoken
         }
         if(schoolyear!=="" && test_type!=="" && subject!=="" && average!=="" && std_dev!=="" && cand_num!=="" && additional_info!==""){
-            axios.patch("http://localhost:8000/tests/" + testinfo.id + "/", ({
+            axios.patch("http://api.daeoebi.com/tests/" + testinfo.id + "/", ({
                 grade: schoolyear,
                 test_type: test_type,
                 subject: subject,

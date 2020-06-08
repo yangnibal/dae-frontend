@@ -33,7 +33,7 @@ class NewMat extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://localhost:8000/materials/", ({
+        axios.post("http://api.daeoebi.com/materials/", ({
             name: name,
             link: link,
             subject: subject,
@@ -67,7 +67,7 @@ class NewMat extends React.Component{
             token = stoken
         }
         const group = []
-        axios.get("http://localhost:8000/infgroups/", {
+        axios.get("http://api.daeoebi.com/infgroups/", {
             headers: {
                 Authorization: "Token " + token
             }

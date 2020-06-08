@@ -26,7 +26,7 @@ class NewInfGroup extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://localhost:8000/infgroups/", ({
+        axios.post("http://api.daeoebi.com/infgroups/", ({
             name: name
         }), {
             headers: {
