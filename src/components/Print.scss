@@ -1,3 +1,14 @@
+
+.print-btn{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+    color: black;
+    border: 1px solid #262626;
+    cursor: pointer;
+}
 .container{
     width: 100vw;
     height: 141.4vw;
@@ -5,6 +16,7 @@
     justify-content: center;
     align-items: center;
     background: white;
+    
     .sticky-container{
         margin: 8vw 8vw;
         width: calc(100% - 18vw);
@@ -538,11 +550,10 @@
                 align-items: center;
                 .logo-sticky-container{
                     width: 20vw;
-                    height: 4.5vw;
-                    .logo-img-print{
-                        height: 100%;
-                        width: auto;
-                    }
+                    height: 4vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
         }

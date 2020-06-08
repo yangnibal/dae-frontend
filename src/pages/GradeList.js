@@ -134,6 +134,9 @@ class GradeList extends React.Component{
             z: z,
             prob_dens: prob_dens
         }
+        var printProps = store.printProps
+        printProps = JSON.stringify(printProps)
+        localStorage.setItem("printProps", printProps)
         this.props.history.push("/printpage")
     }
 
@@ -176,7 +179,7 @@ class GradeList extends React.Component{
                     <div className="grade-content-header-container">
                         <div className="grade-content-header-left">
                             <div className="grade-content-title">학생 성적표 목록</div>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="grade-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                            <DropDown placeholder="학년" option={store.schoolyear} className="grade-content-dropdown-first1" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <DropDown placeholder="그룹" option={store.group} className="grade-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <div className="grade-content-search-btn">검색</div>
                         </div>

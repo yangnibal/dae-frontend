@@ -1,28 +1,74 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
-import { observable } from 'mobx' 
+import { observable, action } from 'mobx' 
 import { Chart } from 'react-google-charts'
 import html2canvas from 'html2canvas'
 import './Print.scss'
 import Logo from '../images/logo1.png'
 import printJS from 'print-js'
+import axios from 'axios'
+
 
 @inject('store')
 @observer
 class PrintContent extends React.Component{
 
     @observable img = []
-
-    componentDidMount(){
+    @observable printProps = {}
+    @observable logo = ""
+        
+    @action getLogo = () => {
+        const { store } = this.props
+        axios.get("http://api.daeoebi.com/logos/getmylogo/", {
+            headers: {
+                Authorization: "Token " + store.getToken() 
+            }
+        })
+        .then(res => {
+            var logo = "http://api.daeoebi.com"
+            this.logo = logo + res.data['logo']
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    @action can = () => {
+        document.documentElement.scrollTop = 0;
         setTimeout(() => {
-            html2canvas(document.querySelector("#print")).then(canvas => {
-                const img = canvas.toDataURL("images/data")
-                localStorage.setItem("img", img)
+            html2canvas(document.querySelector("#print"), {
+                
+                
+            }).then(canvas => {
+                printJS({
+                    printable: canvas.toDataURL("images/data"),
+                    type: "image"
+                })
             })
-        }, 200)
+        }, 1000)        
+    }
+    @action printCanvas = () => {
+        document.documentElement.scrollTop = 0;
         setTimeout(() => {
-            this.props.history.push("/printpage")
-        }, 250)
+            html2canvas(document.querySelector("#print"), {
+                allowTaint: true,
+                function(canvas) {
+                    const img = canvas.toDataURL("images/data")
+                    printJS({
+                        printable: img,
+                        type: "image"
+                    })}
+                })
+        }, 1000)
+    }
+    
+    componentDidMount(){
+        this.printProps = JSON.parse(localStorage.getItem("printProps"))
+        this.logo = JSON.parse(localStorage.getItem("logo"))
+        this.getLogo()
+    }
+
+    componentWillUnmount(){
+        localStorage.removeItem("printProps")
     }
 
     render(){
@@ -53,8 +99,9 @@ class PrintContent extends React.Component{
             },
 
         }
-        const props = store.printProps
+        const props = this.printProps
         return(
+            <>
             <div className="container" id="print">
                 <div className="sticky-container">
                     <div className="top-content">
@@ -206,12 +253,14 @@ class PrintContent extends React.Component{
                         </div>
                         <div className="print-logo-container">
                             <div className="logo-sticky-container">
-                                <img src={Logo} alt={Logo} className="logo-img-print"/>
+                                <img crossOrigin="anonymous" src={Logo} alt={Logo} height="100%" width="auto"/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div className="print-btn" onClick={() => this.can()}>인쇄하기</div>
+            </>
         )
     }
 }

@@ -1,6 +1,6 @@
-@font-face { font-family: 'yun'; src: url(../src/fonts/윤고딕320.ttf) format('truetype'); }
-@font-face { font-family: 'yun bold'; src: url(../src/fonts/윤고딕350.ttf) format('truetype'); }
-
+@font-face { font-family: 'yun'; src: url(./fonts/윤고딕320.ttf) format('truetype'); }
+@font-face { font-family: 'yun bold'; src: url(./fonts/윤고딕350.ttf) format('truetype'); }
+@font-face { font-family: 'yun light'; src: url(./fonts/윤고딕310.ttf) format('truetype'); }
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,7 +10,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: black;
   color: #a6a6a6;
-  font-family: 'yun';
 }
 
 code {
