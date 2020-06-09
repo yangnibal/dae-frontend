@@ -67,10 +67,6 @@ class PrintContent extends React.Component{
         this.getLogo()
     }
 
-    componentWillUnmount(){
-        localStorage.removeItem("printProps")
-    }
-
     render(){
         const { store } = this.props
         const chartOption1 = {
@@ -91,13 +87,14 @@ class PrintContent extends React.Component{
                 minValue: 0,
                 maxValue: 100
             },
+            legend: 'none'
         }
         const chartOption2 = {
             hAxis: {
                 minValue: 0,
                 maxValue: 100
             },
-
+            legend: 'none'
         }
         const props = this.printProps
         return(
@@ -110,11 +107,11 @@ class PrintContent extends React.Component{
                                 <div className="top-content-header-top-title">학교별 <span>9</span>등급 상대평가 변환 성적표</div>
                             </div>
                             <div className="top-content-header-bottom">
-                                <div className="top-content-header-bottom-test-type">{props.schoolyear} {props.test_type}</div>
+                                <div className="top-content-header-bottom-test-type">{props.grade} {props.test_type}</div>
                                 <div className="top-content-header-bottom-name-grade-group">
                                     <div className="ngg">
                                         <div className="name">{props.name}</div>
-                                        <div className="grade">{props.grade}</div>
+                                        <div className="grade">{props.schoolyear}</div>
                                         <div className="group">{props.group}</div>
                                     </div>
                                 </div>
@@ -231,8 +228,8 @@ class PrintContent extends React.Component{
                                     chartType="ColumnChart"
                                     data={[
                                         ["점수 비교", "점수", { role: 'style' }, { role: 'annotation' }],
-                                        ['평균', Number(props.average), 'color: #95b4df', "평균/"+String(props.average)],
-                                        ['내점수', Number(props.score), 'color: #8976a8', "내점수/"+String(props.score)]
+                                        ['평균', Number(props.average), 'color: #265c5b', "평균/"+String(props.average)],
+                                        ['내점수', Number(props.score), 'color: #b02318', "내점수/"+String(props.score)]
                                     ]}
                                     options={chartOption1}
                                 />
@@ -244,8 +241,8 @@ class PrintContent extends React.Component{
                                     chartType="BarChart"
                                     data={[
                                         ["등수 비교", "등수", { role: 'style' },  { role: 'annotation' }],
-                                        ['응시자 인원', Number(props.cand_num), 'color: #95b4df', String(props.cand_num)],
-                                        ['예상 등수', Number(props.rank), 'color: #8976a8', String(props.rank)]
+                                        ['응시자 인원', Number(props.cand_num), 'color: #265c5b', String(props.cand_num)],
+                                        ['예상 등수', Number(props.rank), 'color: #b02318', String(props.rank)]
                                     ]}
                                     options={chartOption2}
                                 />

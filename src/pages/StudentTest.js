@@ -58,7 +58,6 @@ class StudentTest extends React.Component{
         })
     }
     @action findScore = (grade, test_type, subject) => {
-        console.log(grade, test_type, subject)
         const id = localStorage.getItem("std_id")
         const ltoken = localStorage.getItem('token')
         const stoken = sessionStorage.getItem('token')
@@ -133,6 +132,17 @@ class StudentTest extends React.Component{
         } else {
             token = stoken
         }
+        axios.get("http://api.daeoebi.com/students/" + id + "/", {
+            headers: {
+                Authorization: "Token " + token
+            }
+        })
+        .then(res => {
+            this.schoolyear = res.data['grade']
+        })
+        .catch(err => {
+            console.log(err)
+        })
         axios.post("http://api.daeoebi.com/groups/getstdgroup/", ({
             name: this.name
         }), {
@@ -193,7 +203,7 @@ class StudentTest extends React.Component{
                 gradeModify={() => this.Modify(score.id)}
                 gradeRemove={() => this.Remove(score.id, score.test_id)}
                 key={score.id}
-                movePrintPage={() => this.movePrintPage(this.name, score.grade, this.group, score.score, score.percent, score.rank, score.rating, score.additional_info, score.grade, score.test_type, score.cand_num, score.average, score.std_dev, score.subject, score.z, score.prob_dens, score.id)}
+                movePrintPage={() => this.movePrintPage(this.name, score.grade, this.group, score.score, score.percent, score.rank, score.rating, score.additional_info, this.schoolyear, score.test_type, score.cand_num, score.average, score.std_dev, score.subject, score.z, score.prob_dens, score.id)}
             />
         ))
         return(

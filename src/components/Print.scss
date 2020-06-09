@@ -18,15 +18,15 @@
     background: white;
     
     .sticky-container{
-        margin: 8vw 8vw;
-        width: calc(100% - 18vw);
-        height: calc(100% - 16vw);
+        margin: 6vw 6vw;
+        width: calc(100% - 12vw);
+        height: calc(100% - 12vw);
         .top-content{
             width: 100%;
             height: 45%;
             .top-content-header{
                 width: 100%;
-                background: rgb(176, 35, 24);
+                background: #265c5b;
                 height: 33%;
                 display: flex;
                 flex-direction: column;
@@ -311,6 +311,7 @@
                             font-size: 2vw;
                             padding-right: 1.5vw;
                             word-spacing: 0.2vw;
+                            max-width: 18vw;
                         }
                         .header-left-top-subject{
                             font-size: 3vw;
@@ -526,14 +527,14 @@
                 align-items: center;
                 justify-content: center;
                 .chart-1{
-                    width: 47%;
+                    width: 80%;
                     height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                 }
                 .chart-2{
-                    width: 47%;
+                    width: 80%;
                     height: 100%;
                     display: flex;
                     justify-content: center;
