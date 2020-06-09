@@ -90,7 +90,7 @@ class GradeList extends React.Component{
     @action gradeModify = (name, grade, group, score, id) => {
         const { store } = this.props;
         store.gradeinfo = {name: name, grade: grade, group: group, score: score, id: id}
-        this.props.history.push(`/ac/grade/${id}/update`) 
+        this.props.history.push(`/ac/score/${id}/update`) 
     }
     @action gradeRemove = (id) => {
         const ltoken = localStorage.getItem('token')

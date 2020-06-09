@@ -29,6 +29,7 @@ import NewMat from './pages/NewMat'
 import MatList from './pages/MatList'
 import NewInfGroup from './pages/NewInfGroup'
 import VidDetail from './pages/VidDetail'
+import StudentTestModify from './pages/StudentTestModify'
 
 class App extends React.Component{
 	render(){
@@ -51,6 +52,7 @@ class App extends React.Component{
 						<Route exact path="/ac/student/inputscore" component={InputScore}/>
 						<Route exact path="/ac/student/new" component={NewStudent}/>
 						<Route exact path="/ac/student/:studentid/update" component={StudentModify}/>
+						<Route exact path="/ac/score/:scoreid/update" component={StudentTestModify}/>
 						<Route exact path="/ac/student/:studentid" component={StudentTest}/>
 						<Route exact path="/ac/grade/:testid" component={GradeList}/>
 						<Route exact path="/ac/grade/new" component={NewGrade}/>

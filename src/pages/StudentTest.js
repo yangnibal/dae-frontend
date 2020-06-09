@@ -28,8 +28,8 @@ class StudentTest extends React.Component{
     @action subjectChange = (e) => {
         this.subject = e.value
     }
-    @action Modify = () => {
-
+    @action Modify = (score_id) => {
+        this.props.history.push(`/ac/score/${score_id}/update`)
     }
     @action Remove = (score_id, test_id) => {
         const { store } = this.props
@@ -117,7 +117,9 @@ class StudentTest extends React.Component{
             z: z,
             prob_dens: prob_dens
         }
-        this.props.history.push("/printpage/print")
+        var printProps = JSON.stringify(store.printProps)
+        localStorage.setItem("printProps", printProps)
+        this.props.history.push("/printpage")
     }
 
     componentDidMount(){
@@ -188,7 +190,7 @@ class StudentTest extends React.Component{
                 percent={score.percent}
                 rank={score.rank}
                 rating={score.rating}
-                gradeModify={() => this.Modify()}
+                gradeModify={() => this.Modify(score.id)}
                 gradeRemove={() => this.Remove(score.id, score.test_id)}
                 key={score.id}
                 movePrintPage={() => this.movePrintPage(this.name, score.grade, this.group, score.score, score.percent, score.rank, score.rating, score.additional_info, score.grade, score.test_type, score.cand_num, score.average, score.std_dev, score.subject, score.z, score.prob_dens, score.id)}
