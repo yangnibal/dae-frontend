@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { observer, inject } from 'mobx-react'
 import { observable, action } from 'mobx'
 import axios from 'axios'
+import DropDown from '../components/DropDown'
 
 @inject('store')
 @observer
@@ -14,6 +15,12 @@ class StudentModify extends React.Component{
     @observable grade = ""
     @observable group = ""
 
+    @action schoolyearChange = (e) => {
+        this.grade = e.value
+    }
+    @action groupChange = (e) => {
+        this.group = e.value
+    }
     @action init_data = () => {
         const { store } = this.props;
         this.name = ""
@@ -79,6 +86,32 @@ class StudentModify extends React.Component{
             alert("이름이나 학년을 입력해 주시기 바랍니다.")
         }
     }
+    @action getGroup = () => {
+        const { store } = this.props
+        const ltoken = localStorage.getItem('token')
+        const stoken = sessionStorage.getItem('token')
+        var token = ""
+        if(stoken===null){
+            token = ltoken
+        } else {
+            token = stoken
+        }
+        const group = []
+        axios.get("http://api.daeoebi.com/groups/getmygroup/", {
+            headers: {
+                Authorization: "Token " + token
+            }
+        })
+        .then(res => {
+            for(var i in res.data){
+                group.push({value: res.data[i]['name'], label: res.data[i]['name']})
+            }
+            store.group = group
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
 
     componentDidMount(){
         const { store } = this.props
@@ -87,17 +120,19 @@ class StudentModify extends React.Component{
         this.grade = studentinfo.grade
         this.group = studentinfo.group
         localStorage.setItem("std_id", studentinfo.id)
+        this.getGroup()
     }
 
     render(){
+        const { store } = this.props
         return(
             <div className="newstudent-container">
                 <Header/>
                 <div className="newstudent-content-container">
                     <div className="newstudent-content-title">학생 기본 정보 입력</div>
                     <input name="name" value={this.name} onChange={this.handleChange} className="newstudent-content-input" placeholder="학생 이름"/>
-                    <input name="grade" value={this.grade} onChange={this.handleChange} className="newstudent-content-input" placeholder="학년 선택"/>
-                    <input name="group" value={this.group} onChange={this.handleChange} className="newstudent-content-input" placeholder="그룹 선택"/>
+                    <DropDown placeholder="학년 선택" option={store.schoolyear} className="newstudent-content-dropdown" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                    <DropDown placeholder="그룹 선택" option={store.group} className="newstudent-content-dropdown" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                     <div className="newstudent-content-group-add-container">
                         <Link to="/ac/group/new" className="newstudent-content-group-add">그룹 추가</Link>
                     </div>

@@ -23,6 +23,8 @@
         justify-content: center;
         .scoreupdate-inputs{
             width: 100%;
+            display: flex;
+            justify-content: center;
             .scoreupdate-input{
                 background: #262626;
                 border: none;

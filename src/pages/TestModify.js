@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { observer, inject } from 'mobx-react'
 import { observable, action } from 'mobx'
 import axios from 'axios'
+import DropDown from '../components/DropDown'
 
 @inject('store')
 @observer
@@ -16,6 +17,13 @@ class NewTest extends React.Component{
     @observable cand_num = ""
     @observable additional_info = ""
 
+
+    @action schoolyearChange = (e) => {
+        this.schoolyear = e.value
+    }
+    @action testTypeChange = (e) => {
+        this.test_type = e.value
+    }
     @action init_data = () => {
         const { store } = this.props
         this.schoolyear = ""
@@ -85,13 +93,14 @@ class NewTest extends React.Component{
     }
 
     render(){
+        const { store } = this.props;
         return(
             <div className="newtest-container">
                 <Header/>
                 <div className="newtest-content-container">
                     <div className="newtest-content-title">TEST 기본 정보 입력</div>
-                    <input name="schoolyear" value={this.schoolyear} onChange={this.handleChange} className="newtest-content-input" placeholder="학년 선택 (ex: 중1)"/>
-                    <input name="test_type" value={this.test_type} onChange={this.handleChange} className="newtest-content-input" placeholder="TEST 종류 선택 (ex: 1학기 중간)"/>
+                    <DropDown placeholder="학년 선택" option={store.schoolyear} className="newtest-content-dropdown" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                    <DropDown placeholder="TEST 종류 선택" option={store.semester} className="newtest-content-dropdown" classNamePrefix="react-select" onChange={this.testTypeChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                     <input name="subject" value={this.subject} onChange={this.handleChange} className="newtest-content-input" placeholder="과목 선택"/>
                     <input name="additional_info" value={this.additional_info} onChange={this.handleChange} className="newtest-content-input" placeholder="TEST 추가 정보 입력(학교 등)"/>
                     <input name="average" value={this.average} onChange={this.handleChange} className="newtest-content-input" placeholder="평균 입력"/>
