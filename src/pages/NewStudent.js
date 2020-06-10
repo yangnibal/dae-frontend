@@ -36,7 +36,6 @@ class NewStudent extends React.Component{
     @action handleChange = (e) => {
         const { name, value } = e.target
         this[name] = value
-        localStorage.setItem("std_name", value)
     }
     @action addStudent = (name, grade, group, add_new) => {
         const ltoken = localStorage.getItem('token')
@@ -121,8 +120,13 @@ class NewStudent extends React.Component{
             console.log(err)
         })
     }
+    @action saveInfo = () => {
+        sessionStorage.setItem("name", this.name)
+    }
 
     componentDidMount(){
+        if(sessionStorage.getItem("name")!==null)
+            this.name = sessionStorage.getItem("name")
         this.getGroup()
     }
 
@@ -137,7 +141,7 @@ class NewStudent extends React.Component{
                     <DropDown placeholder="학년 선택" option={store.schoolyear} className="newstudent-content-dropdown" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                     <DropDown placeholder="그룹 선택" option={store.group} className="newstudent-content-dropdown" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                     <div className="newstudent-content-group-add-container">
-                        <Link to="/ac/group/new" className="newstudent-content-group-add">그룹 추가</Link>
+                        <Link to="/ac/group/new" onClick={() => this.saveInfo()} className="newstudent-content-group-add">그룹 추가</Link>
                     </div>
                     <div className="newstudent-content-btn-container">
                         <div className="newstudent-content-btn" onClick={() => this.addStudent(this.name, this.grade, this.group, false)}>등록</div>

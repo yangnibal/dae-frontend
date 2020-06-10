@@ -121,7 +121,6 @@ class MatList extends React.Component{
                             <div className="vid-header-search-btn" onClick={() => this.findMat(this.schoolyear, this.group, this.subject)}>검색</div>
                         </div>
                         <div className="vid-header-right">
-                            <Link to="/inf/mat/new" className="vid-register">자료 추가</Link>
                         </div>
                     </div>
                     <div className="vid-body">

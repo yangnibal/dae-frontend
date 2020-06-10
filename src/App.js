@@ -24,8 +24,6 @@ import EditUserInfo from './pages/EditUserInfo'
 import Inf from './pages/Inf'
 import TestList from './pages/TestList';
 import VidList from './pages/VidList'
-import NewVid from './pages/NewVid'
-import NewMat from './pages/NewMat'
 import MatList from './pages/MatList'
 import NewInfGroup from './pages/NewInfGroup'
 import VidDetail from './pages/VidDetail'
@@ -61,9 +59,7 @@ class App extends React.Component{
 						<Route exact path="/printpage/print" component={PrintContent}/>
 						<Route exact path="/inf" component={Inf}/>
 						<Route exact path="/inf/vid" component={VidList}/>
-						<Route exact path="/inf/vid/new" component={NewVid}/>
 						<Route exact path="/inf/mat" component={MatList}/>
-						<Route exact path="/inf/mat/new" component={NewMat}/>
 						<Route exact path="/inf/group/new" component={NewInfGroup}/>
 						<Route exact path="/inf/vid/:vidid" component={VidDetail}/>
 					</Switch>

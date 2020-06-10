@@ -123,7 +123,6 @@ class VidList extends React.Component{
                             <div className="vid-header-search-btn" onClick={() => this.findVid(this.subject, this.schoolyear, this.group)}>검색</div>
                         </div>
                         <div className="vid-header-right">
-                            <Link to="/inf/vid/new" className="vid-register">동영상 추가</Link>
                         </div>
                     </div>
                     <div className="vid-body">
