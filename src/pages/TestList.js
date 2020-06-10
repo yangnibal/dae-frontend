@@ -96,17 +96,32 @@ class TestList extends React.Component{
         } else {
             token = stoken
         }
-        axios.get("http://api.daeoebi.com/tests/getmytest/", {
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
             headers: {
                 Authorization: "Token "+token
             }
         })
         .then(res => {
-            this.tests = res.data
+            if(res.data==="canuseit"){
+                axios.get("http://api.daeoebi.com/tests/getmytest/", {
+                    headers: {
+                        Authorization: "Token "+token
+                    }
+                })
+                .then(res => {
+                    this.tests = res.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
         })
-        .catch(err => {
-            console.log(err)
-        })
+        
     }
 
     render(){

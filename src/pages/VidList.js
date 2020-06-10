@@ -83,17 +83,31 @@ class VidList extends React.Component{
         } else {
             token = stoken
         }
-        axios.get("http://api.daeoebi.com/videos", {
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 1
+        }), {
             headers: {
-                Authorization: "Token " + token
+                Authorization: "Token "+token
             }
         })
         .then(res => {
-            this.vids = res.data['results']
-            this.getGroup()
-        })
-        .catch(err => {
-            console.log(err)
+            if(res.data==="canuseit"){
+                axios.get("http://api.daeoebi.com/videos", {
+                    headers: {
+                        Authorization: "Token " + token
+                    }
+                })
+                .then(res => {
+                    this.vids = res.data['results']
+                    this.getGroup()
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
         })
     }
 

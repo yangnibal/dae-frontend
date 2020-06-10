@@ -147,20 +147,34 @@ class StudentList extends React.Component{
         } else {
             token = stoken
         }
-        this.getGroup()
-        axios.get("http://api.daeoebi.com/students/getmystd/", {
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
             headers: {
-                Authorization: "Token " + token
+                Authorization: "Token "+token
             }
         })
         .then(res => {
-            for(var i in res.data){
-                res.data[i].isChecked=false
+            if(res.data==="canuseit"){
+                this.getGroup()
+                axios.get("http://api.daeoebi.com/students/getmystd/", {
+                    headers: {
+                        Authorization: "Token " + token
+                    }
+                })
+                .then(res => {
+                    for(var i in res.data){
+                        res.data[i].isChecked=false
+                    }
+                    this.students = res.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
             }
-            this.students = res.data
-        })
-        .catch(err => {
-            console.log(err)
         })
     }
 
