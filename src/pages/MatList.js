@@ -1,7 +1,6 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
 import { observable, action } from 'mobx'
-import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import DropDown from '../components/DropDown'
 import axios from 'axios'
