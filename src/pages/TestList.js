@@ -83,6 +83,9 @@ class TestList extends React.Component{
             console.log(err)
         })
     }
+    @action nameClick = (test_id) => {
+        this.props.history.push(`/ac/grade/${test_id}`)
+    }
     
     componentDidMount(){
         const ltoken = localStorage.getItem('token')
@@ -123,6 +126,7 @@ class TestList extends React.Component{
                 testModify={() => this.testModify(test.grade, test.test_type, test.subject, test.additional_info, test.average, test.std_dev, test.cand_num, test.id)}
                 testRemove={() => this.testRemove(test.id)}
                 addTestStudent={() => this.addTestStudent(test.id, test.test_type)}
+                nameClick={() => this.nameClick(test.id)}
             />
         ))
         return(
