@@ -7,6 +7,7 @@ import './Print.scss'
 import Logo from '../images/logo1.png'
 import printJS from 'print-js'
 import axios from 'axios'
+import Header from './Header';
 
 
 @inject('store')
@@ -112,7 +113,14 @@ class PrintContent extends React.Component{
         }
         const props = this.printProps
         return(
-            <>
+            <div style={{overflow: "hidden"}}>
+            <Header/>
+            <div style={{display: "flex", flexDirection: "row"}}>
+            <div className="printpage-btns">
+                <div className="printpage-btn" onClick={this.can}>인쇄</div>
+                <label htmlFor="image-input" className="printpage-btn">로고 삽입</label>
+                <input type="file" name="logo" onChange={this.handleFileChange} id="image-input"/>
+            </div>
             <div className="container" id="print">
                 <div className="sticky-container">
                     <div className="top-content">
@@ -270,8 +278,8 @@ class PrintContent extends React.Component{
                     </div>
                 </div>
             </div>
-            <div className="print-btn" onClick={() => this.can()}>인쇄하기</div>
-            </>
+            </div>
+            </div>
         )
     }
 }
