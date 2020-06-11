@@ -82,14 +82,28 @@ class NewTest extends React.Component{
 
     componentDidMount(){
         const { store } = this.props;
-        const testinfo = store.testinfo
-        this.schoolyear = testinfo.schoolyear
-        this.test_type = testinfo.test_type
-        this.subject = testinfo.subject
-        this.additional_info = testinfo.additional_info
-        this.average = testinfo.average
-        this.std_dev = testinfo.std_dev
-        this.cand_num = testinfo.cand_num
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
+            headers: {
+                Authorization: "Token "+store.getToken()
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+                const testinfo = store.testinfo
+                this.schoolyear = testinfo.schoolyear
+                this.test_type = testinfo.test_type
+                this.subject = testinfo.subject
+                this.additional_info = testinfo.additional_info
+                this.average = testinfo.average
+                this.std_dev = testinfo.std_dev
+                this.cand_num = testinfo.cand_num
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        })
     }
 
     render(){

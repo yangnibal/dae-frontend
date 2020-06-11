@@ -2,8 +2,36 @@ import React from 'react'
 import Header from '../components/Header';
 import { Link } from 'react-router-dom'
 import './Academy.scss'
+import axios from 'axios'
 
 class Academy extends React.Component{
+
+    componentDidMount(){
+        const ltoken = localStorage.getItem('token')
+        const stoken = sessionStorage.getItem('token')
+        var token = ""
+        if(stoken===null){
+            token = ltoken
+        } else {
+            token = stoken
+        }
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
+            headers: {
+                Authorization: "Token "+token
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+                
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        })
+    }
+
     render(){
         return(
             <div className="academy-container">

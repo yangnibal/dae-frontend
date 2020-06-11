@@ -3,8 +3,9 @@ import './NewGroup.scss'
 import Header from '../components/Header';
 import axios from 'axios'
 import { observable, action } from 'mobx'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 
+@inject('store')
 @observer
 class NewGroup extends React.Component{
 
@@ -43,6 +44,24 @@ class NewGroup extends React.Component{
         })
         .catch(err => {
             console.log(err)
+        })
+    }
+
+    componentDidMount(){
+        const { store } = this.props
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
+            headers: {
+                Authorization: "Token "+store.getToken()
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
         })
     }
 

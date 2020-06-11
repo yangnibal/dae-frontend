@@ -15,16 +15,30 @@ class VidDetail extends React.Component{
         const { store } = this.props
         var path = window.location.href
         path = path.split("/")[5]
-        axios.get("http://api.daeoebi.com/videos/" + path + "/", {
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 1
+        }), {
             headers: {
-                Authorization: "Token " + store.getToken()
+                Authorization: "Token "+store.getToken()
             }
         })
         .then(res => {
-            this.iframe = res.data['iframe']
-        })
-        .catch(err => {
-            console.log(err)
+            if(res.data==="canuseit"){
+                axios.get("http://api.daeoebi.com/videos/" + path + "/", {
+                    headers: {
+                        Authorization: "Token " + store.getToken()
+                    }
+                })
+                .then(res => {
+                    this.iframe = res.data['iframe']
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
         })
     }
 

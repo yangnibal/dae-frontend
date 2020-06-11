@@ -149,10 +149,34 @@ class GradeList extends React.Component{
         } else {
             token = stoken
         }
-        const path = window.location.href
-        const test_id = path.split("/")[5]
-        this.getscore(token, test_id)
-        this.gettest(token, test_id)
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
+            headers: {
+                Authorization: "Token "+token
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+                axios.get("http://api.daeoebi.com/materials", {
+                    headers: {
+                        Authorization: "Token " + token
+                    }
+                })
+                .then(res => {
+                    const path = window.location.href
+                    const test_id = path.split("/")[5]
+                    this.getscore(token, test_id)
+                    this.gettest(token, test_id)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        })
     }
 
     render(){

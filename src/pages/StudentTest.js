@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import axios from 'axios'
 import DropDown from '../components/DropDown'
 import { Link } from 'react-router-dom'
-import { observable, action, toJS } from 'mobx'
+import { observable, action } from 'mobx'
 import StudentTestContent from '../components/StudentTestContent'
 
 @inject('store')
@@ -132,59 +132,73 @@ class StudentTest extends React.Component{
         } else {
             token = stoken
         }
-        axios.get("http://api.daeoebi.com/students/" + id + "/", {
-            headers: {
-                Authorization: "Token " + token
-            }
-        })
-        .then(res => {
-            this.schoolyear = res.data['grade']
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        axios.post("http://api.daeoebi.com/groups/getstdgroup/", ({
-            name: this.name
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
         }), {
             headers: {
-                Authorization: "Token " + token
+                Authorization: "Token "+token
             }
         })
         .then(res => {
-            this.group = res.data['name']
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        axios.post("http://api.daeoebi.com/scores/getstdscore/", ({
-            id: id
-        }), {
-            headers: {
-                Authorization: "Token " + token
-            }
-        })
-        .then(res => {
-            const score = res.data['score']
-            const test = res.data['test']
-            for(var i in score){
-                for(var j in test){
-                    if(String(test[j]['id']) === score[i]['test']){
-                        score[i].grade = test[j]['grade']
-                        score[i].test_type = test[j]['test_type']
-                        score[i].subject = test[j]['subject']
-                        score[i].additional_info = test[j]['additional_info']
-                        score[i].grade = test[j]['grade']
-                        score[i].cand_num = test[j]['cand_num']
-                        score[i].average = test[j]['average']
-                        score[i].std_dev = test[j]['std_dev']
-                        score[i].test_id = test[j]['id']
+            if(res.data==="canuseit"){
+                axios.get("http://api.daeoebi.com/students/" + id + "/", {
+                    headers: {
+                        Authorization: "Token " + token
                     }
-                }
+                })
+                .then(res => {
+                    this.schoolyear = res.data['grade']
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+                axios.post("http://api.daeoebi.com/groups/getstdgroup/", ({
+                    name: this.name
+                }), {
+                    headers: {
+                        Authorization: "Token " + token
+                    }
+                })
+                .then(res => {
+                    this.group = res.data['name']
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+                axios.post("http://api.daeoebi.com/scores/getstdscore/", ({
+                    id: id
+                }), {
+                    headers: {
+                        Authorization: "Token " + token
+                    }
+                })
+                .then(res => {
+                    const score = res.data['score']
+                    const test = res.data['test']
+                    for(var i in score){
+                        for(var j in test){
+                            if(String(test[j]['id']) === score[i]['test']){
+                                score[i].grade = test[j]['grade']
+                                score[i].test_type = test[j]['test_type']
+                                score[i].subject = test[j]['subject']
+                                score[i].additional_info = test[j]['additional_info']
+                                score[i].grade = test[j]['grade']
+                                score[i].cand_num = test[j]['cand_num']
+                                score[i].average = test[j]['average']
+                                score[i].std_dev = test[j]['std_dev']
+                                score[i].test_id = test[j]['id']
+                            }
+                        }
+                    }
+                    this.scores = score
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
             }
-            this.scores = score
-        })
-        .catch(err => {
-            console.log(err)
         })
     }
 

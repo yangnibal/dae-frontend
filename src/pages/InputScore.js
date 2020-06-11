@@ -51,14 +51,30 @@ class InputScore extends React.Component{
     }
 
     componentDidMount(){
-        const id = localStorage.getItem("test_id")
-        var checkedstudents = localStorage.getItem("checkedstudent")
-        checkedstudents = JSON.parse(checkedstudents)
-        for(var i in checkedstudents){
-            checkedstudents[i].score = ""
-            checkedstudents[i].test_id = id
-        }
-        this.students = checkedstudents
+        const { store } = this.props;
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
+            headers: {
+                Authorization: "Token "+store.getToken()
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+                const id = localStorage.getItem("test_id")
+                var checkedstudents = localStorage.getItem("checkedstudent")
+                checkedstudents = JSON.parse(checkedstudents)
+                for(var i in checkedstudents){
+                    checkedstudents[i].score = ""
+                    checkedstudents[i].test_id = id
+                }
+                this.students = checkedstudents
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        })
+        
     }
 
     render(){

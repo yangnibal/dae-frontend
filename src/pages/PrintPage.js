@@ -52,7 +52,22 @@ class PrintPage extends React.Component{
     }
 
     componentDidMount(){
-        
+        const { store } = this.props;
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
+            headers: {
+                Authorization: "Token "+store.getToken()
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+            
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        })
     }
 
     componentWillUnmount(){

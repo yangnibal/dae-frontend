@@ -115,12 +115,26 @@ class StudentModify extends React.Component{
 
     componentDidMount(){
         const { store } = this.props
-        const studentinfo = store.studentinfo
-        this.name = studentinfo.name
-        this.grade = studentinfo.grade
-        this.group = studentinfo.group
-        localStorage.setItem("std_id", studentinfo.id)
-        this.getGroup()
+        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+            type: 2
+        }), {
+            headers: {
+                Authorization: "Token "+store.getToken()
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+                const studentinfo = store.studentinfo
+                this.name = studentinfo.name
+                this.grade = studentinfo.grade
+                this.group = studentinfo.group
+                localStorage.setItem("std_id", studentinfo.id)
+                this.getGroup()
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        })
     }
 
     render(){
