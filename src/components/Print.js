@@ -272,7 +272,7 @@ class PrintContent extends React.Component{
                         </div>
                         <div className="print-logo-container">
                             <div className="logo-sticky-container">
-                                <img crossOrigin="anonymous" src={Logo} alt={Logo} height="100%" width="auto"/>
+                                <img crossOrigin="anonymous" src={this.logo} alt={Logo} height="100%" width="auto"/>
                             </div>
                         </div>
                     </div>
