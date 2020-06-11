@@ -69,10 +69,15 @@ class StudentList extends React.Component{
         })
     }
     @action gradeRegister = () => {
-        var students = this.students
-        const checkedStudents = students.filter(student => student.isChecked===true)
-        localStorage.setItem("checkedstudent", JSON.stringify(checkedStudents))
-        this.props.history.push("/ac/student/inputscore")
+        if(localStorage.getItem("test_id")!==null){
+            var students = this.students
+            const checkedStudents = students.filter(student => student.isChecked===true)
+            localStorage.setItem("checkedstudent", JSON.stringify(checkedStudents))
+            this.props.history.push("/ac/student/inputscore")
+        } else {
+            alert("테스트를 선택 해 주시기 바랍니다.")
+        }
+        
     }
     @action choiceTest = () => {
         this.props.history.push("/ac/test")
