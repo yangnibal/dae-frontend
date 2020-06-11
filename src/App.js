@@ -18,7 +18,6 @@ import StudentTest from './pages/StudentTest'
 import FindId from './components/FindId'
 import FindPw from './components/FindPw'
 import PrintProvider from 'react-easy-print'
-import PrintPage from './pages/PrintPage'
 import PrintContent from './components/Print';
 import EditUserInfo from './pages/EditUserInfo'
 import Inf from './pages/Inf'
@@ -54,8 +53,7 @@ class App extends React.Component{
 						<Route exact path="/ac/grade/:testid" component={GradeList}/>
 						<Route exact path="/ac/grade/new" component={NewGrade}/>
 						<Route exact path="/ac/group/new" component={NewGroup}/>
-						<Route exact path="/printpage" component={PrintPage}/>
-						<Route exact path="/printpage/print" component={PrintContent}/>
+						<Route exact path="/print" component={PrintContent}/>
 						<Route exact path="/inf" component={Inf}/>
 						<Route exact path="/inf/vid" component={VidList}/>
 						<Route exact path="/inf/mat" component={MatList}/>

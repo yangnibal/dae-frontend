@@ -137,7 +137,7 @@ class GradeList extends React.Component{
         var printProps = store.printProps
         printProps = JSON.stringify(printProps)
         localStorage.setItem("printProps", printProps)
-        this.props.history.push("/printpage")
+        this.props.history.push("/print")
     }
 
     componentDidMount(){

@@ -118,7 +118,7 @@ class StudentTest extends React.Component{
         }
         var printProps = JSON.stringify(store.printProps)
         localStorage.setItem("printProps", printProps)
-        this.props.history.push("/printpage")
+        this.props.history.push("/print")
     }
 
     componentDidMount(){
