@@ -37,7 +37,8 @@ class PrintContent extends React.Component{
         document.documentElement.scrollTop = 0;
         setTimeout(() => {
             html2canvas(document.querySelector("#print"), {
-                
+                allowTaint: true,
+                useCORS: true
                 
             }).then(canvas => {
                 printJS({
@@ -46,20 +47,6 @@ class PrintContent extends React.Component{
                 })
             })
         }, 1000)        
-    }
-    @action printCanvas = () => {
-        document.documentElement.scrollTop = 0;
-        setTimeout(() => {
-            html2canvas(document.querySelector("#print"), {
-                allowTaint: true,
-                function(canvas) {
-                    const img = canvas.toDataURL("images/data")
-                    printJS({
-                        printable: img,
-                        type: "image"
-                    })}
-                })
-        }, 1000)
     }
     
     componentDidMount(){
