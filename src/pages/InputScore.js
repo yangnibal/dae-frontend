@@ -2,10 +2,11 @@ import React from 'react'
 import Header from '../components/Header'
 import InputScoreContent from '../components/InputScoreContent'
 import './InputScore.scss'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import { action, observable, toJS } from 'mobx'
 import axios from 'axios'
 
+@inject('store')
 @observer
 class InputScore extends React.Component{
 
@@ -51,7 +52,7 @@ class InputScore extends React.Component{
     }
 
     componentDidMount(){
-        const { store } = this.props;
+        const { store } = this.props
         axios.post("http://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
