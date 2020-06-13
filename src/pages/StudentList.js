@@ -211,6 +211,7 @@ class StudentList extends React.Component{
                             <DropDown placeholder="그룹" option={store.group} className="student-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <input value={this.name} onChange={this.handleChange} name="name" className="student-content-search-input" placeholder="이름"/>
                             <div className="student-content-search-btn" onClick={() => this.findstd(this.schoolyear, this.group, this.name)}>검색</div>
+                            <Link className="student-content-search-btn" to="/groups">그룹 관리</Link>
                         </div>
                         <div className="student-content-header-right">
                             <Link to="/ac/student/new" className="student-register">학생 등록</Link>

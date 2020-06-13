@@ -12,6 +12,7 @@ class StudentTestModify extends React.Component{
     @observable score = ""
     @observable test = ""
     @observable student = ""
+    @observable path = ""
 
     @action handleChange = (e) => {
         const { name, value } = e.target
@@ -22,28 +23,28 @@ class StudentTestModify extends React.Component{
     }
     @action modify = () => {
         const { store } = this.props
-        var path = window.location.href
-        path = path.split("/")[5]
-        axios.put("http://api.daeoebi.com/scores/" + path + "/", ({
+        axios.put("http://api.daeoebi.com/scores/" + this.path + "/", ({
             score: this.score,
             test: this.test,
             student: this.student
         }), {
-            headers: "Token " + store.getToken() 
+            headers: {
+                Authorization: "Token " + store.getToken() 
+            }
         })
         .then(res => {
             console.log(res)
+            this.props.history.goBack()
         })
         .catch(err => {
             console.log(err)
         })
     }
-    
 
     componentDidMount(){
         const { store } = this.props
         var path = window.location.href
-        path = path.split("/")[5]
+        this.path = path.split("/")[5]
         axios.post("http://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
@@ -53,7 +54,7 @@ class StudentTestModify extends React.Component{
         })
         .then(res => {
             if(res.data==="canuseit"){
-                axios.get("http://api.daeoebi.com/scores/" + path + "/", {
+                axios.get("http://api.daeoebi.com/scores/" + this.path + "/", {
                     headers: {
                         Authorization: "Token " + store.getToken()
                     }

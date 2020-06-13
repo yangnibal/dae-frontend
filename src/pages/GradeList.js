@@ -206,6 +206,7 @@ class GradeList extends React.Component{
                             <DropDown placeholder="학년" option={store.schoolyear} className="grade-content-dropdown-first1" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <DropDown placeholder="그룹" option={store.group} className="grade-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <div className="grade-content-search-btn">검색</div>
+                            <Link className="grade-content-search-btn" to="/groups">그룹 관리</Link>
                         </div>
                         <div className="grade-content-header-right">
                         </div>

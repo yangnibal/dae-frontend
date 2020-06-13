@@ -26,6 +26,8 @@ import VidList from './pages/VidList'
 import MatList from './pages/MatList'
 import VidDetail from './pages/VidDetail'
 import StudentTestModify from './pages/StudentTestModify'
+import GroupList from './pages/GroupList'
+import GroupUpdate from './pages/GroupUpdate'
 
 class App extends React.Component{
 	render(){
@@ -58,6 +60,8 @@ class App extends React.Component{
 						<Route exact path="/inf/vid" component={VidList}/>
 						<Route exact path="/inf/mat" component={MatList}/>
 						<Route exact path="/inf/vid/:vidid" component={VidDetail}/>
+						<Route exact path="/groups" component={GroupList}/>
+						<Route exact path="/groups/:groupid/update" component={GroupUpdate}/>
 					</Switch>
 				</BrowserRouter>
 			</PrintProvider>
