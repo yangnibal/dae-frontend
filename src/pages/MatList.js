@@ -41,7 +41,7 @@ class MatList extends React.Component{
             this.mats = res.data
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action getGroup = () => {
@@ -68,7 +68,7 @@ class MatList extends React.Component{
             store.infgroup = group
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
 
@@ -100,7 +100,7 @@ class MatList extends React.Component{
                     this.getGroup()
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 alert("접근 권한이 없습니다")

@@ -74,7 +74,7 @@ class NewTest extends React.Component{
                 }
             })
             .catch(err => {
-                console.log(err)
+                
             })
         } else {
             alert("입력창을 확인해 주시기 바랍니다.")

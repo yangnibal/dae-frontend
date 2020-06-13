@@ -52,7 +52,7 @@ class VidList extends React.Component{
             store.infgroup = group
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action findVid = (subject, grade, group) => {
@@ -70,7 +70,7 @@ class VidList extends React.Component{
             this.vids = res.data
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
 
@@ -102,7 +102,7 @@ class VidList extends React.Component{
                     this.getGroup()
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 alert("접근 권한이 없습니다")

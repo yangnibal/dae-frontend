@@ -50,11 +50,11 @@ class StudentTest extends React.Component{
                 window.location.reload()
             })
             .catch(err => {
-                console.log(err)
+                
             })
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action findScore = (grade, test_type, subject) => {
@@ -93,7 +93,7 @@ class StudentTest extends React.Component{
             this.scores = score
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action movePrintPage = (name, grade, group, score, percent, rank, rating, school, schoolyear, test_type, cand_num, average, std_dev, subject, z, prob_dens, id) => {
@@ -150,7 +150,7 @@ class StudentTest extends React.Component{
                     this.schoolyear = res.data['grade']
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
                 axios.post("http://api.daeoebi.com/groups/getstdgroup/", ({
                     name: this.name
@@ -163,7 +163,7 @@ class StudentTest extends React.Component{
                     this.group = res.data['name']
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
                 axios.post("http://api.daeoebi.com/scores/getstdscore/", ({
                     id: id
@@ -193,7 +193,7 @@ class StudentTest extends React.Component{
                     this.scores = score
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 alert("접근 권한이 없습니다")

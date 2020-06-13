@@ -33,7 +33,7 @@ class VidDetail extends React.Component{
                     this.iframe = res.data['iframe']
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 alert("접근 권한이 없습니다")

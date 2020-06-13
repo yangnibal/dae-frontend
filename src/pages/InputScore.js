@@ -47,7 +47,7 @@ class InputScore extends React.Component{
             localStorage.removeItem("test_id")
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
 

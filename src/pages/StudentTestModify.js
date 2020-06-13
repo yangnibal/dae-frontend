@@ -33,11 +33,11 @@ class StudentTestModify extends React.Component{
             }
         })
         .then(res => {
-            console.log(res)
+            
             this.props.history.goBack()
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
 

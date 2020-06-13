@@ -62,7 +62,7 @@ class StudentModify extends React.Component{
                     this.props.history.push("/ac/student")
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 axios.patch("http://api.daeoebi.com/students/" + id + "/", ({
@@ -79,7 +79,7 @@ class StudentModify extends React.Component{
                     this.props.history.push("/ac/student")
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             }
         } else {
@@ -109,7 +109,7 @@ class StudentModify extends React.Component{
             store.group = group
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
 

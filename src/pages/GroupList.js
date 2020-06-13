@@ -5,6 +5,7 @@ import { observable, action } from 'mobx'
 import axios from 'axios'
 import GroupContent from '../components/GroupContent'
 import './Group.scss'
+import { Link } from 'react-router-dom'
 
 @inject('store')
 @observer
@@ -26,7 +27,7 @@ class GroupList extends React.Component{
             this.groups = res.data
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action handleChange = (e) => {
@@ -44,7 +45,7 @@ class GroupList extends React.Component{
             this.groups = res.data
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action update = (id) => {
@@ -83,9 +84,14 @@ class GroupList extends React.Component{
                 <Header/>
                 <div className="group-sticky">
                     <div className="group-header">
-                        <div className="group-header-title">그룹 관리</div>
-                        <input className="group-header-search" value={this.name} onChange={this.handleChange} name="name" placeholder="그룹 이름"/>
-                        <div className="group-header-btn" onClick={() => this.findGroup()}>검색</div>
+                        <div className="group-header-left">
+                            <div className="group-header-title">그룹 관리</div>
+                            <input className="group-header-search" value={this.name} onChange={this.handleChange} name="name" placeholder="그룹 이름"/>
+                            <div className="group-header-btn" onClick={() => this.findGroup()}>검색</div>
+                        </div>
+                        <div className="group-header-right">
+                            <Link to="/ac/group/new" className="group-new">그룹 추가</Link>
+                        </div>
                     </div>
                     <div className="group-body">
                         <div className="group-body-header">

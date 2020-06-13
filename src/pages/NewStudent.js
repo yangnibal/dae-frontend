@@ -65,7 +65,7 @@ class NewStudent extends React.Component{
                     }
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 axios.post("http://api.daeoebi.com/students/", ({
@@ -86,7 +86,7 @@ class NewStudent extends React.Component{
                     }
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             }
         } else {
@@ -117,7 +117,7 @@ class NewStudent extends React.Component{
             store.group = group
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action saveInfo = () => {

@@ -36,7 +36,7 @@ class EditUserInfo extends React.Component{
                 }
             })
             .catch(err => {
-                console.log(err)
+                
             })
         } else {
             alert("아이디는 6자에서 11자 사이로 입력해주시기 바랍니다.")
@@ -84,7 +84,7 @@ class EditUserInfo extends React.Component{
                 this.props.history.push("/")
             })
             .catch(err => {
-                console.log(err)
+                
             })
         }
         if(this.id===this.username){
@@ -141,7 +141,7 @@ class EditUserInfo extends React.Component{
             localStorage.setItem("user_id", res.data['id'])
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
 

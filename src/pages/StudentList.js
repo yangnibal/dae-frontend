@@ -65,7 +65,7 @@ class StudentList extends React.Component{
             window.location.reload()
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action gradeRegister = () => {
@@ -105,7 +105,7 @@ class StudentList extends React.Component{
             store.group = group
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action findstd = (grade, group, name) => {
@@ -133,7 +133,7 @@ class StudentList extends React.Component{
             this.students = res.data
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action nameClick = (id, name) => {
@@ -174,7 +174,7 @@ class StudentList extends React.Component{
                     this.students = res.data
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 alert("접근 권한이 없습니다")

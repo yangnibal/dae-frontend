@@ -87,7 +87,7 @@ class Signup extends React.Component{
                 }
             })
             .catch(err => {
-                console.log(err)
+                
             })
         } else {
             alert("아이디는 6자에서 11자 사이로 입력해주시기 바랍니다.")
@@ -121,13 +121,13 @@ class Signup extends React.Component{
                         email: this.email
                     }))
                     .then(res => {
-                        console.log(res)
+                        
                         this.props.history.push("/")
                         window.location.reload()
                         localStorage.setItem("token", res.data["token"])
                     })
                     .catch(err => {
-                        console.log(err)
+                        
                     })
                 } else {
                     if(this.privacy===false){

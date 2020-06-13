@@ -37,7 +37,7 @@ class GradeList extends React.Component{
             this.testinfo = res.data
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action getscore = (token, id) => {
@@ -55,7 +55,7 @@ class GradeList extends React.Component{
             this.joinArr(token, id)
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action joinArr = (token, id) => {
@@ -84,7 +84,7 @@ class GradeList extends React.Component{
             this.grades = score
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action gradeModify = (name, grade, group, score, id) => {
@@ -107,11 +107,11 @@ class GradeList extends React.Component{
             }
         })
         .then(res => {
-            console.log(res)
+            
             window.location.reload()
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action movePrintPage = (name, grade, group, score, percent, rank, rating, school, schoolyear, test_type, cand_num, average, std_dev, subject, z, prob_dens, id) => {
@@ -170,7 +170,7 @@ class GradeList extends React.Component{
                     this.gettest(token, test_id)
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 alert("접근 권한이 없습니다")

@@ -51,7 +51,7 @@ class TestList extends React.Component{
             window.location.reload()
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action addTestStudent = (id, test_type) => {
@@ -80,7 +80,7 @@ class TestList extends React.Component{
             this.tests = res.data
         })
         .catch(err => {
-            console.log(err)
+            
         })
     }
     @action nameClick = (test_id) => {
@@ -114,7 +114,7 @@ class TestList extends React.Component{
                     this.tests = res.data
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
             } else {
                 alert("접근 권한이 없습니다")
