@@ -161,6 +161,7 @@
                     margin: 0 8vw;
                     margin-left: 16vw;
                     cursor: pointer;
+                    text-align: center;
                 }
                 input[id="btn"]:checked + label {
                     color: white;
@@ -210,7 +211,8 @@
                         border: 1px solid #a6a6a6;
                         margin: 0 8vw;
                         margin-left: 16vw;
-                        cursor: pointer
+                        cursor: pointer;
+                        text-align: center;
                     }
                     .checked{
                         color: white;
