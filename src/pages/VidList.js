@@ -140,11 +140,10 @@ class VidList extends React.Component{
                     </div>
                     <div className="vid-body">
                         <div className="vid-body-header">
-                            <div className="vid-body-header-text">동영상 이름</div>
+                            <div className="vid-body-header-text">동영상 이름</div>
                             <div className="vid-body-header-text">과목</div>
                             <div className="vid-body-header-text">추천 학년</div>
                             <div className="vid-body-header-text">그룹</div>
-                            <div className="vid-body-header-text">동영상 재생 시간</div>
                         </div>
                         <div className="vid-content-body">
                             {vidlist}
