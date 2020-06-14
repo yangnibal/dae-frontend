@@ -4,8 +4,37 @@ import Header from '../components/Header'
 import Bg from '../images/index.png'
 import { Link } from 'react-router-dom'
 import './Home.scss'
+import axios from 'axios'
+import { observer, inject } from 'mobx-react'
+import { action } from 'mobx' 
 
+@inject('store')
+@observer
 class Home extends React.Component{
+
+    @action goAdmin = () => {
+        const ltoken = localStorage.getItem('token')
+        const stoken = sessionStorage.getItem('token')
+        var token = ""
+        if(stoken===null){
+            token = ltoken
+        } else {
+            token = stoken
+        }
+        axios.get("http://api.daeoebi.com/users/issuperuser/", {
+            headers: {
+                Authorization: "Token " + token
+            }
+        })
+        .then(res => {
+            if(res.data==="superuser"){
+                window.location.href = "http://admin.daeoebi.com"
+            } else {
+                alert("권한이 없습니다.")
+            }
+        })
+    }
+
     componentDidMount(){
         localStorage.setItem("checkedstudent", "")
     }
@@ -21,6 +50,7 @@ class Home extends React.Component{
                 <div className="background-container">
                     <img src={Bg} alt={Bg} className="home-background"/>    
                 </div>
+                <div onClick={() => this.goAdmin()} className="admin-btn">admin</div>
             </Layout>
         )
     }
