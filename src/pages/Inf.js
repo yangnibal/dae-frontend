@@ -39,7 +39,7 @@ class Inf extends React.Component{
                 <div className="grademanage-content-container">
                     <Link className="inf-content" to="/inf/vid">동영상 자료</Link>
                     <Link className="inf-content" to="/inf/mat">인터넷 검색 자료</Link>
-                    <Link className="inf-content" to="/">파일 출력 가능 자료</Link>
+                    <Link className="inf-content" to="/">첨부 파일 자료</Link>
                 </div>
             </div>
         )
