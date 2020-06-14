@@ -92,23 +92,28 @@ class GradeList extends React.Component{
         store.gradeinfo = {name: name, grade: grade, group: group, score: score, id: id}
         this.props.history.push(`/ac/score/${id}/update`) 
     }
-    @action gradeRemove = (id) => {
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
+    @action gradeRemove = (id, name) => {
+        const { store } = this.props
         axios.delete("http://api.daeoebi.com/scores/" + id + "/", {
             headers: {
-                Authorization: "Token " + token
+                Authorization: "Token " + store.getToken()
             }
         })
         .then(res => {
-            
-            window.location.reload()
+            axios.post("http://api.daeoebi.com/tests/deletestd/", ({
+                name: name,
+                id: this.testinfo.id
+            }), {
+                headers: {
+                    Authorization: "Token " + store.getToken()
+                }
+            })
+            .then(res => {
+                window.location.reload()
+            })
+            .catch(err => {
+                
+            })
         })
         .catch(err => {
             
@@ -191,7 +196,7 @@ class GradeList extends React.Component{
                 rank={grade.rank}
                 rating={grade.rating}
                 gradeModify={() => this.gradeModify(grade.name, grade.grade, grade.group, grade.score, grade.id)}
-                gradeRemove={() => this.gradeRemove(grade.id)}
+                gradeRemove={() => this.gradeRemove(grade.id, grade.name)}
                 key={grade.id}
                 movePrintPage={() => this.movePrintPage(grade.name, grade.grade, grade.group, grade.score, grade.percent, grade.rank, grade.rating, this.testinfo.additional_info, this.testinfo.schoolyear, this.testinfo.test_type, this.testinfo.cand_num, this.testinfo.average, this.testinfo.std_dev, this.testinfo.subject, grade.z, grade.prob_dens, grade.id)}
             />

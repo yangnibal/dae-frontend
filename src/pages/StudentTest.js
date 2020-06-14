@@ -39,8 +39,9 @@ class StudentTest extends React.Component{
             }
         })
         .then(res => {
-            axios.post("http://api.daeoebi.com/tests/" + test_id + "/deletestd/", ({
-                std_name: this.name
+            axios.post("http://api.daeoebi.com/tests/deletestd/", ({
+                name: this.name,
+                id: test_id
             }), {
                 headers: {
                     Authorization: "Token " + store.getToken()
