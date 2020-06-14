@@ -33,6 +33,23 @@ class PrintContent extends React.Component{
             console.log(err)
         })
     }
+    @action handleFileChange = (e) => {
+        const { store } = this.props
+        const file = e.target.files[0]
+        var formData = new FormData()
+        formData.append("logo", file)
+        axios.post("https://api.daeoebi.com/logos/", formData, {
+            headers: {
+                Authorization: "Token " + store.getToken()
+            }
+        })
+        .then(res => {
+            window.location.reload()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
     @action can = () => {
         document.documentElement.scrollTop = 0;
         setTimeout(() => {
@@ -259,7 +276,7 @@ class PrintContent extends React.Component{
                         </div>
                         <div className="print-logo-container">
                             <div className="logo-sticky-container">
-                                <img crossOrigin="anonymous" src={this.logo} alt={Logo} height="100%" width="auto"/>
+                                <img crossOrigin="anonymous" src={this.logo==="https://api.daeoebi.comundefined" ? Logo : this.logo} alt={Logo} height="100%" width="auto"/>
                             </div>
                         </div>
                     </div>
