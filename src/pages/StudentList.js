@@ -56,7 +56,7 @@ class StudentList extends React.Component{
         } else {
             token = stoken
         }
-        axios.delete("http://api.daeoebi.com/students/" + id + "/", {
+        axios.delete("https://api.daeoebi.com/students/" + id + "/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -93,7 +93,7 @@ class StudentList extends React.Component{
             token = stoken
         }
         const group = []
-        axios.get("http://api.daeoebi.com/groups/getmygroup/", {
+        axios.get("https://api.daeoebi.com/groups/getmygroup/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -117,7 +117,7 @@ class StudentList extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/students/findstd/", ({
+        axios.post("https://api.daeoebi.com/students/findstd/", ({
             grade: grade,
             group: group,
             name: name
@@ -152,7 +152,7 @@ class StudentList extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {
@@ -162,7 +162,7 @@ class StudentList extends React.Component{
         .then(res => {
             if(res.data==="canuseit"){
                 this.getGroup()
-                axios.get("http://api.daeoebi.com/students/getmystd/", {
+                axios.get("https://api.daeoebi.com/students/getmystd/", {
                     headers: {
                         Authorization: "Token " + token
                     }

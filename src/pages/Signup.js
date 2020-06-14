@@ -75,7 +75,7 @@ class Signup extends React.Component{
     }
     @action duplicate_Username = () => {
         if(this.username.length>=6 && this.username.length<=11){
-            axios.post("http://api.daeoebi.com/users/duplicate/", ({
+            axios.post("https://api.daeoebi.com/users/duplicate/", ({
                 username: this.username
             }))
             .then(res => {
@@ -113,7 +113,7 @@ class Signup extends React.Component{
                 alert("비밀번호 확인을 해 주시기 바랍니다.")
             } else {
                 if(this.name!=="" && this.phone!=="" && this.email!=="" && this.username!=="" && this.terms===true && this.privacy===true){
-                    axios.post("http://api.daeoebi.com/users/", ({
+                    axios.post("https://api.daeoebi.com/users/", ({
                         username: this.username,
                         name: this.name,
                         password: this.password,

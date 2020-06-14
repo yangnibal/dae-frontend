@@ -55,7 +55,7 @@ class NewTest extends React.Component{
             token = stoken
         }
         if(schoolyear!=="" && test_type!=="" && subject!=="" && average!=="" && std_dev!=="" && cand_num!=="" && additional_info!==""){
-            axios.patch("http://api.daeoebi.com/tests/" + testinfo.id + "/", ({
+            axios.patch("https://api.daeoebi.com/tests/" + testinfo.id + "/", ({
                 grade: schoolyear,
                 test_type: test_type,
                 subject: subject,
@@ -82,7 +82,7 @@ class NewTest extends React.Component{
 
     componentDidMount(){
         const { store } = this.props;
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {

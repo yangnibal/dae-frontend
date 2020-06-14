@@ -15,7 +15,7 @@ class VidDetail extends React.Component{
         const { store } = this.props
         var path = window.location.href
         path = path.split("/")[5]
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 1
         }), {
             headers: {
@@ -24,7 +24,7 @@ class VidDetail extends React.Component{
         })
         .then(res => {
             if(res.data==="canuseit"){
-                axios.get("http://api.daeoebi.com/videos/" + path + "/", {
+                axios.get("https://api.daeoebi.com/videos/" + path + "/", {
                     headers: {
                         Authorization: "Token " + store.getToken()
                     }

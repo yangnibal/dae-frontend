@@ -17,7 +17,7 @@ class FindPw extends React.Component{
         this[name] = value
     }
     @action FindPw = (username, email, phone_number, name) => {
-        axios.post("http://api.daeoebi.com/users/findpw/", ({
+        axios.post("https://api.daeoebi.com/users/findpw/", ({
             username: username,
             email: email,
             phone_number: phone_number,

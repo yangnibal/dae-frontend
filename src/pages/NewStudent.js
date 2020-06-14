@@ -48,7 +48,7 @@ class NewStudent extends React.Component{
         }
         if(name!=="" && grade!==""){
             if(group===""){
-                axios.post("http://api.daeoebi.com/students/", ({
+                axios.post("https://api.daeoebi.com/students/", ({
                     name: name,
                     grade: grade
                 }), {
@@ -68,7 +68,7 @@ class NewStudent extends React.Component{
                     
                 })
             } else {
-                axios.post("http://api.daeoebi.com/students/", ({
+                axios.post("https://api.daeoebi.com/students/", ({
                     name: name,
                     grade: grade,
                     group: group
@@ -105,7 +105,7 @@ class NewStudent extends React.Component{
             token = stoken
         }
         const group = []
-        axios.get("http://api.daeoebi.com/groups/getmygroup/", {
+        axios.get("https://api.daeoebi.com/groups/getmygroup/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -126,7 +126,7 @@ class NewStudent extends React.Component{
 
     componentDidMount(){
         const { store } = this.props
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {

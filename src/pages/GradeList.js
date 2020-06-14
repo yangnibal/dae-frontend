@@ -28,7 +28,7 @@ class GradeList extends React.Component{
     @action gettest = (token, test_id) => {
         var id = localStorage.getItem("test_id")
         if(id===null) id = test_id
-        axios.get("http://api.daeoebi.com/tests/" + id + "/", {
+        axios.get("https://api.daeoebi.com/tests/" + id + "/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -43,7 +43,7 @@ class GradeList extends React.Component{
     @action getscore = (token, id) => {
         var test_id = localStorage.getItem("test_id")
         if(test_id===null) test_id = id
-        axios.post("http://api.daeoebi.com/scores/gettestscore/", ({
+        axios.post("https://api.daeoebi.com/scores/gettestscore/", ({
             test_id: test_id
         }), {
             headers: {
@@ -61,7 +61,7 @@ class GradeList extends React.Component{
     @action joinArr = (token, id) => {
         var test_id = localStorage.getItem("test_id")
         if(test_id===null) test_id = id
-        axios.post("http://api.daeoebi.com/students/getteststd/", ({
+        axios.post("https://api.daeoebi.com/students/getteststd/", ({
             test_id: test_id
         }), {
             headers: {
@@ -94,13 +94,13 @@ class GradeList extends React.Component{
     }
     @action gradeRemove = (id, name) => {
         const { store } = this.props
-        axios.delete("http://api.daeoebi.com/scores/" + id + "/", {
+        axios.delete("https://api.daeoebi.com/scores/" + id + "/", {
             headers: {
                 Authorization: "Token " + store.getToken()
             }
         })
         .then(res => {
-            axios.post("http://api.daeoebi.com/tests/deletestd/", ({
+            axios.post("https://api.daeoebi.com/tests/deletestd/", ({
                 name: name,
                 id: this.testinfo.id
             }), {
@@ -154,7 +154,7 @@ class GradeList extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {
@@ -163,7 +163,7 @@ class GradeList extends React.Component{
         })
         .then(res => {
             if(res.data==="canuseit"){
-                axios.get("http://api.daeoebi.com/materials", {
+                axios.get("https://api.daeoebi.com/materials", {
                     headers: {
                         Authorization: "Token " + token
                     }

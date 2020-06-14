@@ -35,7 +35,7 @@ class InputScore extends React.Component{
         for(var i in student){
             data.push({student: student[i].name, score: student[i].score, test: student[i].test_id})
         }
-        axios.post("http://api.daeoebi.com/scores/getlist/", ({
+        axios.post("https://api.daeoebi.com/scores/getlist/", ({
             data
         }), {
             headers: {
@@ -53,7 +53,7 @@ class InputScore extends React.Component{
 
     componentDidMount(){
         const { store } = this.props
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {

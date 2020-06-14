@@ -20,13 +20,13 @@ class PrintContent extends React.Component{
         
     @action getLogo = () => {
         const { store } = this.props
-        axios.get("http://api.daeoebi.com/logos/getmylogo/", {
+        axios.get("https://api.daeoebi.com/logos/getmylogo/", {
             headers: {
                 Authorization: "Token " + store.getToken() 
             }
         })
         .then(res => {
-            var logo = "http://api.daeoebi.com"
+            var logo = "https://api.daeoebi.com"
             this.logo = logo + res.data['logo']
         })
         .catch(err => {
@@ -51,7 +51,7 @@ class PrintContent extends React.Component{
     
     componentDidMount(){
         const { store } = this.props
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {

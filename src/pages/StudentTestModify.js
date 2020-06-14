@@ -23,7 +23,7 @@ class StudentTestModify extends React.Component{
     }
     @action modify = () => {
         const { store } = this.props
-        axios.put("http://api.daeoebi.com/scores/" + this.path + "/", ({
+        axios.put("https://api.daeoebi.com/scores/" + this.path + "/", ({
             score: this.score,
             test: this.test,
             student: this.student
@@ -45,7 +45,7 @@ class StudentTestModify extends React.Component{
         const { store } = this.props
         var path = window.location.href
         this.path = path.split("/")[5]
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {
@@ -54,7 +54,7 @@ class StudentTestModify extends React.Component{
         })
         .then(res => {
             if(res.data==="canuseit"){
-                axios.get("http://api.daeoebi.com/scores/" + this.path + "/", {
+                axios.get("https://api.daeoebi.com/scores/" + this.path + "/", {
                     headers: {
                         Authorization: "Token " + store.getToken()
                     }

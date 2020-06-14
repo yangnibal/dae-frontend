@@ -42,7 +42,7 @@ class TestList extends React.Component{
         } else {
             token = stoken
         }
-        axios.delete("http://api.daeoebi.com/tests/" + id + "/", {
+        axios.delete("https://api.daeoebi.com/tests/" + id + "/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -67,7 +67,7 @@ class TestList extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/tests/findtest/", ({
+        axios.post("https://api.daeoebi.com/tests/findtest/", ({
             grade: grade,
             test_type: semester,
             subject: subject
@@ -96,7 +96,7 @@ class TestList extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {
@@ -105,7 +105,7 @@ class TestList extends React.Component{
         })
         .then(res => {
             if(res.data==="canuseit"){
-                axios.get("http://api.daeoebi.com/tests/getmytest/", {
+                axios.get("https://api.daeoebi.com/tests/getmytest/", {
                     headers: {
                         Authorization: "Token "+token
                     }

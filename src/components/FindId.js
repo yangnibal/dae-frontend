@@ -16,7 +16,7 @@ class FindId extends React.Component{
         this[name] = value
     }
     @action findID = (name, phone_number, email) => {
-        axios.post("http://api.daeoebi.com/users/findid/", ({
+        axios.post("https://api.daeoebi.com/users/findid/", ({
             name: name,
             phone_number: phone_number,
             email: email

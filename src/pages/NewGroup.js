@@ -27,7 +27,7 @@ class NewGroup extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/groups/", ({
+        axios.post("https://api.daeoebi.com/groups/", ({
             name: name
         }), {
             headers: {
@@ -49,7 +49,7 @@ class NewGroup extends React.Component{
 
     componentDidMount(){
         const { store } = this.props
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {

@@ -33,13 +33,13 @@ class StudentTest extends React.Component{
     }
     @action Remove = (score_id, test_id) => {
         const { store } = this.props
-        axios.delete("http://api.daeoebi.com/scores/" + score_id + "/", {
+        axios.delete("https://api.daeoebi.com/scores/" + score_id + "/", {
             headers: {
                 Authorization: "Token " + store.getToken()
             }
         })
         .then(res => {
-            axios.post("http://api.daeoebi.com/tests/deletestd/", ({
+            axios.post("https://api.daeoebi.com/tests/deletestd/", ({
                 name: this.name,
                 id: test_id
             }), {
@@ -68,7 +68,7 @@ class StudentTest extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/scores/findscore/", ({
+        axios.post("https://api.daeoebi.com/scores/findscore/", ({
             grade: grade,
             test_type: test_type,
             subject: subject,
@@ -133,7 +133,7 @@ class StudentTest extends React.Component{
         } else {
             token = stoken
         }
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {
@@ -142,7 +142,7 @@ class StudentTest extends React.Component{
         })
         .then(res => {
             if(res.data==="canuseit"){
-                axios.get("http://api.daeoebi.com/students/" + id + "/", {
+                axios.get("https://api.daeoebi.com/students/" + id + "/", {
                     headers: {
                         Authorization: "Token " + token
                     }
@@ -153,7 +153,7 @@ class StudentTest extends React.Component{
                 .catch(err => {
                     
                 })
-                axios.post("http://api.daeoebi.com/groups/getstdgroup/", ({
+                axios.post("https://api.daeoebi.com/groups/getstdgroup/", ({
                     name: this.name
                 }), {
                     headers: {
@@ -166,7 +166,7 @@ class StudentTest extends React.Component{
                 .catch(err => {
                     
                 })
-                axios.post("http://api.daeoebi.com/scores/getstdscore/", ({
+                axios.post("https://api.daeoebi.com/scores/getstdscore/", ({
                     id: id
                 }), {
                     headers: {

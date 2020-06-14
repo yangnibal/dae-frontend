@@ -21,14 +21,14 @@ class Home extends React.Component{
         } else {
             token = stoken
         }
-        axios.get("http://api.daeoebi.com/users/issuperuser/", {
+        axios.get("https://api.daeoebi.com/users/issuperuser/", {
             headers: {
                 Authorization: "Token " + token
             }
         })
         .then(res => {
             if(res.data==="superuser"){
-                window.location.href = "http://admin.daeoebi.com"
+                window.location.href = "https://admin.daeoebi.com"
             } else {
                 alert("권한이 없습니다.")
             }

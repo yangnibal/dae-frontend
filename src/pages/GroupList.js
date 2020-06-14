@@ -16,7 +16,7 @@ class GroupList extends React.Component{
 
     @action findGroup = () => {
         const { store } = this.props
-        axios.post("http://api.daeoebi.com/groups/findmygroup/", ({
+        axios.post("https://api.daeoebi.com/groups/findmygroup/", ({
             name: this.name
         }), {
             headers: {
@@ -36,7 +36,7 @@ class GroupList extends React.Component{
     }
     @action getGroup = () => {
         const { store } = this.props
-        axios.get("http://api.daeoebi.com/groups/getmygroup/", {
+        axios.get("https://api.daeoebi.com/groups/getmygroup/", {
             headers: {
                 Authorization: "Token " + store.getToken()
             }
@@ -53,7 +53,7 @@ class GroupList extends React.Component{
     }
     @action remove = (id) => {
         const { store } = this.props
-        axios.delete("http://api.daeoebi.com/groups/" + id + "/", {
+        axios.delete("https://api.daeoebi.com/groups/" + id + "/", {
             headers: {
                 Authorization: "Token " + store.getToken()
             }

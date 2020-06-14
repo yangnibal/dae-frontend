@@ -49,7 +49,7 @@ class StudentModify extends React.Component{
         const id = localStorage.getItem("std_id")
         if(name!=="" && grade!==""){
             if(group===""){
-                axios.patch("http://api.daeoebi.com/students/" + id + "/", ({
+                axios.patch("https://api.daeoebi.com/students/" + id + "/", ({
                     name: name,
                     grade: grade
                 }), {
@@ -65,7 +65,7 @@ class StudentModify extends React.Component{
                     
                 })
             } else {
-                axios.patch("http://api.daeoebi.com/students/" + id + "/", ({
+                axios.patch("https://api.daeoebi.com/students/" + id + "/", ({
                     name: name,
                     grade: grade,
                     group: group
@@ -97,7 +97,7 @@ class StudentModify extends React.Component{
             token = stoken
         }
         const group = []
-        axios.get("http://api.daeoebi.com/groups/getmygroup/", {
+        axios.get("https://api.daeoebi.com/groups/getmygroup/", {
             headers: {
                 Authorization: "Token " + token
             }
@@ -115,7 +115,7 @@ class StudentModify extends React.Component{
 
     componentDidMount(){
         const { store } = this.props
-        axios.post("http://api.daeoebi.com/users/caniuse/", ({
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: 2
         }), {
             headers: {
