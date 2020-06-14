@@ -47,7 +47,7 @@ class PrintContent extends React.Component{
             window.location.reload()
         })
         .catch(err => {
-            console.log(err)
+
         })
     }
     @action can = () => {

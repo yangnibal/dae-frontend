@@ -33,6 +33,9 @@ class Home extends React.Component{
                 alert("권한이 없습니다.")
             }
         })
+        .err(res => {
+            alert("권한이 없습니다.")
+        })
     }
 
     componentDidMount(){
