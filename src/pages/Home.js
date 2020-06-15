@@ -47,7 +47,7 @@ class Home extends React.Component{
                 <Header/>
                 <div className="home-content-container">
                     <Link to="/inf" className="home-content">[ 대외비 <span>&nbsp;1급 정보&nbsp;</span> 자료 제공 ] 프로그램</Link>
-                    <Link to="/gm" className="home-content">[ 대외비 <span>&nbsp;성적 등급&nbsp;</span> 관리 ] 프로그램</Link>
+                    <Link to="/ac" className="home-content">[ 대외비 <span>&nbsp;성적 등급&nbsp;</span> 관리 ] 프로그램</Link>
                     <Link to="" onClick={() => alert("오픈 준비중인 기능입니다.")} className="home-content">[ 대외비 <span>&nbsp;교재 출력&nbsp;</span> 관리 ] 프로그램</Link>
                 </div>
                 <div className="background-container">

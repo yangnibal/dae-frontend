@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import Grademanage from './pages/Grademanage'
 import Academy from './pages/Academy';
 import NewTest from './pages/NewTest'
 import StudentList from './pages/StudentList'
@@ -41,7 +40,6 @@ class App extends React.Component{
 						<Route exact path="/account/findid" component={FindId}/>
 						<Route exact path="/account/findpw" component={FindPw}/>
 						<Route exact path="/account/edit" component={EditUserInfo}/>
-						<Route exact path="/gm" component={Grademanage}/>
 						<Route exact path="/ac" component={Academy}/>
 						<Route exact path="/ac/test" component={TestList}/>
 						<Route exact path="/ac/test/new" component={NewTest}/>

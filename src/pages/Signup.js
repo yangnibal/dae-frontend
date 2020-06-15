@@ -182,7 +182,7 @@ class Signup extends React.Component{
                     <div className="signup-terms-container">
                         <div className="signup-terms-container-left">
                             <input checked={this.terms} onChange={this.handleCheckboxChange} name="terms" type="checkbox" id="signup-terms-allow"/>
-                            <label htmlFor="signup-terms-allow"/>
+                            <label htmlFor="signup-terms-allow">{this.terms===true ? "✓" : null}</label>
                             <span className="signup-terms-text">이용 약관 동의 (필수)</span>
                         </div>
                         <div className="signup-terms-container-right">
@@ -193,7 +193,7 @@ class Signup extends React.Component{
                     <div className="signup-private-container">
                         <div className="signup-private-container-left">
                             <input checked={this.privacy} onChange={this.handleCheckboxChange} name="privacy" type="checkbox" id="signup-private-info"/>
-                            <label htmlFor="signup-private-info"/>
+                            <label htmlFor="signup-private-info">{this.privacy===true ? "✓" : null}</label>
                             <span className="signup-private-text">개인정보처리방침 동의 (필수)</span>
                         </div>
                         <div className="signup-private-container-right">

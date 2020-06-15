@@ -56,9 +56,9 @@
             height: 20px;
             border: 1px solid #333333;
             cursor: pointer;
-        }
-        input[id="checkbox"]:checked + label {
-            background: #404040;
+            color: white;
+            text-align: center;
+            font-size: 2rem;
         }
         .login-input-checkbox{
             display: none;

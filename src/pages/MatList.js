@@ -133,8 +133,6 @@ class MatList extends React.Component{
                             <DropDown placeholder="그룹" option={store.infgroup} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <div className="vid-header-search-btn" onClick={() => this.findMat(this.schoolyear, this.group, this.subject)}>검색</div>
                         </div>
-                        <div className="vid-header-right">
-                        </div>
                     </div>
                     <div className="vid-body">
                         <div className="vid-body-header">

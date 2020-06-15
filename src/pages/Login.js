@@ -66,7 +66,7 @@ class Login extends React.Component{
                 </div>
                 <div className="checkbox-container">
                     <input checked={this.saveId} onChange={this.handleCheckboxChange} name="saveId" id="checkbox" type="checkbox" className="login-input-checkbox"/>
-                    <label htmlFor="checkbox"/>
+                    <label htmlFor="checkbox">{this.saveId===true ? "✓" : null}</label>
                     <span className="checkbox-text">아이디 저장</span>
                 </div>
                 <div className="login-btn" onClick={() => this.handleLogin()}>로그인</div>

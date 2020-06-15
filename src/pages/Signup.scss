@@ -143,9 +143,9 @@
                     height: 20px;
                     margin-left: 2rem;
                     margin-right: 1rem;
-                }
-                input[id="signup-terms-allow"]:checked + label{
-                    background: #404040;
+                    color: white;
+                    text-align: center;
+                    font-size: 2rem;
                 }
                 .signup-terms-text{
                     font-size: 1.1rem;
@@ -191,10 +191,9 @@
                     height: 20px;
                     margin-left: 2rem;
                     margin-right: 1rem;
+                    color: white;
                     text-align: center;
-                }
-                input[id="signup-private-info"]:checked + label{
-                    background: #404040;
+                    font-size: 2rem;
                 }
                 .signup-private-text{
                     font-size: 1.1rem;
