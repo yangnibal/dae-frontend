@@ -6,6 +6,7 @@ export default class Store{
     @observable gradeinfo = {}
     @observable checkedStudents = []
     @observable schoolyear = [
+	{ value: "", label: "전체" },
         { value: "초1", label: "초1" },
         { value: "초2", label: "초2" },
         { value: "초3", label: "초3" },
@@ -20,7 +21,8 @@ export default class Store{
         { value: "고3", label: "고3" },
     ]
     @observable semester = [
-        { value: "1학기 중간", label: "1학기 중간" },
+        { value: "", label: "전체" },
+	{ value: "1학기 중간", label: "1학기 중간" },
         { value: "1학기 기말", label: "1학기 기말" },
         { value: "2학기 중간", label: "2학기 중간" },
         { value: "2학기 기말", label: "2학기 기말" },
@@ -30,12 +32,15 @@ export default class Store{
         { value: "11월 모의고사", label: "11월 모의고사" },
     ]
     @observable subject = [
+	{ value: "", label: "전체" },
         { value: "수학", label: "수학" },
         { value: "영어", label: "영어" },
         { value: "국어", label: "국어" },
         { value: "과학", label: "과학" },
     ]
-    @observable group = []
+    @observable group = [
+    	{ value: "", label: "전체" },
+    ]
     @observable data = [
         {
             "점수 비교": "평균",

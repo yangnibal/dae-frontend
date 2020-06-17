@@ -136,7 +136,7 @@ class MatList extends React.Component{
                     </div>
                     <div className="vid-body">
                         <div className="vid-body-header">
-                            <div className="mat-body-header-text">자료 이름</div>
+                            <div className="mat-body-header-text">자료 이름</div>
                             <div className="mat-body-header-text">과목</div>
                             <div className="mat-body-header-text">추천 학년</div>
                             <div className="mat-body-header-text">그룹</div>

@@ -148,6 +148,7 @@ class GradeList extends React.Component{
     componentDidMount(){
         const ltoken = localStorage.getItem('token')
         const stoken = sessionStorage.getItem('token')
+	localStorage.removeItem("test_id")
         var token = ""
         if(stoken===null){
             token = ltoken
@@ -198,7 +199,7 @@ class GradeList extends React.Component{
                 gradeModify={() => this.gradeModify(grade.name, grade.grade, grade.group, grade.score, grade.id)}
                 gradeRemove={() => this.gradeRemove(grade.id, grade.name)}
                 key={grade.id}
-                movePrintPage={() => this.movePrintPage(grade.name, grade.grade, grade.group, grade.score, grade.percent, grade.rank, grade.rating, this.testinfo.additional_info, this.testinfo.schoolyear, this.testinfo.test_type, this.testinfo.cand_num, this.testinfo.average, this.testinfo.std_dev, this.testinfo.subject, grade.z, grade.prob_dens, grade.id)}
+                movePrintPage={() => this.movePrintPage(grade.name, grade.grade, grade.group, grade.score, grade.percent, grade.rank, grade.rating, this.testinfo.additional_info, this.testinfo.grade, this.testinfo.test_type, this.testinfo.cand_num, this.testinfo.average, this.testinfo.std_dev, this.testinfo.subject, grade.z, grade.prob_dens, grade.id)}
             />
         ))
         return(
@@ -220,7 +221,7 @@ class GradeList extends React.Component{
                         <div className="grade-content-body-header">
                             <div className="grade-content-body-header-text">학생 구분</div>
                             <div className="grade-content-body-header-text">내점수</div>
-                            <div className="grade-content-body-header-text">백분율</div>
+                            <div className="grade-content-body-header-text">백분율</div>
                             <div className="grade-content-body-header-text">예상 등수</div>
                             <div className="grade-content-body-header-text">등급</div>
                         </div>

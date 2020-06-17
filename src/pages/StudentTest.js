@@ -240,7 +240,7 @@ class StudentTest extends React.Component{
                         <div className="grade-content-body-header">
                             <div className="grade-content-body-header-text">TEST 구분</div>
                             <div className="grade-content-body-header-text">내점수</div>
-                            <div className="grade-content-body-header-text">백분율</div>
+                            <div className="grade-content-body-header-text">백분율</div>
                             <div className="grade-content-body-header-text">예상 등수</div>
                             <div className="grade-content-body-header-text">등급</div>
                         </div>

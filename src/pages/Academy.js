@@ -9,6 +9,7 @@ class Academy extends React.Component{
     componentDidMount(){
         const ltoken = localStorage.getItem('token')
         const stoken = sessionStorage.getItem('token')
+	localStorage.removeItem("test_id")
         var token = ""
         if(stoken===null){
             token = ltoken
