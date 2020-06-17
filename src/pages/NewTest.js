@@ -23,16 +23,20 @@ class NewTest extends React.Component{
         this.schoolyear = e.value
     }
 
+    @action testtypeChange = (e) => {
+        this.test_type = e.value
+    }
+
     @action init_data = (flag) => {
         if(flag){
             this.schoolyear = ""
+            this.test_type = ""
         }
         this.average = ""
         this.std_dev = ""
         this.cand_num = ""
         this.additional_info = ""
         this.subject = ""
-        this.test_type = ""
     }
     @action handleChange = (e) => {
         const { name, value } = e.target
@@ -104,7 +108,7 @@ class NewTest extends React.Component{
                 <div className="newtest-content-container">
                     <div className="newtest-content-title">TEST 기본 정보 입력</div>
                     <DropDown placeholder="학년 선택" option={store.schoolyear} className="newtest-content-dropdown" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                    <input name="test_type" value={this.test_type} onChange={this.handleChange} className="newtest-content-input" placeholder="TEST 종류 선택"/>
+                    <DropDown placeholder="TEST 종류 선택" option={store.semester} className="newtest-content-dropdown" classNamePrefix="react-select" onChange={this.testtypeChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                     <input name="subject" value={this.subject} onChange={this.handleChange} className="newtest-content-input" placeholder="과목 입력"/>
                     <input name="additional_info" value={this.additional_info} onChange={this.handleChange} className="newtest-content-input" placeholder="TEST 추가 정보 입력(학교 등)"/>
                     <input name="average" value={this.average} onChange={this.handleChange} className="newtest-content-input" placeholder="평균 입력"/>

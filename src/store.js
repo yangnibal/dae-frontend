@@ -22,10 +22,8 @@ export default class Store{
     ]
     @observable semester = [
         { value: "", label: "전체" },
-	{ value: "1학기 중간", label: "1학기 중간" },
-        { value: "1학기 기말", label: "1학기 기말" },
-        { value: "2학기 중간", label: "2학기 중간" },
-        { value: "2학기 기말", label: "2학기 기말" },
+	    { value: "1학기", label: "1학기" },
+        { value: "2학기", label: "2학기" },
         { value: "3월 모의고사", label: "3월 모의고사" },
         { value: "6월 모의고사", label: "6월 모의고사" },
         { value: "9월 모의고사", label: "9월 모의고사" },
