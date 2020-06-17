@@ -32,6 +32,7 @@ class NewTest extends React.Component{
         this.cand_num = ""
         this.additional_info = ""
         this.subject = ""
+        this.test_type = ""
     }
     @action handleChange = (e) => {
         const { name, value } = e.target
