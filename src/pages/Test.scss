@@ -143,6 +143,9 @@
                     margin-left: 0.5rem;
                     cursor: pointer;
                     min-width: 40px;
+                    &:hover{
+                        color: #777676;
+                    }
                 }
             }
             .test-content-header-right{
@@ -157,6 +160,9 @@
                     padding: 0.2rem 1.5rem;
                     text-decoration: none;
                     cursor: pointer;
+                    &:hover{
+                        color: #777676;
+                    }
                 }
             }
         }
@@ -217,7 +223,10 @@
                         display: flex;
                         justify-content: center;
                         margin-left: 4vw;
-			cursor: pointer;
+                        cursor: pointer;
+                        &:hover{
+                            color: #777676;
+                        }
                     }
                     .testcontent-average{
                         width: 9vw;
@@ -242,6 +251,9 @@
                         color: #f6c243;
                         font-weight: 600;
                         font-size: 1.2rem;
+                        &:hover{
+                            color: #926a05;
+                        }
                     }
                     .testcontent-modify-remove{
                         display: flex;
@@ -249,10 +261,16 @@
                         width: 20vw;
                         .testcontent-modify{
                             cursor: pointer;
+                            &:hover{
+                                color: #777676;
+                            }
                         }
                         .testcontent-remove{
                             margin-right: 8vw;
                             cursor: pointer;
+                            &:hover{
+                                color: #777676;
+                            }
                         }
                     }
                 }

@@ -24,6 +24,9 @@
             height: 270px;
             margin-right: 0.5rem;
             background: #2d3c20;
+            &:hover{
+                background: #1d2715;
+            }
         }
         .academy-content-student{
             text-decoration: none;
@@ -37,6 +40,9 @@
             width: 270px;
             margin-left: 0.5rem;
             background: #1d2944;
+            &:hover{
+                background: #12192b;
+            }
         }
     }
 }

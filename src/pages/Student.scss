@@ -121,6 +121,9 @@
                     cursor: pointer;
                     min-width: 40px;
                     text-decoration: none;
+                    &:hover{
+                        color: #777676;
+                    }
                 }
             }
             .student-content-header-right{
@@ -135,6 +138,9 @@
                     padding: 0.2rem 1.5rem;
                     text-decoration: none;
                     cursor: pointer;
+                    &:hover{
+                        color: #777676;
+                    }
                 }
             }
         }
@@ -223,6 +229,9 @@
                         display: flex;
                         justify-content: center;
                         cursor: pointer;
+                        &:hover{
+                            color: #777676;
+                        }
                     }
                     .studentcontent-grade{
                         width: 16vw;
@@ -240,10 +249,16 @@
                         justify-content: center;
                         .studentcontent-modify{
                             cursor: pointer;
+                            &:hover{
+                                color: #777676;
+                            }
                         }
                         .studentcontent-remove{
                             margin-right: 8vw;
                             cursor: pointer;
+                            &:hover{
+                                color: #777676;
+                            }
                         }
                     }
                 }
@@ -260,6 +275,9 @@
                     padding: 0.7rem 1.5rem;
                     font-size: 1.2rem;
                     cursor: pointer;
+                    &:hover{
+                        color: #777676;
+                    }
                     &:nth-child(1){
                         margin-right: 20px;
                     }

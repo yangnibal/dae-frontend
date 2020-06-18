@@ -116,6 +116,9 @@
                 border-radius: 20px;
                 margin: 0 1rem;
                 text-decoration: none;
+                &:hover{
+                    color: #777676;
+                }
             }
         }
         .newstudent-content-btn-container{
@@ -137,6 +140,9 @@
                 font-size: 1.5rem;
                 border: 1px solid #807f80;
                 cursor: pointer;
+                &:hover{
+                    color: #777676;
+                }
                 &:nth-child(1){
                     margin-right: 0.5rem;
                 }

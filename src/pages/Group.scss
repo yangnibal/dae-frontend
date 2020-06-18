@@ -50,6 +50,9 @@
                     margin-left: 0.5rem;
                     cursor: pointer;
                     min-width: 40px;
+                    &:hover{
+                        color: #777676;
+                    }
                 }
             }
             .group-header-right{
@@ -64,6 +67,9 @@
                     padding: 0.2rem 1.5rem;
                     text-decoration: none;
                     cursor: pointer;
+                    &:hover{
+                        color: #777676;
+                    }
                 }
             }
             
@@ -152,6 +158,9 @@
                 font-size: 1.5rem;
                 border: 1px solid #807f80;
                 cursor: pointer;
+                &:hover{
+                    color: #777676;
+                }
                 &:nth-child(1){
                     margin-right: 0.5rem;
                 }
