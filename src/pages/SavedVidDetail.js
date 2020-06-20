@@ -3,23 +3,18 @@ import Header from '../components/Header'
 import { observer, inject } from 'mobx-react'
 import { observable } from 'mobx'
 import axios from 'axios'
-import OT from '../videos/ot.mp4'
-import Video2 from '../videos/2.mp4'
-import Video3 from '../videos/3.mp4'
-import Video4 from '../videos/4.mp4'
-import Video5 from '../videos/5.mp4'
 
 @inject('store')
 @observer
 class SavedVidDetail extends React.Component{
 
     @observable savedvids = {
-        ot: OT,
-        //first: Video1,
-        second: Video2,
-        third: Video3,
-        fourth: Video4,
-        fifth: Video5
+        ot: "https://api.daeoebi.com/media/videos/ot.mp4",
+        first: "https://api.daeoebi.com/media/videos/1.mp4",
+        second: "https://api.daeoebi.com/media/videos/2.mp4",
+        third: "https://api.daeoebi.com/media/videos/3.mp4",
+        fourth: "https://api.daeoebi.com/media/videos/4.mp4",
+        fifth: "https://api.daeoebi.com/media/videos/5.mp4"
     }
 
     @observable url = ""
@@ -48,7 +43,7 @@ class SavedVidDetail extends React.Component{
             this.props.history.push("/account/login")
         })
         if(path==="ot"){
-            this.url = OT
+            this.url = this.savedvids['ot']
         } else if(path==="1"){
             this.url = this.savedvids['first']
         } else if(path==="2"){
