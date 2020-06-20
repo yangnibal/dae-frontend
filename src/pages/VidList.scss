@@ -144,6 +144,9 @@
                     margin-left: 0.5rem;
                     cursor: pointer;
                     min-width: 40px;
+                    &:hover{
+                        color: #777676;
+                    }
                 }
             }
             .vid-header-right{

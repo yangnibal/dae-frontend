@@ -19,6 +19,9 @@ class VidList extends React.Component{
     @action watchVid = (id) => {
         this.props.history.push(`/inf/vid/${id}`)
     }
+    @action watchSavedVid = (id) => {
+        this.props.history.push(`/inf/savedvid/${id}`)
+    }
     @action schoolyearChange = (e) => {
         this.schoolyear = e.value
     }
@@ -144,6 +147,12 @@ class VidList extends React.Component{
                             <div className="vid-body-header-text">그룹</div>
                         </div>
                         <div className="vid-content-body">
+                            <VidContent name="대외비원패스오티" grade="전체" group="비교과" subject="대외비1PASS" watchVid={() => this.watchSavedVid("ot")}/>
+                            <VidContent name="1강 평가의 본질" grade="전체" group="비교과" subject="대외비1PASS" watchVid={() => this.watchSavedVid("1")}/>
+                            <VidContent name="2강 성적표 속의 비밀" grade="전체" group="비교과" subject="대외비1PASS" watchVid={() => this.watchSavedVid("2")}/>
+                            <VidContent name="3강 슬기로운 학교생활 초안" grade="전체" group="비교과" subject="대외비1PASS" watchVid={() => this.watchSavedVid("3")}/>
+                            <VidContent name="4강 학원 시간표 전략" grade="전체" group="비교과" subject="대외비1PASS" watchVid={() => this.watchSavedVid("4")}/>
+                            <VidContent name="5강 수학학습전략" grade="전체" group="비교과" subject="대외비1PASS" watchVid={() => this.watchSavedVid("5")}/>
                             {vidlist}
                         </div>
                     </div>

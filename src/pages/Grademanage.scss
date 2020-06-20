@@ -64,11 +64,20 @@
     margin-left: 0.5rem;
     &:nth-child(1){
         background: #4a3b0f;
+        &:hover{
+            background: #2e2509;
+        }
     }
     &:nth-child(2){
         background: #202f50;
+        &:hover{
+            background: #131c30;
+        }
     }
     &:nth-child(3){
         background: #28371b;
+        &:hover{
+            background: #151d0e;
+        }
     }
 }
