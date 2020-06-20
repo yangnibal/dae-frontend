@@ -16,7 +16,6 @@ import InputScore from './pages/InputScore'
 import StudentTest from './pages/StudentTest'
 import FindId from './components/FindId'
 import FindPw from './components/FindPw'
-import PrintProvider from 'react-easy-print'
 import PrintContent from './components/Print';
 import EditUserInfo from './pages/EditUserInfo'
 import Inf from './pages/Inf'
@@ -32,7 +31,6 @@ import SavedVidDetail from './pages/SavedVidDetail'
 class App extends React.Component{
 	render(){
 		return(
-			<PrintProvider>
 				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={Home}/>
@@ -64,7 +62,6 @@ class App extends React.Component{
 						<Route exact path="/groups/:groupid/update" component={GroupUpdate}/>
 					</Switch>
 				</BrowserRouter>
-			</PrintProvider>
 		)
 	}
 }
