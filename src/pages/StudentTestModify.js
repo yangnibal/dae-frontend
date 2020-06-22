@@ -33,7 +33,6 @@ class StudentTestModify extends React.Component{
             }
         })
         .then(res => {
-            
             this.props.history.goBack()
         })
         .catch(err => {
@@ -45,34 +44,23 @@ class StudentTestModify extends React.Component{
         const { store } = this.props
         var path = window.location.href
         this.path = path.split("/")[5]
-        axios.post("https://api.daeoebi.com/users/caniuse/", ({
-            type: 2
-        }), {
-            headers: {
-                Authorization: "Token "+store.getToken()
-            }
-        })
-        .then(res => {
-            if(res.data==="canuseit"){
-                axios.get("https://api.daeoebi.com/scores/" + this.path + "/", {
-                    headers: {
-                        Authorization: "Token " + store.getToken()
-                    }
-                })
-                .then(res => {
-                    this.score = res.data['score']
-                    this.test = res.data['test']
-                    this.student = res.data['student']
-                })
-                .catch(err => {
-                    alert("존재하지 않는 테스트입니다")
-                    this.props.history.goBack()
-                })
-            } else {
-                alert("접근 권한이 없습니다")
+        const doSomething = () => {
+            axios.get("https://api.daeoebi.com/scores/" + this.path + "/", {
+                headers: {
+                    Authorization: "Token " + store.getToken()
+                }
+            })
+            .then(res => {
+                this.score = res.data['score']
+                this.test = res.data['test']
+                this.student = res.data['student']
+            })
+            .catch(err => {
+                alert("존재하지 않는 테스트입니다")
                 this.props.history.goBack()
-            }
-        })
+            })
+        }
+        store.caniuse(2, doSomething)
     }
 
     render(){

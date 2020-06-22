@@ -1,6 +1,261 @@
 import { observable, action } from 'mobx'
+import axios from 'axios'
 
 export default class Store{
+
+    @action Post = (url, name, data, doSomething) => {
+        var formData = new FormData()
+        for(var i=0; i<name.length; i++){
+            formData.append(name[i], data[i])
+        }
+        axios.post(url, formData, {
+            headers: {
+                Authorization: "Token " + this.getToken()
+            }
+        })
+        .then(res => {
+            doSomething(res)
+        })
+    }
+    @action getToken(){
+        const ltoken = localStorage.getItem('token')
+        const stoken = sessionStorage.getItem('token')
+        var token = ""
+        if(stoken===null){
+            token = ltoken
+        } else {
+            token = stoken
+        }
+        return token
+    }
+    @action caniuse = (type, doSomething) => {
+        axios.post("https://api.daeoebi.com/users/caniuse/", ({
+            type: type
+        }), {
+            headers: {
+                Authorization: "Token " + this.getToken()
+            }
+        })
+        .then(res => {
+            if(res.data==="canuseit"){
+                doSomething()
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        })
+    }
+
+
+    @observable tests = []
+    @action getMyTest = () => {
+        const doSomething = () => {
+            axios.get("https://api.daeoebi.com/tests/getmytest/", {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.tests = res.data
+            })
+            .catch(err => {
+            })
+        }
+        this.caniuse(2, doSomething)
+    }
+    @action findTest = (grade, semester, subject) => {
+        const doSomething = () => {
+            axios.post("https://api.daeoebi.com/tests/findtest/", ({
+                grade: grade,
+                test_type: semester,
+                subject: subject
+            }), {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.tests = res.data
+            })
+            .catch(err => {
+            })
+        }
+        this.caniuse(2, doSomething)
+    }
+    @action testRemove = (id) => {
+        const doSomething = () => {
+            axios.delete("https://api.daeoebi.com/tests/" + id + "/", {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                window.location.reload()
+            })
+            .catch(err => {
+                
+            })
+        }
+        this.caniuse(2, doSomething)
+    }
+    @action getGroup = () => {
+        const doSomething = () => {
+            const group = []
+            axios.get("https://api.daeoebi.com/groups/getmygroup/", {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                for(var i in res.data){
+                    group.push({value: res.data[i]['name'], label: res.data[i]['name']})
+                }
+                this.group = group
+            })
+            .catch(err => {
+                
+            })
+        }
+        this.caniuse(2, doSomething)
+    }
+    @observable students = []
+    @action getStd = (test_id) => {
+        const doSomething = () => {
+            if(test_id===null) test_id = ""
+            this.getGroup()
+            axios.post("https://api.daeoebi.com/students/getmystd/", ({
+                test: test_id
+            }), {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                for(var i in res.data){
+                    res.data[i].isChecked=false
+                }
+                this.students = res.data
+            })
+            .catch(err => {
+                
+            })
+        }
+        this.caniuse(2, doSomething)
+    }
+    @action findstd = (grade, group, name) => {
+        const doSomething = () => {
+            axios.post("https://api.daeoebi.com/students/findstd/", ({
+                grade: grade,
+                group: group,
+                name: name
+            }), {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                for(var i in res.data){
+                    res.data[i].isChecked=false
+                }
+                this.students = res.data
+            })
+            .catch(err => {
+                
+            })
+        }
+        this.caniuse(2, doSomething)
+    }
+    @action studentRemove = (id) => {
+        const doSomething = () => {
+            axios.delete("https://api.daeoebi.com/students/" + id + "/", {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                window.location.reload()
+            })
+            .catch(err => {
+                
+            })
+        }
+        this.caniuse(2, doSomething)
+    }
+
+    @observable vids = []
+    @action findVid = (subject, grade, group) => {
+        const doSomething = () => {
+            axios.post("https://api.daeoebi.com/videos/findvid/", ({
+                grade: grade,
+                subject: subject,
+                group: group
+            }), {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.vids = res.data
+            })
+            .catch(err => {
+                
+            })
+        }
+        this.caniuse(1, doSomething)
+    }
+    @action getInfGroup = () => {
+        const group = []
+        axios.get("https://api.daeoebi.com/infgroups/", {
+            headers: {
+                Authorization: "Token " + this.getToken()
+            }
+        })
+        .then(res => {
+            var data = res.data['results']
+            for(var i in data){
+                group.push({value: data[i]['name'], label: data[i]['name']})
+            }
+            this.infgroup = group
+        })
+        .catch(err => {
+            
+        })
+    }
+    @action getVids = () => {
+        const doSomething = () => {
+            axios.get("https://api.daeoebi.com/videos", {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.vids = res.data['results']
+                this.getInfGroup()
+            })
+            .catch(err => {
+            })
+        }
+        this.caniuse(1, doSomething)
+    }
+    @observable iframe = ""
+    @action getIframe = (path) => {
+        const doSomething = () => {
+            axios.get("https://api.daeoebi.com/videos/" + path + "/", {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.iframe = res.data['iframe']
+            })
+            .catch(err => {
+                
+            })
+        }
+        this.caniuse(1, doSomething)  
+    }
+    
+    
     @observable testinfo = {}
     @observable studentinfo = {}
     @observable gradeinfo = {}
@@ -55,16 +310,4 @@ export default class Store{
     ]
     @observable printProps = {}
     @observable infgroup = []
-
-    @action getToken(){
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
-        return token
-    }
 }

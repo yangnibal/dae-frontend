@@ -16,6 +16,7 @@ class NewTest extends React.Component{
     @observable std_dev = ""
     @observable cand_num = ""
     @observable additional_info = ""
+    @observable path = ""
 
 
     @action schoolyearChange = (e) => {
@@ -41,21 +42,12 @@ class NewTest extends React.Component{
     }
     @action cancleModify = () => {
         this.init_data()
-        this.props.history.push("/ac/test")
+        this.props.history.goBack()
     }
     @action addTest = (schoolyear, test_type, subject, average, std_dev, cand_num, additional_info) => {
         const { store } = this.props
-        const testinfo = store.testinfo
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
         if(schoolyear!=="" && test_type!=="" && subject!=="" && average!=="" && std_dev!=="" && cand_num!=="" && additional_info!==""){
-            axios.patch("https://api.daeoebi.com/tests/" + testinfo.id + "/", ({
+            axios.patch("https://api.daeoebi.com/tests/" + this.path + "/", ({
                 grade: schoolyear,
                 test_type: test_type,
                 subject: subject,
@@ -65,12 +57,12 @@ class NewTest extends React.Component{
                 additional_info: additional_info,
             }), {
                 headers: {
-                    Authorization: "Token " + token
+                    Authorization: "Token " + store.getToken()
                 }
             })
             .then(res => {
                 this.init_data()
-                this.props.history.push("/ac/test/")
+                this.props.history.goBack()
             })
             .catch(err => {
                 
@@ -82,28 +74,29 @@ class NewTest extends React.Component{
 
     componentDidMount(){
         const { store } = this.props;
-        axios.post("https://api.daeoebi.com/users/caniuse/", ({
-            type: 2
-        }), {
-            headers: {
-                Authorization: "Token "+store.getToken()
-            }
-        })
-        .then(res => {
-            if(res.data==="canuseit"){
-                const testinfo = store.testinfo
-                this.schoolyear = testinfo.schoolyear
-                this.test_type = testinfo.test_type
-                this.subject = testinfo.subject
-                this.additional_info = testinfo.additional_info
-                this.average = testinfo.average
-                this.std_dev = testinfo.std_dev
-                this.cand_num = testinfo.cand_num
-            } else {
-                alert("접근 권한이 없습니다")
-                this.props.history.goBack()
-            }
-        })
+        var path = window.location.href
+        this.path = path.split("/")[5]
+        const doSomething = () => {
+            axios.get("https://api.daeoebi.com/tests/" + this.path + "/", {
+                headers: {
+                    Authorization: "Token " + store.getToken()
+                }
+            })
+            .then(res => {
+                this.schoolyear = res.data['grade']
+                this.test_type = res.data['test_type']
+                this.subject = res.data['subject']
+                this.std_dev = res.data['std_dev']
+                this.cand_num = res.data['cand_num']
+                this.subject = res.data['subject']
+                this.average = res.data['average']
+                this.additional_info = res.data['additional_info']
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+        store.caniuse(2, doSomething)
     }
 
     render(){

@@ -11,6 +11,7 @@ import DropDown from '../components/DropDown'
 @observer
 class StudentModify extends React.Component{
 
+    @observable path = ""
     @observable name = ""
     @observable grade = ""
     @observable group = ""
@@ -26,7 +27,6 @@ class StudentModify extends React.Component{
         this.name = ""
         this.grade = ""
         this.group = ""
-        localStorage.removeItem("std_id")
         store.studentinfo = {}
     }
     @action handleChange = (e) => {
@@ -38,23 +38,15 @@ class StudentModify extends React.Component{
         this.props.history.push("/ac/student")
     }
     @action addStudent = (name, grade, group) => {
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
-        const id = localStorage.getItem("std_id")
+        const { store } = this.props
         if(name!=="" && grade!==""){
             if(group===""){
-                axios.patch("https://api.daeoebi.com/students/" + id + "/", ({
+                axios.patch("https://api.daeoebi.com/students/" + this.path + "/", ({
                     name: name,
                     grade: grade
                 }), {
                     headers: {
-                        Authorization: "Token " + token
+                        Authorization: "Token " + store.getToken()
                     }
                 })
                 .then(res => {
@@ -65,18 +57,18 @@ class StudentModify extends React.Component{
                     
                 })
             } else {
-                axios.patch("https://api.daeoebi.com/students/" + id + "/", ({
+                axios.patch("https://api.daeoebi.com/students/" + this.path + "/", ({
                     name: name,
                     grade: grade,
                     group: group
                 }), {
                     headers: {
-                        Authorization: "Token " + token
+                        Authorization: "Token " + store.getToken()
                     }
                 })
                 .then(res => {
                     this.init_data()
-                    this.props.history.push("/ac/student")
+                    this.props.history.goBack()
                 })
                 .catch(err => {
                     
@@ -86,55 +78,26 @@ class StudentModify extends React.Component{
             alert("이름이나 학년을 입력해 주시기 바랍니다.")
         }
     }
-    @action getGroup = () => {
-        const { store } = this.props
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
-        const group = []
-        axios.get("https://api.daeoebi.com/groups/getmygroup/", {
-            headers: {
-                Authorization: "Token " + token
-            }
-        })
-        .then(res => {
-            for(var i in res.data){
-                group.push({value: res.data[i]['name'], label: res.data[i]['name']})
-            }
-            store.group = group
-        })
-        .catch(err => {
-            
-        })
-    }
 
     componentDidMount(){
         const { store } = this.props
-        axios.post("https://api.daeoebi.com/users/caniuse/", ({
-            type: 2
-        }), {
-            headers: {
-                Authorization: "Token "+store.getToken()
-            }
-        })
-        .then(res => {
-            if(res.data==="canuseit"){
-                const studentinfo = store.studentinfo
-                this.name = studentinfo.name
-                this.grade = studentinfo.grade
-                this.group = studentinfo.group
-                localStorage.setItem("std_id", studentinfo.id)
-                this.getGroup()
-            } else {
-                alert("접근 권한이 없습니다")
-                this.props.history.goBack()
-            }
-        })
+        var path = window.location.href
+        this.path = path.split("/")[5]
+        const doSomething = () => {
+            axios.get("https://api.daeoebi.com/students/" + this.path + "/", {
+                headers: {
+                    Authorization: "Token " + store.getToken()  
+                }
+            })
+            .then(res => {
+                this.name = res.data['name']
+                this.grade = res.data['grade']
+                this.group = res.data['group']
+            })
+            .catch(err => {
+            })
+        }
+        store.caniuse(2, doSomething)
     }
 
     render(){

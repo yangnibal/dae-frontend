@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import DropDown from '../components/DropDown'
 import { observer, inject } from 'mobx-react'
 import { observable, action } from 'mobx'
-import axios from 'axios'
 import StudentContent from '../components/StudentContent'
 
 @inject('store')
@@ -28,7 +27,8 @@ class StudentList extends React.Component{
         this.group = e.value
     }
     @action handleToggle = (e) => {
-        var student = this.students.find(student => student.id===e.target.id)
+        const { store } = this.props
+        var student = store.students.find(student => student.id===e.target.id)
         student.isChecked = !student.isChecked
     }
     @action handleChange = (e) => {
@@ -38,103 +38,27 @@ class StudentList extends React.Component{
     @action handleAllCheckboxChange = (e) => {
         const { name, checked } = e.target
         this[name] = checked
-        var students = this.students
+        const { store } = this.props
+        var students = store.students
         students.forEach(student => student.isChecked = e.target.checked)
         this.students = students
     }
-    @action studentModify = (name, grade, group, id) => {
-        const { store } = this.props
-        store.studentinfo = { name: name, grade: grade, group: group, id: id }
+    @action studentModify = (id) => {
         this.props.history.push(`/ac/student/${id}/update`)
     }
-    @action studentRemove = (id) => {
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
-        axios.delete("https://api.daeoebi.com/students/" + id + "/", {
-            headers: {
-                Authorization: "Token " + token
-            }
-        })
-        .then(res => {
-            window.location.reload()
-        })
-        .catch(err => {
-            
-        })
-    }
     @action gradeRegister = () => {
+        const { store } = this.props
         if(localStorage.getItem("test_id")!==null){
-            var students = this.students
+            var students = store.students
             const checkedStudents = students.filter(student => student.isChecked===true)
             localStorage.setItem("checkedstudent", JSON.stringify(checkedStudents))
             this.props.history.push("/ac/student/inputscore")
         } else {
             alert("테스트를 선택 해 주시기 바랍니다.")
         }
-        
     }
     @action choiceTest = () => {
         this.props.history.push("/ac/test")
-    }
-    @action getGroup = () => {
-        const { store } = this.props
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
-        const group = []
-        axios.get("https://api.daeoebi.com/groups/getmygroup/", {
-            headers: {
-                Authorization: "Token " + token
-            }
-        })
-        .then(res => {
-            for(var i in res.data){
-                group.push({value: res.data[i]['name'], label: res.data[i]['name']})
-            }
-            store.group = group
-        })
-        .catch(err => {
-            
-        })
-    }
-    @action findstd = (grade, group, name) => {
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
-        axios.post("https://api.daeoebi.com/students/findstd/", ({
-            grade: grade,
-            group: group,
-            name: name
-        }), {
-            headers: {
-                Authorization: "Token " + token
-            }
-        })
-        .then(res => {
-            for(var i in res.data){
-                res.data[i].isChecked=false
-            }
-            this.students = res.data
-        })
-        .catch(err => {
-            
-        })
     }
     @action nameClick = (id, name) => {
         this.props.history.push(`/ac/student/${id}`)
@@ -144,62 +68,27 @@ class StudentList extends React.Component{
 
     componentDidMount(){
         localStorage.setItem("std_name", "")
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
-        axios.post("https://api.daeoebi.com/users/caniuse/", ({
-            type: 2
-        }), {
-            headers: {
-                Authorization: "Token "+token
-            }
-        })
-        .then(res => {
-            if(res.data==="canuseit"){
-                this.getGroup()
-                axios.get("https://api.daeoebi.com/students/getmystd/", {
-                    headers: {
-                        Authorization: "Token " + token
-                    }
-                })
-                .then(res => {
-                    for(var i in res.data){
-                        res.data[i].isChecked=false
-                    }
-                    this.students = res.data
-                })
-                .catch(err => {
-                    
-                })
-            } else {
-                alert("접근 권한이 없습니다")
-                this.props.history.goBack()
-            }
-        })
+        const { store } = this.props
+        store.getStd(localStorage.getItem("test_id"))
     }
 
     render(){
         const { store } = this.props;
-        const studentlist = this.students.map(student => {return(
+        const test_id = localStorage.getItem("test_id")
+        const studentlist = store.students.map(student => (
             <StudentContent
                 name={student.name}
                 grade={student.grade}
                 group={student.group}
                 id={student.id}
                 key={student.id}
-                studentModify={() => this.studentModify(student.name, student.grade, student.group, student.id)}
-                studentRemove={() => this.studentRemove(student.id)}
+                studentModify={() => this.studentModify(student.id)}
+                studentRemove={() => store.studentRemove(student.id)}
                 checked={student.isChecked}
                 onChange={this.handleToggle}
                 onNameClick={() => this.nameClick(student.id, student.name)}
             />
-        )})
-        const test_id = localStorage.getItem("test_id")
+        )) 
         return(
             <div className="student-container">
                 <Header/>
@@ -210,7 +99,7 @@ class StudentList extends React.Component{
                             <DropDown placeholder="학년" option={store.schoolyear} className="student-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <DropDown placeholder="그룹" option={store.group} className="student-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <input value={this.name} onChange={this.handleChange} name="name" className="student-content-search-input" placeholder="이름"/>
-                            <div className="student-content-search-btn" onClick={() => this.findstd(this.schoolyear, this.group, this.name)}>검색</div>
+                            <div className="student-content-search-btn" onClick={() => store.findstd(this.schoolyear, this.group, this.name)}>검색</div>
                             <Link className="student-content-search-btn" to="/groups">그룹 관리</Link>
                         </div>
                         <div className="student-content-header-right">
