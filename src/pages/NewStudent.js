@@ -166,7 +166,7 @@ class NewStudent extends React.Component{
                     <input type="file" value={this.file} onChange={this.parseXl} id="xl" style={{display: "none"}}/>
                     <label htmlFor="xl" className="xl-upload">엑셀 일괄 업로드</label>
                 </div>
-                <a download href="http://localhost:3000/daeoebi.xlsx" className="xl-download">엑셀 양식 다운로드</a>
+                <a download href="https://api.daeoebi.com/media/daeoebi.xlsx" className="xl-download">엑셀 양식 다운로드</a>
             </div>
         )
     }
