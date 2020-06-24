@@ -7,7 +7,6 @@ import { observable, action } from 'mobx'
 import axios from 'axios'
 import DropDown from '../components/DropDown'
 import * as XLSX from 'xlsx'
-import { saveAs } from 'file-saver'
 
 @inject('store')
 @observer
