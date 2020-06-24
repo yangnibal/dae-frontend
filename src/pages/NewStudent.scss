@@ -39,6 +39,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    .xl-download{
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        border-radius: 20px;
+        padding: 0.5rem 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+    }
     .newstudent-content-container{
         height: calc(100% - 8rem);
         width: 50%;
@@ -46,6 +58,21 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        .xl-upload{
+            background: #28371b;
+            &:hover{
+                background: #151d0e;
+            }
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(90% + 1rem);
+            font-size: 1.5rem;
+            padding: 1rem;
+            min-width: calc(600px - 2rem);
+        }
         .newstudent-content-dropdown{
             color: white;
             border: none;

@@ -254,8 +254,8 @@ export default class Store{
         }
         this.caniuse(1, doSomething)  
     }
-    
-    
+     
+
     @observable testinfo = {}
     @observable studentinfo = {}
     @observable gradeinfo = {}
