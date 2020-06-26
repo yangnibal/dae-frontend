@@ -119,7 +119,7 @@ class GradeList extends React.Component{
             
         })
     }
-    @action movePrintPage = (name, grade, group, score, percent, rank, rating, school, schoolyear, test_type, cand_num, average, std_dev, subject, z, prob_dens, id) => {
+    @action movePrintPage = (name, schoolyear, group, score, percent, rank, rating, school, grade, test_type, cand_num, average, std_dev, subject, z, prob_dens, id) => {
         const { store } = this.props
         store.printProps = { 
             name: name, 

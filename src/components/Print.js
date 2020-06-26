@@ -133,11 +133,11 @@ class PrintContent extends React.Component{
                                 <div className="top-content-header-top-title">학교별 <span>9</span>등급 상대평가 변환 성적표</div>
                             </div>
                             <div className="top-content-header-bottom">
-                                <div className="top-content-header-bottom-test-type">{props.schoolyear} {props.test_type}</div>
+                                <div className="top-content-header-bottom-test-type">{props.grade} {props.test_type}</div>
                                 <div className="top-content-header-bottom-name-grade-group">
                                     <div className="ngg">
                                         <div className="name">{props.name}</div>
-                                        <div className="grade">{props.grade}</div>
+                                        <div className="grade">{props.schoolyear}</div>
                                         <div className="group">{props.group}</div>
                                     </div>
                                 </div>
