@@ -59,15 +59,8 @@ class StudentTest extends React.Component{
         })
     }
     @action findScore = (grade, test_type, subject) => {
+        const { store } = this.props
         const id = localStorage.getItem("std_id")
-        const ltoken = localStorage.getItem('token')
-        const stoken = sessionStorage.getItem('token')
-        var token = ""
-        if(stoken===null){
-            token = ltoken
-        } else {
-            token = stoken
-        }
         axios.post("https://api.daeoebi.com/scores/findscore/", ({
             grade: grade,
             test_type: test_type,
@@ -75,7 +68,7 @@ class StudentTest extends React.Component{
             id: id
         }), {
             headers: {
-                Authorization: token
+                Authorization: "Token " + store.getToken()
             }
         })
         .then(res => {
