@@ -9,12 +9,12 @@ import axios from 'axios'
 class SavedVidDetail extends React.Component{
 
     @observable savedvids = {
-        ot: "https://api.daeoebi.com/media/videos/ot.mp4",
-        first: "https://api.daeoebi.com/media/videos/1.mp4",
-        second: "https://api.daeoebi.com/media/videos/2.mp4",
-        third: "https://api.daeoebi.com/media/videos/3.mp4",
-        fourth: "https://api.daeoebi.com/media/videos/4.mp4",
-        fifth: "https://api.daeoebi.com/media/videos/5.mp4"
+        ot: "https://daeoebi-storage.s3.ap-northeast-2.amazonaws.com/ot.mp4",
+        first: "https://daeoebi-storage.s3.ap-northeast-2.amazonaws.com/1.mp4",
+        second: "https://daeoebi-storage.s3.ap-northeast-2.amazonaws.com/2.mp4",
+        third: "https://daeoebi-storage.s3.ap-northeast-2.amazonaws.com/3.mp4",
+        fourth: "https://daeoebi-storage.s3.ap-northeast-2.amazonaws.com/4.mp4",
+        fifth: "https://daeoebi-storage.s3.ap-northeast-2.amazonaws.com/5.mp4"
     }
 
     @observable url = ""

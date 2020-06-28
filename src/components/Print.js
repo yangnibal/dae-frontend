@@ -26,8 +26,7 @@ class PrintContent extends React.Component{
             }
         })
         .then(res => {
-            var logo = "https://api.daeoebi.com"
-            this.logo = logo + res.data['logo']
+            this.logo = res.data['logo']
         })
         .catch(err => {
             console.log(err)
