@@ -255,6 +255,23 @@ export default class Store{
         this.caniuse(1, doSomething)  
     }
      
+    @observable files = []
+    @action getFiles = () => {
+        const doSomething = () => {
+            axios.get("https://api.daeoebi.com/files/", {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.files = res.data['results'] 
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+        this.caniuse(1, doSomething)
+    }
 
     @observable testinfo = {}
     @observable studentinfo = {}

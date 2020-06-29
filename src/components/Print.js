@@ -120,9 +120,14 @@ class PrintContent extends React.Component{
             <Header/>
             <div style={{display: "flex", flexDirection: "row"}}>
             <div className="printpage-btns">
-                <div className="printpage-btn" onClick={this.can}>인쇄</div>
-                <label htmlFor="image-input" className="printpage-btn">로고 삽입</label>
-                <input type="file" name="logo" onChange={this.handleFileChange} id="image-input"/>
+                <div className="printpage-selector">
+                    <div className="printpage-btn" onClick={this.can}>인쇄</div>
+                    <label htmlFor="image-input" className="printpage-btn">로고 삽입</label>
+                    <input type="file" name="logo" onChange={this.handleFileChange} id="image-input"/>
+                </div>
+                <div>
+                    <span>그래프가 뜨지 않을 시 새로 고침 해주시기 바랍니다.</span>
+                </div>
             </div>
             <div className="container" id="print">
                 <div className="sticky-container">

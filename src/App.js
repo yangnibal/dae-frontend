@@ -27,6 +27,8 @@ import StudentTestModify from './pages/StudentTestModify'
 import GroupList from './pages/GroupList'
 import GroupUpdate from './pages/GroupUpdate'
 import SavedVidDetail from './pages/SavedVidDetail'
+import FileList from './pages/FileList'
+import FileDetail from './pages/FileDetail'
 
 class App extends React.Component{
 	render(){
@@ -60,6 +62,8 @@ class App extends React.Component{
 						<Route exact path="/inf/savedvid/:savedvidname" component={SavedVidDetail}/>
 						<Route exact path="/groups" component={GroupList}/>
 						<Route exact path="/groups/:groupid/update" component={GroupUpdate}/>
+						<Route exact path="/inf/file" component={FileList}/>
+						<Route exact path="/inf/file/:fileid" component={FileDetail}/>
 					</Switch>
 				</BrowserRouter>
 		)
