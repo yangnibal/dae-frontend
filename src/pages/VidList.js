@@ -68,6 +68,7 @@ class VidList extends React.Component{
                             <div className="vid-body-header-text">과목</div>
                             <div className="vid-body-header-text">추천 학년</div>
                             <div className="vid-body-header-text">그룹</div>
+                            <div className="vid-body-header-text">재생 시간</div>
                         </div>
                         <div className="vid-content-body">
                             <VidContent name="대외비원패스오티" grade="전체" group="비교과" subject="대외비1PASS" time="05:43" watchVid={() => this.watchSavedVid("ot")}/>
