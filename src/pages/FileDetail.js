@@ -1,6 +1,5 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
-import Header from '../components/Header'
 import axios from 'axios'
 import { observable, action } from 'mobx'
 
@@ -9,6 +8,11 @@ import { observable, action } from 'mobx'
 class FileDetail extends React.Component{
 
     @observable file = ""
+    @observable isLoad = false
+    
+    @action handleLoad = () => {
+        this.isLoad = !this.isLoad
+    }
 
     componentDidMount(){
         const { store } = this.props
@@ -20,8 +24,7 @@ class FileDetail extends React.Component{
             }
         })
         .then(res => {
-            this.file = res.data['file']
-            console.log(this.file)
+            this.file = "https://docs.google.com/viewer?url=" + res.data['file'] + "&embedded=true"
         })
         .catch(err => {
                     
@@ -29,13 +32,11 @@ class FileDetail extends React.Component{
     }
 
     render(){
+        
         return(
-            <div>
-                <Header/>
-                <div style={{width:"100vw", height: "calc(100vh - 8rem)", display: "flex", justifyContent: "center", alignItems: "center"}}>
-                    
-                </div>
-                
+            <div style={{width:"100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <iframe onLoad={() => this.handleLoad()} title={this.file} src={this.file} style={{border: "none", width: "100vw", height: "100vh"}}/>
+                {this.isLoad===false ? null : <div onClick={() => this.props.history.goBack()} style={{position: "absolute", right: "12px", top: "12px", background: "rgb(209, 209, 209)", width: "120px", height: "40px", color: "white", zIndex: "999", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "1.2rem", fontWeight: "500", cursor: "pointer"}}>뒤로가기</div>}
             </div>
         )
     }
