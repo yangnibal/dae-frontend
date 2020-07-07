@@ -5,7 +5,6 @@ import FileContent from '../components/FileContent'
 import { Link } from 'react-router-dom'
 import { observable, action } from 'mobx'
 import DropDown from '../components/DropDown'
-import axios from 'axios'
 import './File.scss'
 
 @inject('store')

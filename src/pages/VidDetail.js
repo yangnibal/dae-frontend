@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
 import { observer, inject } from 'mobx-react'
-import { Link } from 'react-router-dom'
+import { observable } from 'mobx'
+import axios from 'axios'
 
 @inject('store')
 @observer
@@ -29,7 +30,6 @@ class VidDetail extends React.Component{
     }
 
     render(){
-        const { store } = this.props
         return(
             <div style={{width: "100vw", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-start"}}>
                 <Header/>
