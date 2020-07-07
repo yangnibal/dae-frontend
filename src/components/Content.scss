@@ -247,4 +247,17 @@
             }
         }
     }
+    .groupcontent-container{
+        padding: 0;
+        width: 100%;
+        .groupcontent-text{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            margin-left: 10vw;
+        }
+        .groupcontent-btns{
+            width: 40vw;
+        }
+    }
 }

@@ -123,21 +123,15 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        .groupupdate-inputs{
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            min-width: calc(600px + 2rem);
-            .groupupdate-input{
-                background: #262626;
-                border: none;
-                font-size: 1.2rem;
-                padding: 1rem;
-                color: white;
-                outline: none;
-                width: calc(100% - 2rem);
-                min-width: 600px;
-            }
+        .groupupdate-input{
+            background: #262626;
+            border: none;
+            font-size: 1.2rem;
+            padding: 1rem;
+            color: white;
+            outline: none;
+            width: calc(100% - 2rem);
+            min-width: 600px;
         }
         .groupupdate-btns{
             width: calc(100% - 2rem);
@@ -166,6 +160,71 @@
                 }
                 &:nth-child(2){
                     margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .group-container{
+        .group-sticky{
+            .group-header{
+                padding: 0;
+                padding-top: 1rem;
+                width: 100%;
+                .group-header-left{
+                    width: 100%;
+                    .group-header-title{
+                        display: none;
+                    }
+                }
+                .group-header-right{
+                    width: 0;
+                    .group-new{
+                        position: absolute;
+                        bottom: 30px;
+                        right: 30px;
+                    }
+                }
+            }
+            .group-body{
+                .group-body-header{
+                    .group-body-header-text{
+                        &:nth-child(1){
+                            display: flex;
+                            justify-content: center;
+                            width: 50vw;
+                            margin-left: 10vw;
+                        }
+                        &:nth-child(2){
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .groupupdate-container{
+        .groupupdate-sticky{
+            width: 100%;
+            .groupupdate-input{
+                width: 80%;
+                min-width: 80%;
+            }
+            .groupupdate-btns{
+                display: flex;
+                flex-direction: column;
+                .groupupdate-btn{
+                    font-size: 1.2rem;
+                    &:nth-child(1){
+                        margin-right: 0;
+                        margin-bottom: 1rem;
+                    }
+                    &:nth-child(2){
+                        margin-left: 0;
+                        margin-bottom: 5rem;
+                    }
                 }
             }
         }

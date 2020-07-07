@@ -58,9 +58,7 @@ class InfGroupUpdate extends React.Component{
             <div className="groupupdate-container">
                 <Header/>
                 <div className="groupupdate-sticky">
-                    <div className="groupupdate-inputs">
-                        <input className="groupupdate-input" name="name" value={this.name} onChange={this.handleChange} placeholder="그룹 이름"/>
-                    </div>
+                    <input className="groupupdate-input" name="name" value={this.name} onChange={this.handleChange} placeholder="그룹 이름"/>
                     <div className="groupupdate-btns">
                         <div className="groupupdate-btn" onClick={() => this.cancle()}>취소</div>
                         <div className="groupupdate-btn" onClick={() => this.update()}>수정</div>
