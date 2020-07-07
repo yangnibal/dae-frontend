@@ -15,7 +15,7 @@ const Header = () => {
     return (
         <div className="header-container">
             <Link to="/" className="mobile-btn-container">
-                <i class="fas fa-bars mobile-btn"></i>
+                <i className="fas fa-bars mobile-btn"></i>
             </Link>
             <Link to="/" className="logo-container">
                 <img src={Logo} alt={Logo} width="190px" height="40px" className="header-logo"/>

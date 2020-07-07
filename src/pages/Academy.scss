@@ -46,3 +46,21 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .academy-container{
+        .academy-content-container{
+            display: flex;
+            flex-direction: column;
+            .academy-content-test{
+                height: 150px;
+                margin: 0;
+                margin-bottom: 1rem;
+            }
+            .academy-content-student{
+                height: 150px;
+                margin: 0;
+            }
+        }
+    }
+}

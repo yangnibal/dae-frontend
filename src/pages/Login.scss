@@ -112,3 +112,38 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .login-container{
+        .input-container{
+            width: 90%;
+            .login-input-username{
+                padding-right: 0;
+            }
+            .login-input-password{
+                padding-right: 0;
+            }
+        }
+        .checkbox-container{
+            width: 90%;
+        }
+        .login-btn{
+            width: 90%;
+        }
+        .login-others-container{
+            display: flex;
+            flex-direction: column;
+            height: 6rem;
+            .login-find-username{
+                border: none;
+                margin-top: 1rem;
+                margin-bottom: 0.5rem;
+            }
+            .login-signup-link{
+                border: none;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+    
+}

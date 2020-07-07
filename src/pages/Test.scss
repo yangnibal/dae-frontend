@@ -279,3 +279,95 @@
     }
 }
 
+
+@media screen and (max-width: 768px) {
+    .test-container{
+        .test-content-container{
+            .test-content-header-container{
+                padding: 0;
+                padding-top: 1rem;
+                width: 100%;
+                .test-content-header-left{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    .test-content-title{
+                        display: none;
+                    }
+                    .test-content-dropdown-first{
+                        min-width: 4rem;
+                        margin-left: 0;
+                    }
+                    .test-content-dropdown-second{
+                        min-width: 5rem;
+                    }
+                    .test-content-dropdown-third{
+                        min-width: 4rem;
+                    }
+                }
+                .test-content-header-right{
+                    width: 0;
+                    .test-register{
+                        position: absolute;
+                        bottom: 30px;
+                        right: 30px;
+                    }
+                }
+            }
+            .test-content-body-container{
+                .test-content-body{
+                    .testcontent-container{
+                        .testcontent-test-sort{
+                            width: 50vw;
+                            font-size: 1rem;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            white-space: nowrap;
+                        }
+                        .testcontent-average{
+                            display: none;
+                        }   
+                        .testcontent-std-dev{
+                            display: none;
+                        }
+                        .testcontent-cand-num{
+                            display: none;
+                        }
+                        .testcontent-student{
+                            width: 20vw;
+                            font-size: 1rem
+                        }
+                        .testcontent-modify-remove{
+                            width: 30vw;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .test-content-body-header{
+                    .test-content-body-header-text{
+                        &:nth-child(1){
+                            width: 50vw;
+                            font-size: 1rem;
+                        }
+                        &:nth-child(2){
+                            display: none;
+                        }
+                        &:nth-child(3){
+                            display: none;
+                        }
+                        &:nth-child(4){
+                            display: none;
+                        }
+                        &:nth-child(5){
+                            font-size: 1rem;
+                            width: 20vw;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

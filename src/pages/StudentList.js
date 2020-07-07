@@ -100,7 +100,7 @@ class StudentList extends React.Component{
                             <DropDown placeholder="그룹" option={store.group} className="student-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
                             <input value={this.name} onChange={this.handleChange} name="name" className="student-content-search-input" placeholder="이름"/>
                             <div className="student-content-search-btn" onClick={() => store.findstd(this.schoolyear, this.group, this.name)}>검색</div>
-                            <Link className="student-content-search-btn" to="/groups">그룹 관리</Link>
+                            <Link className="student-content-search-btn group-btn" to="/groups">그룹 관리</Link>
                         </div>
                         <div className="student-content-header-right">
                             <Link to="/ac/student/new" className="student-register">학생 등록</Link>
@@ -116,11 +116,12 @@ class StudentList extends React.Component{
                         </div>
                         <div className="student-content-body">
                             {studentlist}
+                            <div  className="student-content-footer">
+                                {test_id===null ? <div className="student-content-body-footer" onClick={() => this.choiceTest()}>TEST 선택하기</div> : null}
+                                <div className="student-content-body-footer" onClick={() => this.gradeRegister()}>선택 학생 성적 등록</div>
+                            </div>
                         </div>
-                        <div  className="student-content-footer">
-                            {test_id===null ? <div className="student-content-body-footer" onClick={() => this.choiceTest()}>TEST 선택하기</div> : null}
-                            <div className="student-content-body-footer" onClick={() => this.gradeRegister()}>선택 학생 성적 등록</div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

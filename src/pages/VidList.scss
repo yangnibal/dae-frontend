@@ -227,3 +227,75 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .vid-container{
+        overflow-x: hidden;
+        .vid-sticky{
+            .vid-header{
+                width: 100%;
+                padding-top: 1rem;
+                .vid-header-left{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .vid-header-title{
+                        display: none;
+                    }
+                    .test-content-dropdown-third{
+                        min-width: 4rem;
+                        margin-left: 1rem;
+                    }
+                    .test-content-dropdown-second{
+                        min-width: 6rem;
+                    }
+                    .test-content-dropdown-first{
+                        min-width: 4rem;
+                    }
+                    .vid-header-search-btn{
+                        margin-right: 1rem;
+                    }
+                }
+                
+            }
+            .vid-body{
+                .vid-body-header{
+                    .vid-body-header-text{
+                        &:nth-child(1){
+                            width: 50vw;
+                            font-size: 1rem;
+                        }
+                        &:nth-child(2){
+                            display: none;
+                        }
+                        &:nth-child(3){
+                            display: none;
+                        }
+                        &:nth-child(4){
+                            display: none;
+                        }
+                        &:nth-child(5){
+                            display: none;
+                        }
+                    }
+                    .mat-body-header-text{
+                        &:nth-child(1){
+                            width: 50vw;
+                            font-size: 1rem;
+                        }
+                        &:nth-child(2){
+                            display: none;
+                        }
+                        &:nth-child(3){
+                            display: none;
+                        }
+                        &:nth-child(4){
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

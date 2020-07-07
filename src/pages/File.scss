@@ -265,3 +265,70 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .file-container{
+        overflow-x: hidden;
+        .file-sticky{
+            .file-header{
+                width: 100%;
+                padding-top: 1rem;
+                .file-header-left{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .file-header-title{
+                        display: none;
+                    }
+                    .file-header-dropdown{
+                        &:nth-child(1){
+                            min-width: 4rem;
+                            margin-left: 1rem;
+                        }
+                        &:nth-child(2){
+                            min-width: 6rem;
+                        }
+                        &:nth-child(3){
+                            min-width: 4rem;
+                        }
+                    }
+                    .file-header-search-btn{
+                        margin-right: 1rem;
+                    }
+                }
+            }
+            .file-body{
+                .file-body-header{
+                    .file-body-header-text{
+                        &:nth-child(1){
+                            width: 50vw;
+                            font-size: 1rem;
+                        }
+                        &:nth-child(2){
+                            display: none;
+                        }
+                        &:nth-child(3){
+                            display: none;
+                        }
+                        &:nth-child(4){
+                            display: none;
+                        }
+                    }
+                    
+                }
+                .file-footer{
+                    display: flex;
+                    flex-direction: column;
+                    .file-footer-content{
+                        width: 50%;
+                        font-size: 1rem;
+                        padding: .7rem 1rem;
+                        margin-left: 10vw;
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
