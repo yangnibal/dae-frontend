@@ -202,10 +202,12 @@ class StudentTest extends React.Component{
                     <div className="grade-content-header-container">
                         <div className="grade-content-header-left">
                             <div className="grade-content-title">{this.name} TEST 성적</div>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="grade-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearValueChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="학기" option={store.semester} className="grade-content-dropdown-second" classNamePrefix="react-select" onChange={this.semesterChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="과목" option={store.subject} className="grade-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <div className="grade-content-search-btn" onClick={() => this.findScore(this.schoolyear, this.semester, this.subject)}>검색</div>
+                            <span className="mobile-separator">
+                                <DropDown placeholder="학년" option={store.schoolyear} className="grade-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearValueChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="학기" option={store.semester} className="grade-content-dropdown-second" classNamePrefix="react-select" onChange={this.semesterChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="과목" option={store.subject} className="grade-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <div className="grade-content-search-btn" onClick={() => this.findScore(this.schoolyear, this.semester, this.subject)}>검색</div>
+                            </span>
                         </div>
                         <div className="grade-content-header-right">
                         </div>

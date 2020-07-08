@@ -61,10 +61,12 @@ class FileList extends React.Component{
                     <div className="file-header">
                         <div className="file-header-left">
                             <div className="file-header-title">파일 출력 가능 자료 LIST</div>
-                            <DropDown placeholder="과목" option={store.subject} className="file-header-dropdown" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="file-header-dropdown" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="그룹" option={store.infgroup} className="file-header-dropdown" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <div className="file-header-search-btn" onClick={() => store.findfile(this.subject, this.grade, this.group)}>검색</div>
+                            <span className="mobile-separator">
+                                <DropDown placeholder="과목" option={store.subject} className="file-header-dropdown" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="학년" option={store.schoolyear} className="file-header-dropdown" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="그룹" option={store.infgroup} className="file-header-dropdown" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <div className="file-header-search-btn" onClick={() => store.findfile(this.subject, this.grade, this.group)}>검색</div>
+                            </span>
                         </div>
                     </div>
                     <div className="file-body">

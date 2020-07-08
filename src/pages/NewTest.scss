@@ -112,3 +112,38 @@
 .react-select__indicators{
     display: none!important;
 }
+
+@media screen and (max-width: 768px) {
+    .newtest-container{
+        .newtest-content-container{
+            width: 100%;
+            .newtest-content-title{
+                margin-left: 4rem;
+            }
+            .newtest-content-input{
+                width: 80%;
+                min-width: 80%;
+            }
+            .newtest-content-dropdown{
+                width: calc(80% + 2rem);
+                min-width: 80%;
+            }
+            .newtest-content-btn-container{
+                display: flex;
+                flex-direction: column;
+                padding-top: 1rem;
+                .newtest-content-btn{
+                    font-size: 1.2rem;
+                    &:nth-child(1){
+                        margin-right: 0;
+                        margin-bottom: 1rem;
+                    }
+                    &:nth-child(2){
+                        margin-left: 0;
+                        margin-bottom: 5rem;
+                    }
+                }
+            }
+        }
+    }
+}

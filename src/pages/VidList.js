@@ -56,10 +56,12 @@ class VidList extends React.Component{
                     <div className="vid-header">
                         <div className="vid-header-left">    
                             <div className="vid-header-title">동영상 LIST</div>
-                            <DropDown placeholder="과목" option={store.subject} className="test-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="test-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="그룹" option={store.infgroup} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <div className="vid-header-search-btn" onClick={() => store.findVid(this.subject, this.schoolyear, this.group)}>검색</div>
+                            <span className="mobile-separator">
+                                <DropDown placeholder="과목" option={store.subject} className="test-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="학년" option={store.schoolyear} className="test-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="그룹" option={store.infgroup} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <div className="vid-header-search-btn" onClick={() => store.findVid(this.subject, this.schoolyear, this.group)}>검색</div>
+                            </span>
                         </div>
                     </div>
                     <div className="vid-body">

@@ -96,11 +96,13 @@ class StudentList extends React.Component{
                     <div className="student-content-header-container">
                         <div className="student-content-header-left">
                             <div className="student-content-title">학생 목록</div>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="student-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="그룹" option={store.group} className="student-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <input value={this.name} onChange={this.handleChange} name="name" className="student-content-search-input" placeholder="이름"/>
-                            <div className="student-content-search-btn" onClick={() => store.findstd(this.schoolyear, this.group, this.name)}>검색</div>
-                            <Link className="student-content-search-btn group-btn" to="/groups">그룹 관리</Link>
+                            <span className="mobile-separator">
+                                <DropDown placeholder="학년" option={store.schoolyear} className="student-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="그룹" option={store.group} className="student-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <input value={this.name} onChange={this.handleChange} name="name" className="student-content-search-input" placeholder="이름"/>
+                                <div className="student-content-search-btn" onClick={() => store.findstd(this.schoolyear, this.group, this.name)}>검색</div>
+                                <Link className="student-content-search-btn group-btn" to="/groups">그룹 관리</Link>
+                            </span>
                         </div>
                         <div className="student-content-header-right">
                             <Link to="/ac/student/new" className="student-register">학생 등록</Link>

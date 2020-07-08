@@ -27,91 +27,98 @@
                 .grade-content-title{
                     font-size: 1.6rem;
                 }
-                .grade-content-dropdown-first1{
-                    color: #a6a6a6;
-                    cursor: pointer;
-                    outline: none;
-                    font-size: 1rem;
-                    border: 1px solid #a6a6a6;
-                    min-height: 2rem;
-                    min-width: 5rem;
-                    margin-left: 6rem;
-                    
-                    .react-select__control{
-                        background: black;
-                        outline: none;
-                        border: none;
-                        min-height: 1.5rem;
-                        box-shadow: none;
-                        .react-select__value-container{
-                            border: none;
-                            .react-select__single-value{
-                                font-size: 1rem;
-                                color: white;
-                            }
-                        }
-                        .react-select__indicators{
-                            border: none;
-                            padding: 0;
-                            .react-select__indicator-separator{
-                                display: none;
-                            }
-                            .react-select__indicator{
-                                padding-top: 0;
-                                padding-bottom: 0;
-                            }
-                        }
-                    }
-                }
-                .grade-content-dropdown-second{
-                    color: #a6a6a6;
-                    cursor: pointer;
-                    outline: none;
-                    font-size: 1rem;
-                    border: 1px solid #a6a6a6;
-                    min-height: 2rem;
-                    min-width: 5rem;
-                    margin-left: 0.5rem;
-                    .react-select__control{
-                        background: black;
-                        outline: none;
-                        border: none;
-                        min-height: 1.5rem;
-                        box-shadow: none;
-                        .react-select__value-container{
-                            border: none;
-                            .react-select__single-value{
-                                font-size: 1rem;
-                                color: white;
-                            }
-                        }
-                        .react-select__indicators{
-                            border: none;
-                            padding: 0;
-                            .react-select__indicator-separator{
-                                display: none;
-                            }
-                            .react-select__indicator{
-                                padding-top: 0;
-                                padding-bottom: 0;
-                            }
-                        }
-                    }
-                }
-                .grade-content-search-btn{
-                    background: #404040;
-                    color: #a8a8a8;
+                .mobile-separator{
                     display: flex;
+                    flex-direction: row;
                     justify-content: center;
-                    align-items: center;
-                    height: calc(2rem - 1rem);
-                    padding: 0.5rem 1.5rem;
-                    margin-left: 0.5rem;
-                    cursor: pointer;
-                    min-width: 40px;
-                    text-decoration: none;
-                    &:hover{
-                        color: #777676;
+                    margin-top: 1rem;
+                    margin-bottom: 0.5rem;
+                    .grade-content-dropdown-first1{
+                        color: #a6a6a6;
+                        cursor: pointer;
+                        outline: none;
+                        font-size: 1rem;
+                        border: 1px solid #a6a6a6;
+                        min-height: 2rem;
+                        min-width: 5rem;
+                        margin-left: 6rem;
+                        
+                        .react-select__control{
+                            background: black;
+                            outline: none;
+                            border: none;
+                            min-height: 1.5rem;
+                            box-shadow: none;
+                            .react-select__value-container{
+                                border: none;
+                                .react-select__single-value{
+                                    font-size: 1rem;
+                                    color: white;
+                                }
+                            }
+                            .react-select__indicators{
+                                border: none;
+                                padding: 0;
+                                .react-select__indicator-separator{
+                                    display: none;
+                                }
+                                .react-select__indicator{
+                                    padding-top: 0;
+                                    padding-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                    .grade-content-dropdown-second{
+                        color: #a6a6a6;
+                        cursor: pointer;
+                        outline: none;
+                        font-size: 1rem;
+                        border: 1px solid #a6a6a6;
+                        min-height: 2rem;
+                        min-width: 5rem;
+                        margin-left: 0.5rem;
+                        .react-select__control{
+                            background: black;
+                            outline: none;
+                            border: none;
+                            min-height: 1.5rem;
+                            box-shadow: none;
+                            .react-select__value-container{
+                                border: none;
+                                .react-select__single-value{
+                                    font-size: 1rem;
+                                    color: white;
+                                }
+                            }
+                            .react-select__indicators{
+                                border: none;
+                                padding: 0;
+                                .react-select__indicator-separator{
+                                    display: none;
+                                }
+                                .react-select__indicator{
+                                    padding-top: 0;
+                                    padding-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                    .grade-content-search-btn{
+                        background: #404040;
+                        color: #a8a8a8;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: calc(2rem - 1rem);
+                        padding: 0.5rem 1.5rem;
+                        margin-left: 0.5rem;
+                        cursor: pointer;
+                        min-width: 40px;
+                        text-decoration: none;
+                        &:hover{
+                            color: #777676;
+                        }
                     }
                 }
             }
@@ -271,16 +278,37 @@
             .grade-content-header-container{
                 padding: 0;
                 width: 100%;
+                height: 5rem;
+                padding-top: 1rem;
                 .grade-content-header-left{
                     width: 100%;
                     display: flex;
+                    flex-direction: column;
                     justify-content: center;
+                    align-items: center;
+                    height: 100%;
                     .grade-content-title{
-                        display: none;
+                        
                     }
-                    .grade-content-dropdown-first{
-                        margin-left: 0!important;
-                        min-width: 4rem;
+                    .mobile-separator{
+                        .grade-content-dropdown-first{
+                            margin-left: 0!important;
+                            min-width: 4rem;
+                        }
+                        .grade-content-dropdown-first1{
+                            margin-left: 0!important;
+                        }
+                        .group-add{
+                            position: absolute;
+                            bottom: 30px;
+                            right: 30px;
+                            cursor: pointer;
+                            background-color: black;
+                            border: 1px solid #a6a6a6;
+                            border-radius: 20px;
+                            color: white;
+                            font-size: 1.2rem;
+                        }
                     }
                 }
                 .grade-content-header-right{
@@ -289,15 +317,64 @@
             }
             .grade-content-body-container{
                 .grade-content-body-header{
-
+                    .grade-content-body-header-text{
+                        &:nth-child(1){
+                            width: 50vw;
+                            font-size: 1rem;
+                        }
+                        &:nth-child(2){
+                            width: 15vw;
+                            font-size: 1rem;
+                        }
+                        &:nth-child(3){
+                            display: none;    
+                        }
+                        &:nth-child(4){
+                            display: none;
+                        }
+                        &:nth-child(5){
+                            display: none;
+                        }
+                    }
                 }
                 .grade-content-body{
                     .gradecontent-container{
                         .gradecontent-table{
                             display: none;
                         }
+                        .gradecontent-name{
+                            width: 50vw;
+                            font-size: 1rem;
+                        }
+                        .gradecontent-score{
+                            width: 15vw;
+                            font-size: 1rem;
+                        }
+                        .gradecontent-percent{
+                            display: none;
+                        }
+                        .gradecontent-rank{
+                            display: none;
+                        }
+                        .gradecontent-rating{
+                            display: none;
+                        }
                         .gradecontent-modify-remove{
-                            width: 30vw;
+                            width: 25vw;
+                        }
+                    }
+                    .grade-content-footer{
+                        display: flex;
+                        flex-direction: column;
+                        .grade-footer{
+                            font-size: 1rem;
+                            width: 50%;
+                            &:nth-child(1){
+                                margin-bottom: 1rem;
+                            }
+                            &:nth-child(2){
+
+                            }
                         }
                     }
                 }

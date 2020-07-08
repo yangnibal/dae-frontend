@@ -69,10 +69,12 @@ class TestList extends React.Component{
                     <div className="test-content-header-container">
                         <div className="test-content-header-left">
                             <div className="test-content-title">TEST 목록</div>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="test-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearValueChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="학기" option={store.semester} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.semesterChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="과목" option={store.subject} className="test-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <div className="test-content-search-btn" onClick={() => store.findTest(this.schoolyear, this.semester, this.subject)}>검색</div>
+                            <span className="mobile-separator">
+                                <DropDown placeholder="학년" option={store.schoolyear} className="test-content-dropdown-first" classNamePrefix="react-select" onChange={this.schoolyearValueChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="학기" option={store.semester} className="test-content-dropdown-second" classNamePrefix="react-select" onChange={this.semesterChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="과목" option={store.subject} className="test-content-dropdown-third" classNamePrefix="react-select" onChange={this.subjectChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <div className="test-content-search-btn" onClick={() => store.findTest(this.schoolyear, this.semester, this.subject)}>검색</div>
+                            </span>
                         </div>
                         <div className="test-content-header-right">
                             <Link to="/ac/test/new" className="test-register">TEST 등록</Link>

@@ -209,10 +209,12 @@ class GradeList extends React.Component{
                     <div className="grade-content-header-container">
                         <div className="grade-content-header-left">
                             <div className="grade-content-title">학생 성적표 목록</div>
-                            <DropDown placeholder="학년" option={store.schoolyear} className="grade-content-dropdown-first1" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <DropDown placeholder="그룹" option={store.group} className="grade-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                            <div className="grade-content-search-btn">검색</div>
-                            <Link className="grade-content-search-btn" to="/groups">그룹 관리</Link>
+                            <span className="mobile-separator">
+                                <DropDown placeholder="학년" option={store.schoolyear} className="grade-content-dropdown-first1" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <DropDown placeholder="그룹" option={store.group} className="grade-content-dropdown-second" classNamePrefix="react-select" onChange={this.groupChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                                <div className="grade-content-search-btn">검색</div>
+                                <Link className="grade-content-search-btn group-add" to="/groups">그룹 관리</Link>
+                            </span>
                         </div>
                         <div className="grade-content-header-right">
                         </div>

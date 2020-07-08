@@ -3,6 +3,12 @@ import axios from 'axios'
 
 export default class Store{
 
+    @observable isModalOn = false
+
+    @action handleModal = () => {
+        this.isModalOn = !this.isModalOn
+    }
+
     @action Post = (url, name, data, doSomething) => {
         var formData = new FormData()
         for(var i=0; i<name.length; i++){

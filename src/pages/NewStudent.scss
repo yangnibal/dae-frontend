@@ -199,3 +199,51 @@
 #root > div > div > div.newstudent-content-container > div > div > div.react-select__indicators.css-1hb7zxy-IndicatorsContainer > div > svg{
     display: none;
 }
+
+@media screen and (max-width: 768px) {
+    .newstudent-container{
+        .xl-download{
+            display: none;
+        }
+        .newstudent-content-container{
+            width: 100%;
+            .newstudent-content-title{
+                margin-left: 4rem;
+            }
+            .newstudent-content-input{
+                width: 80%;
+                min-width: 80%;
+            }
+            .newstudent-content-dropdown{
+                width: calc(80% + 2rem);
+                min-width: 80%;
+            }
+            .newstudent-content-group-add-container{
+                .newstudent-content-group-add{
+                    position: absolute;
+                    bottom: 30px;
+                    right: 30px;
+                    margin: 0;
+                }
+            }
+            .newstudent-content-btn-container{
+                display: flex;
+                flex-direction: column;
+                .newstudent-content-btn{
+                    font-size: 1.2rem;
+                    &:nth-child(1){
+                        margin-right: 0;
+                        margin-bottom: 1rem;
+                    }
+                    &:nth-child(2){
+                        margin-left: 0;
+                        margin-bottom: 5rem;
+                    }
+                }
+            }
+            .xl-upload{
+                display: none;
+            }
+        }
+    }
+}
