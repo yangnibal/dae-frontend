@@ -278,3 +278,103 @@
         z-index: 11;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .signup-container{
+        .signup-logo{
+            position: absolute;
+            top: 40px;
+            left: 20px;
+        }
+        .signup-input-container{
+            min-width: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .signup-terms-container{
+                .signup-terms-container-left{
+                    width: 65%;
+                    input[id="signup-terms-allow"] + label{
+                        margin-left: 1rem;
+                    }
+                    .signup-terms-text{
+                        font-size: 1rem;
+                    }
+                }
+                .signup-terms-container-right{
+                    width: 35%;
+                    .show-content{
+                        margin-right: 1rem;
+                    }
+                }
+            }
+            .signup-private-container{
+                
+                .signup-private-container-left{
+                    width: 65%;
+                    input[id="signup-private-info"] + label{
+                        margin-left: 1rem;
+                    }
+                    .signup-private-text{
+                        font-size: 1rem;
+                    }
+                }
+                .signup-private-container-right{
+                    width: 35%;
+                    .show-content{
+                        margin-right: 1rem;
+                    }
+                }
+            }
+            .signup-btn{
+                width: 80%;
+                margin-left: 10%;
+            }
+            .signup-input-text{
+                margin-left: 1rem;
+            }
+            .signup-input-username-container{
+                width: calc(80% + 2rem);
+                min-width: 80%;
+                margin-left: calc(10% - 1rem);
+                .signup-input-username{
+                    width: 55%;
+                }
+                .signup-username-duplicate-container{
+                    width: 45%;
+                }
+            }
+            .signup-input-checkpassword-container{
+                width: calc(80% + 2rem);
+                min-width: 80%;
+                margin-left: calc(10% - 1rem);
+                .signup-input-checkpassword{
+                    width: 55%;
+                }
+                .signup-checkpassword-btn-container{
+                    width: 45%;
+                }
+            }
+            .signup-input-password{
+                width: calc(80% - 2rem);
+                min-width: 80%;
+                margin-left: calc(10% - 1rem);
+            }
+            .signup-input-name{
+                width: calc(80% - 2rem);
+                min-width: 80%;
+                margin-left: calc(10% - 1rem);
+            }
+            .signup-input-phone{
+                width: calc(80% - 2rem);
+                min-width: 80%;
+                margin-left: calc(10% - 1rem);
+            }
+            .signup-input-email{
+                width: calc(80% - 2rem);
+                min-width: 80%;
+                margin-left: calc(10% - 1rem);
+            }
+        }
+    }
+}
