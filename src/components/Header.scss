@@ -8,6 +8,7 @@
     background: rgba(29, 29, 29, 0.8);
     margin-bottom: 2rem;
     overflow: hidden;
+    z-index: 1;
     .header-data{
         display: flex;
         flex-direction: row;
@@ -220,6 +221,7 @@
         border-radius: 25px;
         border: 1px solid #a6a6a6;
         cursor: pointer;
+        z-index: 0;
         &:hover{
             color: #777676;
         }
