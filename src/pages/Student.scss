@@ -329,7 +329,7 @@
                             width: 20vw;
                         }
                         .group-btn{
-                            position: absolute;
+                            position: fixed;
                             bottom: 80px;
                             right: 30px;
                             border: 1px solid #a6a6a6;
@@ -350,7 +350,7 @@
                 .student-content-header-right{
                     width: 0;
                     .student-register{
-                        position: absolute;
+                        position: fixed;
                         bottom: 30px;
                         right: 30px;
                     }
@@ -371,6 +371,7 @@
                     }
                 }
                 .student-content-body{
+                    margin-bottom: 5rem;
                     .studentcontent-container{
                         .studentcontent-checkbox{
                             margin-left: 10vw;

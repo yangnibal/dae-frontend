@@ -324,7 +324,7 @@
                 .test-content-header-right{
                     width: 0;
                     .test-register{
-                        position: absolute;
+                        position: fixed;
                         bottom: 30px;
                         right: 30px;
                     }
@@ -332,6 +332,7 @@
             }
             .test-content-body-container{
                 .test-content-body{
+                    margin-bottom: 5rem;
                     .testcontent-container{
                         .testcontent-test-sort{
                             width: 50vw;

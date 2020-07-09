@@ -115,6 +115,8 @@
 
 @media screen and (max-width: 768px) {
     .newtest-container{
+        overflow-x: hidden;
+        overflow-y: scroll;
         .newtest-content-container{
             width: 100%;
             .newtest-content-title{
