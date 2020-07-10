@@ -298,15 +298,16 @@
                             margin-left: 0!important;
                         }
                         .group-add{
-                            position: fixed;
-                            bottom: 30px;
-                            right: 30px;
+                            position: absolute;
+                            top: 110px;
+                            right: 10px;
                             cursor: pointer;
                             background-color: black;
                             border: 1px solid #a6a6a6;
                             border-radius: 20px;
                             color: white;
                             font-size: 1.2rem;
+                            padding: .2rem 1.5rem;
                         }
                     }
                 }
@@ -318,11 +319,11 @@
                 .grade-content-body-header{
                     .grade-content-body-header-text{
                         &:nth-child(1){
-                            width: 50vw;
+                            width: 60vw;
                             font-size: 1rem;
                         }
                         &:nth-child(2){
-                            width: 15vw;
+                            width: 20vw;
                             font-size: 1rem;
                         }
                         &:nth-child(3){
@@ -343,11 +344,11 @@
                             display: none;
                         }
                         .gradecontent-name{
-                            width: 50vw;
+                            width: 60vw;
                             font-size: 1rem;
                         }
                         .gradecontent-score{
-                            width: 15vw;
+                            width: 20vw;
                             font-size: 1rem;
                         }
                         .gradecontent-percent{
@@ -360,23 +361,11 @@
                             display: none;
                         }
                         .gradecontent-modify-remove{
-                            width: 25vw;
+                            display: none;
                         }
                     }
                     .grade-content-footer{
-                        display: flex;
-                        flex-direction: column;
-                        margin-top: 1rem;
-                        .grade-footer{
-                            font-size: 1rem;
-                            width: 50%;
-                            &:nth-child(1){
-                                margin-bottom: 1rem;
-                            }
-                            &:nth-child(2){
-
-                            }
-                        }
+                        display: none;
                     }
                 }
             }

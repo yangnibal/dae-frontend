@@ -4,24 +4,35 @@ import axios from 'axios'
 export default class Store{
 
     @observable isModalOn = false
+    @observable headers = {
+        headers: {
+            Authorization: "Token " + this.getToken()
+        }
+    }
 
     @action handleModal = () => {
         this.isModalOn = !this.isModalOn
     }
 
-    @action Post = (url, name, data, doSomething) => {
-        var formData = new FormData()
-        for(var i=0; i<name.length; i++){
-            formData.append(name[i], data[i])
-        }
-        axios.post(url, formData, {
-            headers: {
-                Authorization: "Token " + this.getToken()
-            }
-        })
-        .then(res => {
-            doSomething(res)
-        })
+    @action postSomeThing = (url, formData, doRes, doErr) => {
+        axios.post(url, formData, this.headers)
+        .then(res => doRes(res))
+        .catch(err => doErr(err))
+    }
+    @action getSomeThing = (url, doRes, doErr) => {
+        axios.get(url, this.headers)
+        .then(res => doRes(res))
+        .catch(err => doErr(err))
+    }
+    @action putSomeThing = (url, data, doRes, doErr) => {
+        axios.put(url, data, this.headers)
+        .then(res => doRes(res))
+        .catch(err => doErr(err))
+    }
+    @action delSomeThing = (url, doRes, doErr) => {
+        axios.delete(url, this.headers)
+        .then(res => doRes(res))
+        .catch(err => doErr(err))
     }
     @action getToken(){
         const ltoken = localStorage.getItem('token')
@@ -35,7 +46,20 @@ export default class Store{
         return token
     }
     @action caniuse = (type, doSomething) => {
-        axios.post("https://api.daeoebi.com/users/caniuse/", ({
+        var data = {type: type}
+        function doRes(res){
+            if(res.data==="canuseit"){
+                doSomething()
+            } else {
+                alert("접근 권한이 없습니다")
+                this.props.history.goBack()
+            }
+        }
+        function doErr(err){
+            
+        }
+        this.postSomeThing("https://api.daeoebi.com/users/caniuse/", data, doRes, doErr)
+        /*axios.post("https://api.daeoebi.com/users/caniuse/", ({
             type: type
         }), {
             headers: {
@@ -49,7 +73,7 @@ export default class Store{
                 alert("접근 권한이 없습니다")
                 this.props.history.goBack()
             }
-        })
+        })*/
     }
 
 

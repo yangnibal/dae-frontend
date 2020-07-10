@@ -315,7 +315,7 @@
                 .file-body-header{
                     .file-body-header-text{
                         &:nth-child(1){
-                            width: 50vw;
+                            width: 60vw;
                             font-size: 1rem;
                         }
                         &:nth-child(2){
@@ -325,21 +325,14 @@
                             display: none;
                         }
                         &:nth-child(4){
-                            display: none;
+                            width: 40vw;
+                            font-size: 1rem;
                         }
                     }
                     
                 }
                 .file-footer{
-                    display: flex;
-                    flex-direction: column;
-                    .file-footer-content{
-                        width: 50%;
-                        font-size: 1rem;
-                        padding: .7rem 1rem;
-                        margin-left: 10vw;
-                        margin-bottom: 1rem;
-                    }
+                    display: none;
                 }
             }
         }

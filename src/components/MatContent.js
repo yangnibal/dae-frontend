@@ -4,7 +4,7 @@ import './Content.scss'
 const MatContent = ({name, subject, grade, group, link}) => {
     return(
         <div className="matcontent-container">
-            <div className="matcontent-text">{name}</div>
+            <a target="blank" href={link} className="matcontent-text">{name}</a>
             <div className="matcontent-text">{subject}</div>
             <div className="matcontent-text">{grade}</div>
             <div className="matcontent-text">{group}</div>

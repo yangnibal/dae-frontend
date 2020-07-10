@@ -3,7 +3,7 @@ import React from 'react'
 const FileContent = ({name, subject, grade, group, link, update, remove, seeFiles}) => {
     return(
         <div className="filecontent-container">
-            <div className="filecontent-text">{name}</div>
+            <a target="blank" href={`https://docs.google.com/viewer?url=${link}`} className="filecontent-text">{name}</a>
             <div className="filecontent-text">{subject}</div>
             <div className="filecontent-text">{grade}</div>
             <div className="filecontent-text">{group}</div>

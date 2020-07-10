@@ -329,9 +329,9 @@
                             width: 20vw;
                         }
                         .group-btn{
-                            position: fixed;
-                            bottom: 80px;
-                            right: 30px;
+                            position: absolute;
+                            top: 110px;
+                            right: 10px;
                             border: 1px solid #a6a6a6;
                             border-radius: 20px;
                             color: white;
@@ -350,9 +350,9 @@
                 .student-content-header-right{
                     width: 0;
                     .student-register{
-                        position: fixed;
-                        bottom: 30px;
-                        right: 30px;
+                        position: absolute;
+                        top: 110px;
+                        left: 10px;
                     }
                 }
             }
@@ -379,19 +379,19 @@
                             margin-left: 10vw;
                         }
                         .studentcontent-name{
-                            width: 15vw;
+                            width: 25vw;
                             font-size: 1rem;
                         }
                         .studentcontent-grade{
-                            width: 15vw;
+                            width: 20vw;
                             font-size: 1rem;
                         }
                         .studentcontent-group{
-                            width: 15vw;
+                            width: 25vw;
                             font-size: 1rem;
                         }
                         .studentcontent-modify-remove{
-                            width: 30vw;
+                            display: none;
                         }
                     }
                 }
@@ -401,15 +401,15 @@
                     }
                     .student-content-body-header-text{
                         &:nth-child(3){
-                            width: 15vw;
+                            width: 25vw;
                             font-size: 1rem;
                         }
                         &:nth-child(4){
-                            width: 15vw;
+                            width: 20vw;
                             font-size: 1rem;
                         }
                         &:nth-child(5){
-                            width: 15vw;
+                            width: 25vw;
                             font-size: 1rem;
                         }
                     }

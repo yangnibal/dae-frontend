@@ -65,7 +65,7 @@ class SavedVidDetail extends React.Component{
             <div className="viddetail-container">
                 <Header/>
                 <div className="viddetail-sticky">
-                    <video controlsList="nodownload" controls className="viddetail">
+                    <video autoPlay controlsList="nodownload" controls className="viddetail">
                         <source src={this.url} type="video/mp4"/>
                     </video>
                 </div>

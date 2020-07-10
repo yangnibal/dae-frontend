@@ -53,13 +53,17 @@
             display: flex;
             flex-direction: column;
             .academy-content-test{
-                height: 150px;
+                height: 4.5rem;
+                width: 700px;
                 margin: 0;
-                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                margin-bottom: 10px;
             }
             .academy-content-student{
-                height: 150px;
+                height: 4.5rem;
+                width: 700px;
                 margin: 0;
+                font-size: 1.2rem;
             }
         }
     }
