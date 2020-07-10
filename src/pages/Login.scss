@@ -117,11 +117,16 @@
     .login-container{
         .input-container{
             width: 90%;
+            .selecter{
+                
+            }
             .login-input-username{
                 padding-right: 0;
+                width: 60%;
             }
             .login-input-password{
                 padding-right: 0;
+                width: 60%;
             }
         }
         .checkbox-container{
