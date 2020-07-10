@@ -202,6 +202,7 @@
 
 @media screen and (max-width: 768px) {
     .newstudent-container{
+        overflow: hidden;
         .xl-download{
             display: none;
         }
@@ -220,7 +221,7 @@
             }
             .newstudent-content-group-add-container{
                 .newstudent-content-group-add{
-                    position: absolute;
+                    position: fixed;
                     bottom: 30px;
                     right: 30px;
                     margin: 0;

@@ -62,10 +62,10 @@ class SavedVidDetail extends React.Component{
 
     render(){
         return(
-            <div style={{width: "100vw", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-start"}}>
+            <div className="viddetail-container">
                 <Header/>
-                <div style={{display: "flex", justifyContent: "center", alignItems: "center", width: "100vw"}}>
-                    <video controlsList="nodownload" controls height="720" width="1280" style={{outline: "none"}}>
+                <div className="viddetail-sticky">
+                    <video controlsList="nodownload" controls className="viddetail">
                         <source src={this.url} type="video/mp4"/>
                     </video>
                 </div>

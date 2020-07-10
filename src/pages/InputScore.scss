@@ -75,3 +75,35 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .is-container{
+        .is-content-container{
+            .is-content-header{
+                .is-content-header-text{
+                    &:nth-child(2){
+                        width: 50vw;
+                    }
+                }
+            }
+            .is-content-footer{
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                border: 1px solid #a6a6a6;
+                font-size: 1.2rem;
+                border-radius: 20px;
+                padding: 0.2rem 1.5rem;
+            }
+            .is-content-body{
+                margin-bottom: 5rem;
+                min-height: calc(100% - 19rem);
+                .isc-container{
+                    .isc-studentinfo{
+                        width: 50vw;
+                    }
+                }
+            }
+        }
+    }
+}

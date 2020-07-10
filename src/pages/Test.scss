@@ -333,6 +333,7 @@
             .test-content-body-container{
                 .test-content-body{
                     margin-bottom: 5rem;
+                    min-height: calc(100% - 23rem);
                     .testcontent-container{
                         .testcontent-test-sort{
                             width: 50vw;

@@ -67,6 +67,7 @@
 }
 @media screen and (max-width: 768px) {
     .newgroup-container{
+        overflow: hidden;
         .newgroup-content-container{
             width: 100%;
             .newgroup-content-title{

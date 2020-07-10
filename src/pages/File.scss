@@ -41,13 +41,13 @@
                         border: 1px solid #a6a6a6;
                         min-height: 2rem;
                         min-width: 5.5rem;
-                        &:nth-child(2){
+                        &:nth-child(1){
                             margin-left: 2rem;
                         }
-                        &:nth-child(3){
+                        &:nth-child(2){
                             margin-left: 0.5rem;
                         }
-                        &:nth-child(4){
+                        &:nth-child(3){
                             margin-left: 0.5rem;
                         }
                         .react-select__control{

@@ -360,7 +360,8 @@
                 .student-content-footer{
                     display: flex;
                     flex-direction: column;
-                    margin-top: 4rem;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
                     width: 100%;
                     .student-content-body-footer{
                         width: 50%;
@@ -372,6 +373,7 @@
                 }
                 .student-content-body{
                     margin-bottom: 5rem;
+                    min-height: calc(100% - 23rem);
                     .studentcontent-container{
                         .studentcontent-checkbox{
                             margin-left: 10vw;
