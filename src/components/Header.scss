@@ -227,3 +227,8 @@
         }
     }
 }
+@media screen and (max-height: 500px) {
+    .goBack{
+        display: none;
+    }
+}
