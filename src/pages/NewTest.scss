@@ -117,11 +117,13 @@
     .newtest-container{
         overflow-x: hidden;
         overflow-y: scroll;
+        height: auto;
         .newtest-content-container{
             width: 100%;
+            min-height: calc(100% - 8rem);
             .newtest-content-title{
                 margin-left: 4rem;
-                margin-top: 3rem;
+                margin-top: 2rem;
             }
             .newtest-content-input{
                 width: 80%;
@@ -143,7 +145,6 @@
                     }
                     &:nth-child(2){
                         margin-left: 0;
-                        margin-bottom: 5rem;
                     }
                 }
             }
