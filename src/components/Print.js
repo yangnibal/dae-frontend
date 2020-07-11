@@ -116,9 +116,68 @@ class PrintContent extends React.Component{
         }
         const props = this.printProps
         return(
-            <div style={{overflow: "hidden"}}>
+            <div className="printpage-container">
             <Header/>
-            <div style={{display: "flex", flexDirection: "row"}}>
+            <div className="printpage-sticky">
+            <div className="mobile-container">
+                <div className="mobile-sticky">
+                    <div className="mobile-top">
+                        <div className="mobile-top-1">9등급 상대평가 변환 성적표</div>
+                        <div className="mobile-top-2">{props.grade}&nbsp;{props.test_type}</div>
+                        <div className="mobile-top-3">{props.schoolyear}&nbsp;{props.group}&nbsp;{props.name}</div>
+                    </div>
+                    <div className="mobile-mid">
+                        <div className="mobile-mid-top">
+                            <div className="mobile-mid-top-left">
+                                <div className="mobile-mid-top-left-top">{props.school}</div>
+                                <div className="mobile-mid-top-left-bot">9등급 상대평가 석차 등급</div>
+                            </div>
+                            <div className="mobile-mid-top-right">{props.subject}</div>
+                        </div>
+                        <div className="mobile-mid-bot">
+                            <div className="mobile-mid-bot-1">
+                                <div className="mobile-mid-bot-1-top">내 점수</div>
+                                <div className="mobile-mid-bot-1-bot">{props.score}</div>
+                            </div>
+                            <div className="mobile-mid-bot-2">
+                                <div className="mobile-mid-bot-2-top">석차 등급</div>
+                                <div className="mobile-mid-bot-2-bot">{props.rating}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mobile-bot">
+                        <div className="mobile-bot-top">
+                            <div className="mobile-bot-top-1">
+                                <div className="mobile-bot-top-1-top">예상 등수</div>
+                                <div className="mobile-bot-top-1-bot">{props.rank}</div>
+                            </div>
+                            <div className="mobile-bot-top-2">
+                                <div className="mobile-bot-top-2-top">백분율</div>
+                                <div className="mobile-bot-top-2-bot">{props.percent}%</div>
+                            </div>
+                        </div>
+                        <div className="mobile-bot-bot">
+                            <div className="mobile-bot-bot-1">
+                                <div className="mobile-bot-bot-1-top">응시 인원</div>
+                                <div className="mobile-bot-bot-1-bot">{props.cand_num}</div>
+                            </div>
+                            <div className="mobile-bot-bot-2">
+                                <div className="mobile-bot-bot-2-top">학교 평균</div>
+                                <div className="mobile-bot-bot-2-bot">{props.average}</div>
+                            </div>
+                            <div className="mobile-bot-bot-3">
+                                <div className="mobile-bot-bot-3-top">표준편차</div>
+                                <div className="mobile-bot-bot-3-bot">{props.std_dev}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mobile-footer">
+                        <div className="footer-container">
+                            <img crossOrigin="anonymous" src={this.logo==="https://api.daeoebi.comundefined" ? Logo : this.logo} alt={Logo} height="100%" width="auto"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="printpage-btns">
                 <div className="printpage-selector">
                     <div className="printpage-btn" onClick={this.can}>인쇄</div>
