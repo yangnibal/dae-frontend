@@ -641,6 +641,9 @@ div > div > svg > g:nth-child(2) > text{
 
 
 @media screen and (max-width: 768px) {
+    .header-container{
+        margin-bottom: 0;
+    }
     .printpage-container{
         overflow-y: scroll;
         .printpage-sticky{
@@ -656,15 +659,24 @@ div > div > svg > g:nth-child(2) > text{
                 align-items: center;
                 width: 100%;
                 font-weight: 500;
+                background: rgb(217, 217, 217);
+                height: calc(100vh- 8rem);
                 .mobile-sticky{
-                    width: 100%;
+                    width: 95%;
                     color: white;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    background: black;
+                    height: calc(100vh - 8rem);
+                    padding-top: 2rem;
                     .mobile-top{
                         width: 100%;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        margin-bottom: 1.2rem;
+                        padding-bottom: 1.2rem;
+                        background: black;
                         .mobile-top-1{
                             font-size: 1.2rem;
                         }
@@ -679,7 +691,7 @@ div > div > svg > g:nth-child(2) > text{
                         }
                     }
                     .mobile-mid{
-                        width: 100%;
+                        width: 100vw;
                         background: rgb(130, 23, 15);
                         display: flex;
                         flex-direction: column;
@@ -750,7 +762,7 @@ div > div > svg > g:nth-child(2) > text{
                     }
                     .mobile-bot{
                         background: rgb(27, 71, 70);
-                        width: 100%;
+                        width: 100vw;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -850,8 +862,9 @@ div > div > svg > g:nth-child(2) > text{
                         width: 100%;
                         display: flex;
                         justify-content: center;
+                        background: black;
                         .footer-container{
-                            height: 50px;
+                            height: 40px;
                             width: auto;
                             margin: 1.5rem 0;
                         }
