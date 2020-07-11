@@ -643,6 +643,8 @@ div > div > svg > g:nth-child(2) > text{
 @media screen and (max-width: 768px) {
     .header-container{
         margin-bottom: 0;
+        
+
     }
     .printpage-container{
         overflow-y: scroll;
@@ -660,7 +662,7 @@ div > div > svg > g:nth-child(2) > text{
                 width: 100%;
                 font-weight: 500;
                 background: rgb(217, 217, 217);
-                height: calc(100vh- 8rem);
+                min-height: calc(100vh- 8rem);
                 .mobile-sticky{
                     width: 95%;
                     color: white;
@@ -668,7 +670,7 @@ div > div > svg > g:nth-child(2) > text{
                     flex-direction: column;
                     align-items: center;
                     background: black;
-                    height: calc(100vh - 8rem);
+                    min-height: calc(100vh - 8rem);
                     padding-top: 2rem;
                     .mobile-top{
                         width: 100%;
