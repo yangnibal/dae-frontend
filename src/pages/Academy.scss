@@ -49,9 +49,13 @@
 
 @media screen and (max-width: 768px) {
     .academy-container{
+        overflow: hidden;
+        
         .academy-content-container{
             display: flex;
             flex-direction: column;
+            margin-bottom: 0;
+            height: calc(100% - 48px);
             .academy-content-test{
                 height: 4.5rem;
                 width: 700px;
