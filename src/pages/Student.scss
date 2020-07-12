@@ -296,7 +296,6 @@
             margin-top: 2.5rem;
             .student-content-header-container{
                 padding: 0;
-                padding-top: 1rem;
                 width: 100%;
                 height: 5rem;
                 .student-content-header-left{
@@ -307,7 +306,7 @@
                     align-items: center;
                     height: 100%;
                     .student-content-title{
-                        
+                        font-size: 1.3rem;
                     }
                     .mobile-separator{
                         display: flex;
@@ -331,12 +330,12 @@
                         }
                         .group-btn{
                             position: absolute;
-                            top: 110px;
+                            top: 60px;
                             right: 10px;
                             border: 1px solid #a6a6a6;
                             border-radius: 20px;
                             color: white;
-                            font-size: 1.2rem;
+                            font-size: 1rem;
                             padding: 0.2rem 1.5rem;
                             text-decoration: none;
                             cursor: pointer;
@@ -352,24 +351,35 @@
                     width: 0;
                     .student-register{
                         position: absolute;
-                        top: 110px;
+                        top: 60px;
                         left: 10px;
+                        font-size: 1rem;
                     }
                 }
             }
             .student-content-body-container{
                 .student-content-footer{
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
+                    justify-content: center;
                     margin-top: 1rem;
                     margin-bottom: 1rem;
                     width: 100%;
                     .student-content-body-footer{
-                        width: 50%;
+                        &:nth-child(1){
+                            margin-left: 10px;
+                            width: 100px;
+                        }
+                        &:nth-child(2){
+                            width: 136px;
+                        }
                         font-size: 1rem;
-                        margin-left: 10vw;
-                        margin-bottom: 1rem;
-                        padding: .7rem 2rem;
+                        margin-left: 10px;
+                        margin-bottom: .5rem;
+                        padding: .2rem 1.5rem;
+                        display: flex;
+                        justify-content: center;
+                        border-radius: 20px;
                     }
                 }
                 .student-content-body{
