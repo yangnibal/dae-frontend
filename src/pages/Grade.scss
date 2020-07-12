@@ -279,7 +279,6 @@
                 padding: 0;
                 width: 100%;
                 height: 5rem;
-                padding-top: 1rem;
                 .grade-content-header-left{
                     width: 100%;
                     display: flex;
@@ -288,7 +287,7 @@
                     align-items: center;
                     height: 100%;
                     .grade-content-title{
-                        
+                        font-size: 1.3rem;
                     }
                     .mobile-separator{
                         .grade-content-dropdown-first{
@@ -300,14 +299,14 @@
                         }
                         .group-add{
                             position: absolute;
-                            top: 110px;
+                            top: 60px;
                             right: 10px;
                             cursor: pointer;
                             background-color: black;
                             border: 1px solid #a6a6a6;
                             border-radius: 20px;
                             color: white;
-                            font-size: 1.2rem;
+                            font-size: 1rem;
                             padding: .2rem 1.5rem;
                         }
                     }
