@@ -24,7 +24,7 @@ class FindPw extends React.Component{
             name: name
         }))
         .then(res => {
-            console.log(res)
+            alert("이메일이 발송되었습니다.")
         })
         .catch(err => {
             console.log(err)

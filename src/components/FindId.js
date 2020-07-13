@@ -22,7 +22,7 @@ class FindId extends React.Component{
             email: email
         }))
         .then(res => {
-            console.log(res)
+            alert("이메일이 발송되었습니다.")
         })
         .catch(err => {
             console.log(err)

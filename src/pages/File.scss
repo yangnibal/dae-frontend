@@ -277,7 +277,6 @@
         .file-sticky{
             .file-header{
                 width: 100%;
-                padding-top: 1rem;
                 height: 5rem;
                 .file-header-left{
                     width: 100%;
@@ -287,7 +286,7 @@
                     align-items: center;
                     height: 100%;
                     .file-header-title{
-                        
+                        font-size: 1.3rem;
                     }
                     .mobile-separator{
                         margin-bottom: .5rem;
