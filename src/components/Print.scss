@@ -868,11 +868,12 @@ div > div > svg > g:nth-child(2) > text{
                         width: 100%;
                         display: flex;
                         justify-content: center;
-                        background: black;
+                        margin: 1rem 0;
+                        padding: 1rem 0;
+                        background: #424242;
                         .footer-container{
                             height: 40px;
                             width: auto;
-                            margin: 1.3rem 0;
                         }
                     }
                 }
