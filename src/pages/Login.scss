@@ -115,8 +115,12 @@
 
 @media screen and (max-width: 768px) {
     .login-container{
+        .login-logo{
+            width: 220px;
+            height: 51px;
+        }
         .input-container{
-            width: 90%;
+            width: 75%;
             .selecter{
                 
             }
@@ -130,10 +134,10 @@
             }
         }
         .checkbox-container{
-            width: 90%;
+            width: 75%;
         }
         .login-btn{
-            width: 90%;
+            width: 75%;
         }
         .login-others-container{
             display: flex;
