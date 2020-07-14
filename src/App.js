@@ -29,6 +29,7 @@ import GroupUpdate from './pages/GroupUpdate'
 import SavedVidDetail from './pages/SavedVidDetail'
 import FileList from './pages/FileList'
 import FileDetail from './pages/FileDetail'
+import MobileModal from './pages/MobileModal'
 
 class App extends React.Component{
 	render(){
@@ -64,6 +65,7 @@ class App extends React.Component{
 						<Route exact path="/groups/:groupid/update" component={GroupUpdate}/>
 						<Route exact path="/inf/file" component={FileList}/>
 						<Route exact path="/inf/file/:fileid" component={FileDetail}/>
+						<Route exact path="/menu" component={MobileModal}/>
 					</Switch>
 				</BrowserRouter>
 		)

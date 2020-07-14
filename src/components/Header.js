@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.scss'
 import Logo from '../images/logo2.png'
-import MobileModal from '../pages/MobileModal'
 import { observer, inject } from 'mobx-react'
 
 @inject('store')
@@ -12,10 +11,9 @@ class Header extends React.Component{
         const { store } = this.props
         return (
             <div className="header-container">
-                {store.isModalOn===false ? null : <MobileModal token={store.getToken()} disableModal={() => store.handleModal()}/>}
-                <div onClick={() => store.handleModal()} className="mobile-btn-container">
+                <Link to="/menu" className="mobile-btn-container">
                     <i className="fas fa-bars mobile-btn"></i>
-                </div>
+                </Link>
                 <Link to="/" className="logo-container">
                     <img src={Logo} alt={Logo} width="190px" height="40px" className="header-logo"/>
                 </Link>
