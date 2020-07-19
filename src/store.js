@@ -80,6 +80,7 @@ export default class Store{
     @observable tests = []
     @action getMyTest = () => {
         const doSomething = () => {
+            const semester = []
             axios.get("https://api.daeoebi.com/tests/getmytest/", {
                 headers: {
                     Authorization: "Token " + this.getToken()
@@ -87,9 +88,12 @@ export default class Store{
             })
             .then(res => {
                 this.tests = res.data
+                for(var i in res.data){
+                    semester.push({value: res.data[i]['additional_info'], label: res.data[i]['additional_info']})
+                }
+                this.semester = semester
             })
-            .catch(err => {
-            })
+            .catch(err => {})
         }
         this.caniuse(2, doSomething)
     }
@@ -107,8 +111,7 @@ export default class Store{
             .then(res => {
                 this.tests = res.data
             })
-            .catch(err => {
-            })
+            .catch(err => {})
         }
         this.caniuse(2, doSomething)
     }
@@ -122,9 +125,7 @@ export default class Store{
             .then(res => {
                 window.location.reload()
             })
-            .catch(err => {
-                
-            })
+            .catch(err => {})
         }
         this.caniuse(2, doSomething)
     }
@@ -166,9 +167,7 @@ export default class Store{
                 }
                 this.students = res.data
             })
-            .catch(err => {
-                
-            })
+            .catch(err => {})
         }
         this.caniuse(2, doSomething)
     }
@@ -189,9 +188,7 @@ export default class Store{
                 }
                 this.students = res.data
             })
-            .catch(err => {
-                
-            })
+            .catch(err => {})
         }
         this.caniuse(2, doSomething)
     }
@@ -205,9 +202,7 @@ export default class Store{
             .then(res => {
                 window.location.reload()
             })
-            .catch(err => {
-                
-            })
+            .catch(err => {})
         }
         this.caniuse(2, doSomething)
     }
@@ -247,9 +242,7 @@ export default class Store{
             }
             this.infgroup = group
         })
-        .catch(err => {
-            
-        })
+        .catch(err => {})
     }
     @action getVids = () => {
         const doSomething = () => {
@@ -323,13 +316,7 @@ export default class Store{
         { value: "고3", label: "고3" },
     ]
     @observable semester = [
-        { value: "", label: "전체" },
-	    { value: "1학기", label: "1학기" },
-        { value: "2학기", label: "2학기" },
-        { value: "3월 모의고사", label: "3월 모의고사" },
-        { value: "6월 모의고사", label: "6월 모의고사" },
-        { value: "9월 모의고사", label: "9월 모의고사" },
-        { value: "11월 모의고사", label: "11월 모의고사" },
+        { value: "", label: "전체" }
     ]
     @observable subject = [
 	{ value: "", label: "전체" },

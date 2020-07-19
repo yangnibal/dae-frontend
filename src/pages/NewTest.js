@@ -108,9 +108,9 @@ class NewTest extends React.Component{
                 <div className="newtest-content-container">
                     <div className="newtest-content-title">TEST 기본 정보 입력</div>
                     <DropDown placeholder="학년 선택" option={store.schoolyear} className="newtest-content-dropdown" classNamePrefix="react-select" onChange={this.schoolyearChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
-                    <DropDown placeholder="TEST 종류 선택" option={store.semester} className="newtest-content-dropdown" classNamePrefix="react-select" onChange={this.testtypeChange} isClearable={this.isClearable} isSearchable={this.isSearchable}/>
+                    <input name="test_type" value={this.test_type} onChange={this.handleChange} className="newtest-content-input" placeholder="test 종류 입력"/>
                     <input name="subject" value={this.subject} onChange={this.handleChange} className="newtest-content-input" placeholder="과목 입력"/>
-                    <input name="additional_info" value={this.additional_info} onChange={this.handleChange} className="newtest-content-input" placeholder="TEST 추가 정보 입력(학교 등)"/>
+                    <input name="additional_info" value={this.additional_info} onChange={this.handleChange} className="newtest-content-input" placeholder="TEST 추가 정보 입력(띄어쓰기 포함 12자 이내)"/>
                     <input name="average" value={this.average} onChange={this.handleChange} className="newtest-content-input" placeholder="평균 입력"/>
                     <input name="std_dev" value={this.std_dev} onChange={this.handleChange} className="newtest-content-input" placeholder="표준편차 입력"/>
                     <input name="cand_num" value={this.cand_num} onChange={this.handleChange} className="newtest-content-input" placeholder="응시자 수 입력"/>
