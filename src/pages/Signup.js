@@ -168,9 +168,9 @@ class Signup extends React.Component{
                             <div className="signup-username-duplicate" onClick={() => this.duplicate_Username()}>아이디 중복확인</div>
                         </div>
                     </div>
-                    <input onChange={this.handleChange} value={this.password} name="password" type="password" placeholder="비밀번호" className="signup-input-password"/>
+                    <input onChange={this.handleChange} value={this.password} name="password" placeholder="비밀번호" className="signup-input-password"/>
                     <div className="signup-input-checkpassword-container">
-                        <input onChange={this.handleChange} value={this.checkpassword} name="checkpassword" type="password" placeholder="비밀번호 확인" className="signup-input-checkpassword"/>
+                        <input onChange={this.handleChange} value={this.checkpassword} name="checkpassword" placeholder="비밀번호 확인" className="signup-input-checkpassword"/>
                         <div className="signup-checkpassword-btn-container">
                             <div className="signup-checkpassword-btn" onClick={() => this.check_Password()}>비밀번호 확인</div>
                         </div>
