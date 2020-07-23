@@ -192,6 +192,26 @@ export default class Store{
         }
         this.caniuse(2, doSomething)
     }
+    @action findfile = (subject, grade, group) => {
+        const doSomething = () => {
+            axios.post("https://api.daeoebi.com/files/findfile/", ({
+                subject: subject,
+                grade: grade,
+                group: group
+            }), {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.files = res.data
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+        this.caniuse(1, doSomething)
+    }
     @action studentRemove = (id) => {
         const doSomething = () => {
             axios.delete("https://api.daeoebi.com/students/" + id + "/", {

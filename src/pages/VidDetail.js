@@ -35,7 +35,7 @@ class VidDetail extends React.Component{
             <div className="viddetail-container">
                 <Header/>
                 <div className="viddetail-sticky">
-                    {this.iframe==="" ? 
+                    {this.link==="" ? 
                     <video autoPlay controlsList="nodownload" controls className="viddetail">
                         <source src={this.url} type="video/mp4"/>
                     </video> :
