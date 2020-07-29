@@ -48,9 +48,15 @@ export default class Store{
     @action caniuse = (type, doSomething) => {
         var data = {type: type}
         function doRes(res){
-            if(res.data==="canuseit"){
+            if(res.data==="cansaveit"){
                 doSomething()
+                console.log(res.data)
+            }
+            else if(res.data==="canuseit"){
+                doSomething()
+                console.log(res.data)
             } else {
+                console.log(res.data)
                 alert("접근 권한이 없습니다")
                 this.props.history.goBack()
             }
@@ -59,21 +65,6 @@ export default class Store{
             
         }
         this.postSomeThing("https://api.daeoebi.com/users/caniuse/", data, doRes, doErr)
-        /*axios.post("https://api.daeoebi.com/users/caniuse/", ({
-            type: type
-        }), {
-            headers: {
-                Authorization: "Token " + this.getToken()
-            }
-        })
-        .then(res => {
-            if(res.data==="canuseit"){
-                doSomething()
-            } else {
-                alert("접근 권한이 없습니다")
-                this.props.history.goBack()
-            }
-        })*/
     }
 
 
@@ -212,6 +203,26 @@ export default class Store{
         }
         this.caniuse(1, doSomething)
     }
+    @action findprintfile = (subject, grade, group) => {
+        const doSomething = () => {
+            axios.post("https://api.daeoebi.com/printfiles/findfile/", ({
+                subject: subject,
+                grade: grade,
+                group: group
+            }), {
+                headers: {
+                    Authorization: "Token " + this.getToken()
+                }
+            })
+            .then(res => {
+                this.files = res.data
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+        this.caniuse(1, doSomething)
+    }
     @action studentRemove = (id) => {
         const doSomething = () => {
             axios.delete("https://api.daeoebi.com/students/" + id + "/", {
@@ -300,20 +311,47 @@ export default class Store{
      
     @observable files = []
     @action getFiles = () => {
-        const doSomething = () => {
+        var data = {type: 1}
+        var self = this
+        function doRes(res){
+            console.log(res.data)
+            localStorage.setItem("authority", res.data)
             axios.get("https://api.daeoebi.com/files/", {
                 headers: {
-                    Authorization: "Token " + this.getToken()
+                    Authorization: "Token " + self.getToken()
                 }
             })
             .then(res => {
-                this.files = res.data['results'] 
+                self.files = res.data['results'] 
             })
             .catch(err => {
                 console.log(err)
             })
         }
-        this.caniuse(1, doSomething)
+        function doErr(err){alert("접근 권한이 없습니다.")}
+        this.postSomeThing("https://api.daeoebi.com/users/caniuse/", data, doRes, doErr)
+    }
+    @observable printfiles = []
+    @action getPrintFiles = () => {
+        var data = {type: 3}
+        var self = this
+        function doRes(res){
+            console.log(res.data)
+            localStorage.setItem("authority", res.data)
+            axios.get("https://api.daeoebi.com/printfiles/", {
+                headers: {
+                    Authorization: "Token " + self.getToken()
+                }
+            })
+            .then(res => {
+                self.printfiles = res.data['results'] 
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+        function doErr(err){alert("접근 권한이 없습니다.")}
+        this.postSomeThing("https://api.daeoebi.com/users/caniuse/", data, doRes, doErr)
     }
 
     @observable testinfo = {}

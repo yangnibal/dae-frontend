@@ -20,7 +20,7 @@ class Header extends React.Component{
                 <div className="header-data">
                     <Link to="/inf" className="header-data-content">1급 정보</Link>
                     <Link to="/ac" className="header-data-content">성적 등급</Link>
-                    <Link to="/inf/file" className="header-data-content">교재 출력</Link>
+                    <Link to="/printfile" className="header-data-content">교재 출력</Link>
                 </div>
                 <a target="blank" href="https://blog.naver.com/dreamlearnforu" className="link-dae-home">대외비 블로그<br/>바로가기</a>
                 <a target="blank" href="http://dreamrun.itforone.co.kr/bbs/login.php" className="link-dae-app">[대외비 APP 학습 관리]<br/>프로그램 바로가기</a>

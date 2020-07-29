@@ -47,6 +47,7 @@
     "mobx-react": "^6.2.2",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
+    "pdfjs-dist": "^2.4.456",
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",

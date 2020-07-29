@@ -30,6 +30,7 @@ import SavedVidDetail from './pages/SavedVidDetail'
 import FileList from './pages/FileList'
 import FileDetail from './pages/FileDetail'
 import MobileModal from './pages/MobileModal'
+import PrintFileList from './pages/PrintFileList'
 
 class App extends React.Component{
 	render(){
@@ -37,6 +38,7 @@ class App extends React.Component{
 				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={Home}/>
+						<Route exact path="/printfile" component={PrintFileList}/>
 						<Route exact path="/account/login" component={Login}/>
 						<Route exact path="/account/signup" component={Signup}/>
 						<Route exact path="/account/findid" component={FindId}/>

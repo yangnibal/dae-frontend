@@ -23,7 +23,7 @@ class Inf extends React.Component{
             }
         })
         .then(res => {
-            if(res.data==="canuseit"){
+            if(res.data==="canuseit" || res.data==="cansaveit"){
                 
             } else {
                 alert("접근 권한이 없습니다")
