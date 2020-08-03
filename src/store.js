@@ -315,14 +315,13 @@ export default class Store{
         var self = this
         function doRes(res){
             console.log(res.data)
-            localStorage.setItem("authority", res.data)
-            axios.get("https://api.daeoebi.com/files/", {
+            axios.get("https://api.daeoebi.com/files/getfile/", {
                 headers: {
                     Authorization: "Token " + self.getToken()
                 }
             })
             .then(res => {
-                self.files = res.data['results'] 
+                self.files = res.data
             })
             .catch(err => {
                 console.log(err)
@@ -336,15 +335,13 @@ export default class Store{
         var data = {type: 3}
         var self = this
         function doRes(res){
-            console.log(res.data)
-            localStorage.setItem("authority", res.data)
-            axios.get("https://api.daeoebi.com/printfiles/", {
+            axios.get("https://api.daeoebi.com/printfiles/getfile/", {
                 headers: {
                     Authorization: "Token " + self.getToken()
                 }
             })
             .then(res => {
-                self.printfiles = res.data['results'] 
+                self.printfiles = res.data 
             })
             .catch(err => {
                 console.log(err)

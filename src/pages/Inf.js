@@ -24,7 +24,7 @@ class Inf extends React.Component{
         })
         .then(res => {
             if(res.data==="canuseit" || res.data==="cansaveit"){
-                
+                localStorage.setItem("authority", res.data)
             } else {
                 alert("접근 권한이 없습니다")
                 this.props.history.goBack()
