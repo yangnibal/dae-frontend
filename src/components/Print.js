@@ -253,7 +253,7 @@ class PrintContent extends React.Component{
                             </div>
                             <div className="top-content-body-second">
                                 <div className="top-content-body-title">성적표 해석 방법</div>
-                                <div className="top-content-body-text">본인의 상대 평가 등급(1~9등급)을 확인 후 나의 백분위를 반드시 확인합니다. 나의 백분위가 등급컷 백분위보다 5% 이상<br/>높아야 안정적으로 해당 등급으로 판단 할 수 있습니다.</div>
+                                <div className="top-content-body-text">본인의 상대 평가 등급(1~9등급)을 확인 후 나의 백분위를 반드시 확인합니다. 나의 백분위가 등급컷 백분위보다 5% 이상<br/>높아야 안정적으로 해당 등급으로 판단 할 수 있습니다.</div>
                             </div>
                         </div>
                     </div>
