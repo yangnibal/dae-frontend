@@ -8,7 +8,7 @@ class MobileModal extends React.Component{
         const { store } = this.props
         return(
             <div style={{zIndex: "99999999", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", display: "flex", flexDirection: "row", justifyContent: "flex-start"}}>
-                <div style={{overflow: "visible", width: "100vw", height: "100vh", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "flex-start", backgroundColor: "#080808"}}>
+                <div style={{overflow: "scroll", width: "100vw", height: "100vh", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "flex-start", backgroundColor: "#080808"}}>
                     <div onClick={() => this.props.history.goBack()} style={{textDecoration: "none", width: "30vw", display: "flex", color: "#a6a6a6", alignItems: "center", height: "1.5rem", marginTop: "1rem"}}>
                         <i className="fas fa-times" style={{color: "#a6a6a6", fontSize: "1.5rem", marginLeft: "20px"}}></i>
                     </div>
