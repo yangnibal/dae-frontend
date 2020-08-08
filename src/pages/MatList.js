@@ -89,7 +89,7 @@ class MatList extends React.Component{
             }
         })
         .then(res => {
-            if(res.data==="canuseit"){
+            if(res.data==="canuseit" || res.data==="cansaveit"){
                 axios.get("https://api.daeoebi.com/materials", {
                     headers: {
                         Authorization: "Token " + token

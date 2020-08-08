@@ -35,7 +35,7 @@ class VidDetail extends React.Component{
             <div className="viddetail-container">
                 <Header/>
                 <div className="viddetail-sticky">
-                    <iframe src={this.link==="" ? this.url : `${this.link}?autoplay=1`} title={this.link} className="viddetail" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                    <iframe width="800" src={this.link==="" ? this.url : `${this.link}?autoplay=1`} title={this.link} className="viddetail" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                 </div>
             </div>
         )
