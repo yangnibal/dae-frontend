@@ -35,6 +35,18 @@
         .viddetail-sticky{
             height: calc(100% - 8rem);
             .viddetail{
+                height: 393.75px;
+                width: 700px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .viddetail-container{
+        .viddetail-sticky{
+            height: calc(100% - 8rem);
+            .viddetail{
                 height: 196.875px;
                 width: 350px;
                 margin-bottom: 7rem;
