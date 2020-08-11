@@ -215,7 +215,7 @@ export default class Store{
                 }
             })
             .then(res => {
-                this.files = res.data
+                this.printfiles = res.data
             })
             .catch(err => {
                 console.log(err)
@@ -283,7 +283,7 @@ export default class Store{
                 }
             })
             .then(res => {
-                this.vids = res.data['results']
+                this.vids = res.data
                 this.getInfGroup()
             })
             .catch(err => {

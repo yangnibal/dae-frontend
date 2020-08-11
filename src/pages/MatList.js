@@ -96,7 +96,7 @@ class MatList extends React.Component{
                     }
                 })
                 .then(res => {
-                    this.mats = res.data['results']
+                    this.mats = res.data
                     this.getGroup()
                 })
                 .catch(err => {
