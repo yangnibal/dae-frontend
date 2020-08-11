@@ -226,7 +226,10 @@
                     }
                     .checked{
                         color: white;
-                        font-size: 1.3rem;
+                        font-size: 1.5rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                     }
                     .studentcontent-name{
                         width: 16vw;
