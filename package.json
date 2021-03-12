@@ -57,7 +57,7 @@
     "print-js": "^1.0.63",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.13.1",
     "react-easy-print": "^0.6.0",
     "react-google-charts": "^3.0.15",
